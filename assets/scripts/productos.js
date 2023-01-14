@@ -3,6 +3,7 @@ const{ createApp } = Vue
 createApp({
     data(){
         return{
+            dataOrig: [],
             productos: [],
             productosConPropAgregadas: [],
             listaFiltrosChecks: [],
@@ -13,15 +14,17 @@ createApp({
         fetch("https://mindhub-xj03.onrender.com/api/petshop")
             .then(response => response.json())
             .then(productos => {
-
+                this.dataOrig = [... productos];
                 if(window.location.pathname === "/index.html"){
-                    this.productos = productos
+                    this.productos = [...this.dataOrig];
                 }else if(window.location.pathname === "/farmacia.html"){
-                    this.productos = productos.filter(producto => producto.categoria === "farmacia")
+                    this.productos = this.dataOrig.filter(producto => producto.categoria === "farmacia")
                 }else if(window.location.pathname === "/juguete.html"){
-                    this.productos = productos.filter(producto => producto.categoria === "jugueteria")
+                    this.productos = this.dataOrig.filter(producto => producto.categoria === "jugueteria")
                 }
-            
+                
+                this.agregarPropiedadesFiltrosChecks();
+                this.generoListaChecks();
             })
     },
 
@@ -61,13 +64,17 @@ createApp({
                     rangoPrecio: precio
                 };
             });
+        },
 
+        generoListaChecks() {
             let filtros = this.productosConPropAgregadas.map(prod => [ prod.mascota, prod.rangoPrecio]);
             for(let filtro of filtros) {
                 this.listaFiltrosChecks.push(...filtro);
             }
             this.listaFiltrosChecks = [... new Set(this.listaFiltrosChecks)];
         }
+            
+        
     }
 
 }).mount("#app")
