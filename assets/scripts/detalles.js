@@ -8,6 +8,7 @@ createApp ( {
 
         }
     },
+    
 
     created(){
         let urlString = location.search;

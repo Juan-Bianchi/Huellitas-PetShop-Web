@@ -3,8 +3,7 @@ const{ createApp } = Vue
 createApp({
     data(){
         return{
-            jugueteria: [],
-            farmacia: []
+            productos: []
         }
     },
     created(){
@@ -12,9 +11,14 @@ createApp({
             .then(response => response.json())
             .then(productos => {
 
-                this.farmacia = this.productos = productos.filter(producto => producto.categoria === "farmacia")
-                this.jugueteria = this.jugueteria = productos.filter(producto => producto.categoria === "jugueteria")
-                
+                if(window.location.pathname === "/index.html"){
+                    this.productos = productos
+                }else if(window.location.pathname === "/farmacia.html"){
+                    this.productos = productos.filter(producto => producto.categoria === "farmacia")
+                }else if(window.location.pathname === "/juguete.html"){
+                    this.productos = productos.filter(producto => producto.categoria === "jugueteria")
+                }
+            
             })
     }
 }).mount("#app")
