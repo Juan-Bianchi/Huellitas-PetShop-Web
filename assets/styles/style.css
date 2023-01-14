@@ -1,0 +1,7 @@
+.cards-wrapper{
+    display: flex;
+}
+
+.card{
+    width: calc(100%/5);
+}
