@@ -71,7 +71,7 @@ createApp({
             for(let filtro of filtros) {
                 this.listaFiltrosChecks.push(...filtro);
             }
-            this.listaFiltrosChecks = [... new Set(this.listaFiltrosChecks)];
+            this.listaFiltrosChecks = [... new Set(this.listaFiltrosChecks)].sort();
         }
             
         
