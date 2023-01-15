@@ -1,6 +1,7 @@
-const{ createApp } = Vue
+const { createApp } = Vue
 
 createApp({
+
     data(){
         return{
             dataOrig: [],
@@ -10,10 +11,15 @@ createApp({
 
         }
     },
-    created(){
+    created() {
+
+        let urlString = location.search;
+        let parameters = new URLSearchParams(urlString);
+        let id = parameters.get('id');
         fetch("https://mindhub-xj03.onrender.com/api/petshop")
             .then(response => response.json())
             .then(productos => {
+
                 this.dataOrig = [... productos];
                 if(window.location.pathname === "/index.html"){
                     this.productos = [...this.dataOrig];
@@ -80,7 +86,7 @@ createApp({
             for(let filtro of filtros) {
                 this.listaFiltrosChecks.push(...filtro);
             }
-            this.listaFiltrosChecks = [... new Set(this.listaFiltrosChecks)];
+            this.listaFiltrosChecks = [... new Set(this.listaFiltrosChecks)].sort();
         }
         
             
