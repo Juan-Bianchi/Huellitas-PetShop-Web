@@ -6,7 +6,6 @@ body {
     rgba(160, 195, 210, 0.5) 100%
   ), url("../images/background-huellas.png");
   background-size: cover;
-  background-blend-mode: screen;
 }
 
 nav {
@@ -40,6 +39,11 @@ input,
 select,
 textarea {
   border: none;
+}
+
+header{
+  position: sticky;
+  top: 0;
 }
 
 .formularioAdentro {
@@ -188,3 +192,5 @@ textarea {
 .modal{
   opacity: 80%;
 }
+
+

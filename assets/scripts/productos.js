@@ -34,6 +34,15 @@ createApp({
 
 
     methods: {
+        /*  filtroCruzado: function(){
+            let filtradoPorBusqueda = this.listaFiltrosChecks.filter(elemento => elemento.producto.toLowerCase().includes( this.valorBusqueda.toLowerCase()))
+            if( this.checked.length === 0 ){
+                this.listaFiltrosChecks = filtradoPorBusqueda
+            }else{
+                let filtradosPorCheck = filtradoPorBusqueda.filter( producto => this.checked.includes( producto.categoria ))
+                this.personajesFiltrados = filtradosPorCheck 
+            }
+        } */
         agregarPropiedadesFiltrosChecks() {
             this.productosConPropAgregadas = this.productos.map( producto => {
                 let masc;
@@ -77,6 +86,7 @@ createApp({
             }
             this.listaFiltrosChecks = [... new Set(this.listaFiltrosChecks)].sort();
         }
+        
             
         
     }
