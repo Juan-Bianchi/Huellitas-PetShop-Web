@@ -1,0 +1,13 @@
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  width: calc(100% / 6);
+  margin: 1rem;
+}
+.carousel{
+    margin: auto;
+    width: 80%;
+}
