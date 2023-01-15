@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
-  <title>Inicio | Huellitas Petshop</title>
+  <title>Detalles | Huellitas Petshop</title>
   <script src="https://kit.fontawesome.com/e7963be4ed.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
@@ -25,7 +25,7 @@
         <div class="collapse navbar-collapse show" id="navbarSupportedContent">
           <ul class="navbar-nav d-flex  ms-auto">
               <li class="nav-item navbar-dark bg-black">
-                <a class="nav-link navbar-dark bg-black" aria-current="page" href="#">INICIO</a>
+                <a class="nav-link navbar-dark bg-black" aria-current="page" href="./index.html">INICIO</a>
               </li>
               <li class="nav-item navbar-dark bg-black">
                 <a class="nav-link navbar-dark bg-black" href="./contacto.html">CONTACTO</a>
@@ -42,43 +42,17 @@
     </nav>
   </header>
   <main>
-    <div id="appIndex">
-      <div id="carouselExample" class="carousel carousel-dark slide ">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./assets/images/banner.png" class="d-block w-100" alt="BIENVENIDO" />
-          </div>
-          <div class="carousel-item">
-            <div class="cards-wrapper">
-              <div class="card" v-for="producto of productos.slice(0,3) ">
-                <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'"> <img :src="producto.imagen " class="card-img-top" :alt="productos.producto"></a>
-                <div class="card-body">
-                  <p class="card-text">{{producto.producto}} </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            
-              <div class="cards-wrapper">
-                <div class="card" v-for="producto of productos.slice(-3) ">
-                  <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">  <img :src="producto.imagen " class="card-img-top" :alt="productos.producto"></a>
-                  <div class="card-body">
-                    <p class="card-text">{{producto.producto}} </p>
-                  </div>
-                </div>
-              
-          </div>
+    <div class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-center flex-wrap"  style="width: 96%;">
+      <div class="col-md-7 text-center"  >
+        <img src="./assets/images/favicon.png" class="card-img-top border border-white  rounded" alt="Collectivities Party">
+      </div>
+      <div class="col-md-5 ">
+        <div class="card-body m-3"  >
+          <h5 class="card-title m-2">${  detailCard.name}</h5>
+          <p class="card-text">${  detailCard.description}</p>
+          <p class="card-text"><strong>Price: $ </strong>${ detailCard.price}</p>
+          <p class="card-text"><strong>Stock:</strong> ${ detailCard.date}</p>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
   </main>
