@@ -62,3 +62,21 @@ body{
   background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
 
 }
+.iconSize{
+  font-size: 30px;
+    size: 40px;
+  }
+  
+  .imgFooterFpago{
+     
+    width: 100%;
+  }
+  .mapSize{
+    
+    width: 100%;
+  }
+  
+  .link-dark-hover:hover{
+     color: #fff !important;
+  
+  }
