@@ -47,16 +47,17 @@
       </div>
       <img src="./assets/images/h1.jpg" alt="titulo">
     </div>
-    <div class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-center flex-wrap"  style="width: 96%;">
+    <div v-if="productos"class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-center flex-wrap"  style="width: 96%;">
       <div class="col-md-7 text-center"  >
-        <img src="./assets/images/favicon.png" class="card-img-top border border-white  rounded" alt="Collectivities Party">
+        <img :src="producto.imagen" class="card-img-top border border-white  rounded" :alt="producto.producto">
       </div>
       <div class="col-md-5 ">
         <div class="card-body m-3"  >
-          <h5 class="card-title m-2">${  detailCard.name}</h5>
-          <p class="card-text">${  detailCard.description}</p>
-          <p class="card-text"><strong>Price: $ </strong>${ detailCard.price}</p>
-          <p class="card-text"><strong>Stock:</strong> ${ detailCard.date}</p>
+          <h4 class="card-title m-2">{{producto.producto}}</h4>
+          <h5 class="card-title m-2">{{producto.caregoria}}</h5>
+          <p class="card-text">{{producto.descripcion}}</p>
+          <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
+          <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
         </div>
       </div>
     </div>

@@ -11,9 +11,11 @@
     margin: auto;
     width: 80%;
 }
+header{
+  position: sticky;
+  top: 0;
+}
 body{
-  display: flex;
-  flex-direction: column;
   min-height: 100vh;
   background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
 
@@ -53,7 +55,7 @@ body{
   transform: scale(0.9);
 }
 .titulo{
-  height: 15%;
+  max-height: 10%;
   border-bottom: 2px solid black;
 }
 h1{
@@ -62,14 +64,23 @@ h1{
   height: 100%;
   justify-content: center;
   text-align: center;
-  padding-top: 1rem;
-  padding-left: 15rem;
-  color:#f4b63a
+  padding-top: 0rem;
+  padding-left: 11rem;
+  padding-top: 0.6rem;
+  color:#f4b63a;
+  font-size: 2rem;
 }
 .titulo-h1{
-  width: 82%; 
+  width: 89%; 
 }
 .titulo img{
-  width: 18%;
+  width: 11%;
   height: 100%;
+  background-color: white;
+}
+.formulario1{
+  margin: 1rem;
+  border-radius: 10px;
+  border: 2px solid rgb(38, 38, 36);
+  background-color: rgba(8, 8, 5, 0.329);
 }

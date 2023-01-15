@@ -47,6 +47,11 @@
           </div>
           <img src="./assets/images/h1.jpg" alt="titulo">
         </div>
+        <div class="btn-group gap-2 justify-content-center w-100" id="checkboxs" role="group" data-bs-toggle="buttons">
+          <label class="btn btn-dark active" v-for="categoria of listaFiltrosChecks">
+              <input type="checkbox" class="me-2" @change="" v-model="checked" :value="categoria" name="" id="" autocomplete="off"> {{categoria}}
+          </label>
+        </div>
       </main>
 
     </div>
