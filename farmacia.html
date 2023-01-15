@@ -16,24 +16,24 @@
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-black container-fluid">
           <div class="container-fluid w-100">
-            <a class="navbar-brand ms-3" href="#">
-              <img src="./assets/images/logo.jpg" alt="logo" class="imglogo col-md-5 " >
+            <a class="navbar-brand ms-3" href="./index.html">
+              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-md-5 " >
             </a>
             <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse show" id="navbarSupportedContent">
               <ul class="navbar-nav d-flex  ms-auto">
-                  <li class="nav-item navbar-dark bg-black">
+                  <li class="nav-item navbar-dark bg-black nav-button">
                     <a class="nav-link navbar-dark bg-black" aria-current="page" href="./index.html">INICIO</a>
                   </li>
-                  <li class="nav-item navbar-dark bg-black">
+                  <li class="nav-item navbar-dark bg-black nav-button">
                     <a class="nav-link navbar-dark bg-black" href="./contacto.html">CONTACTO</a>
                   </li>
-                  <li class="nav-item navbar-dark bg-black">
+                  <li class="nav-item navbar-dark bg-black nav-button">
                     <a class="nav-link navbar-dark bg-black" href="#">FARMACIA</a>
                   </li>
-                  <li class="nav-item navbar-dark bg-black">
+                  <li class="nav-item navbar-dark bg-black nav-button">
                     <a class="nav-link navbar-dark bg-black" href="./juguete.html">JUGUETES</a>
                   </li>
                 </ul>
@@ -41,6 +41,20 @@
           </div>
         </nav>
       </header>
+      <main>
+        <div class="d-flex justify-content-end titulo">
+          <div class=" d-flex justify-content-end titulo-h1" >
+            <h1><strong>FARMACIA</strong></h1>
+          </div>
+          <img src="./assets/images/h1.jpg" alt="titulo">
+        </div>
+        <div class="btn-group gap-2 justify-content-center w-100" id="checkboxs" role="group" data-bs-toggle="buttons">
+            <label class="btn btn-dark active" v-for="categoria of listaFiltrosChecks">
+                <input type="checkbox" class="me-2" @change="" v-model="checked" :value="categoria" name="" id="" autocomplete="off"> {{categoria}}
+            </label>
+        </div>
+        
+      </main>
 
       <section class="filtros-productos">
         <aside class="filtros-aside">FILTROS</aside>
