@@ -55,3 +55,10 @@ ol{
 .datos-producto{
     margin-left: 5rem;
 }
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
+
+}
