@@ -1,7 +1,20 @@
-.cards-wrapper{
-    display: flex;
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
-.card{
-    width: calc(100%/5);
+.card {
+  width: calc(100% / 6);
+  margin: 1rem;
+}
+.carousel{
+    margin: auto;
+    width: 80%;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
+
 }

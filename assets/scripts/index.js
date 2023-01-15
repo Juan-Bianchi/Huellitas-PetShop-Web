@@ -1,25 +1,25 @@
-const { createApp } = Vue
+const{ createApp } = Vue
+
 createApp({
-    data() {
-        return {
-           productos:[],
+    data(){
+        return{
+            productos: [],
+            
         }
     },
-    created() {
+    created(){
         fetch("https://mindhub-xj03.onrender.com/api/petshop")
-            .then(res => res.json())
-            .then(datos => {
-                this.productos = [...datos];
-                console.log(this.productos)
+            .then(response => response.json())
+            .then(productos => {
+
+                if(window.location.pathname === "/index.html"){
+                    this.productos = productos
+                }else if(window.location.pathname === "/farmacia.html"){
+                    this.productos = productos.filter(producto => producto.categoria === "farmacia")
+                }else if(window.location.pathname === "/juguete.html"){
+                    this.productos = productos.filter(producto => producto.categoria === "jugueteria")
+                }
                 console.log(this.productos[0])
             })
-           
-            
-    },
-    methods: {
-
-        
-        
-    },
-
-}).mount('#vueIndex')
+    }
+}).mount("#appIndex")
