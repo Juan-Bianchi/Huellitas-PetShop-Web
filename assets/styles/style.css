@@ -1,5 +1,64 @@
-body{
-    background-color: rgb(231, 231, 137);
+body {
+   background:linear-gradient(
+    90deg,
+    rgba(160, 195, 210, 0.397) 0%,
+    rgba(234, 199, 199, 0.541) 50%,
+    rgba(160, 195, 210, 0.5) 100%
+  ), url("../images/background-huellas.png");
+  background-size: cover;
+  background-blend-mode: screen;
+}
+
+nav {
+  min-height: 10vh;
+}
+
+footer {
+  min-height: 15vh;
+  background-color: #a75d5d;
+}
+
+main {
+  min-height: 75vh;
+}
+
+ol {
+  list-style: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+form > .btn {
+  width: 25%;
+}
+
+input,
+select,
+textarea {
+  border: none;
+}
+
+.formularioAdentro {
+  margin-top: 2rem;
+  border-top-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.mb-3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-dark {
+  --bs-navbar-hover-color: #eae0da;
+  --bs-navbar-color: #f7f5eb;
+}
+.bg-black {
+  background-color: #92b1bec7 !important;
 }
 
 .cards-wrapper {
@@ -11,47 +70,121 @@ body{
   width: calc(100% / 6);
   margin: 1rem;
 }
+
+.card-text {
+  text-align: center;
+}
+.card-body {
+  align-items: baseline;
+}
+
 .carousel {
   margin: auto;
   width: 80%;
-}
-
-ol{
-    list-style: none;
 }
 
 .filtros-productos {
   margin: auto;
   display: flex;
   justify-content: center;
-  background-color: lightgray;
+  background-color: rgba(211, 211, 211, 0.445);
   width: 80%;
 }
 
 .filtros-aside {
- height: 700px;
+  height: 700px;
   width: 20%;
   background-color: white;
   border: 0.5px solid lightgray;
+  margin-top: 4rem;
 }
 
 .seccion-productos {
   min-height: 80%;
   width: 60%;
+  margin-top: 4rem;
 }
 
-.producto{
-    background-color: white;
-    display: flex;
-    width: 100%;
-    margin: 1rem;
+.producto {
+  background-color: rgba(255, 255, 255, 0.76);
+  display: flex;
+  width: 100%;
+  margin: 0.2rem;
+  height: 250px;
+  align-items: center;
+  border-radius: 0.5rem;
 }
 
-.producto img{
-    width: 250px;
-    height: 250px;
+.img-wrapper {
+  height: 230px;
 }
 
-.datos-producto{
-    margin-left: 5rem;
+.img-wrapper > img {
+  width: 100%;
+  height: 100%;
+}
+
+.producto-img-wrapper {
+  width: 250px;
+  height: 250px;
+}
+
+.producto img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+}
+
+.datos-producto {
+  margin-left: 5rem;
+}
+
+.datos-producto a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+}
+
+.precio {
+  color: #43af11;
+}
+
+.poco-stock {
+  color: #c1423f;
+}
+
+.sin-stock {
+  color: lightslategray;
+}
+
+.logohuellitas {
+  width: 5vw;
+}
+
+.formulario .bg-light {
+  --bs-bg-opacity: 0.7;
+}
+
+.btn,
+.btn-primary {
+  --bs-btn-bg: rgba(214, 143, 143, 0.856) !important ;
+  --bs-btn-color: rgb(119, 119, 190) !important;
+  --bs-btn-border-color: rgba(214, 143, 143, 0.164) !important;
+  margin: 0.2rem !important;
+  font-weight: bold !important;
+  border-radius: 1.5rem !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: rgb(87, 87, 138) !important;
+  background-color: rgba(175, 115, 115, 0.856) !important;
+  border-color: rgba(77, 50, 50, 0.856) !important;
+}
+
+.modal{
+  opacity: 80%;
 }
