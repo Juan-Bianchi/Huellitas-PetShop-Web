@@ -13,6 +13,61 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black container-fluid">
+      <div class="container-fluid w-100">
+        <a class="navbar-brand ms-3" href="#">
+          <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5" >
+        </a>
+        <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+          <ul class="navbar-nav d-flex  ms-auto">
+              <li class="nav-item navbar-dark bg-black  nav-button">
+                <a class="nav-link navbar-dark bg-black" aria-current="page" href="./index.html">INICIO</a>
+              </li>
+              <li class="nav-item navbar-dark bg-black  nav-button">
+                <a class="nav-link navbar-dark bg-black" href="./contacto.html">CONTACTO</a>
+              </li>
+              <li class="nav-item navbar-dark bg-black  nav-button">
+                <a class="nav-link navbar-dark bg-black" href="./farmacia.html">FARMACIA</a>
+              </li>
+              <li class="nav-item navbar-dark bg-black  nav-button">
+                <a class="nav-link navbar-dark bg-black" href="./juguete.html">JUGUETES</a>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="d-flex justify-content-end titulo"style="height: 60px;">
+      <div class=" d-flex justify-content-end titulo-h1 col-10" >
+        <h1><strong>DETALLES</strong></h1>
+      </div>
+      <img src="./assets/images/h1.jpg" alt="titulo" class="col-2">
+    </div>
+    <div v-if="productos"class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-center flex-wrap"  style="width: 96%;">
+      <div class="col-md-7 text-center"  >
+        <img :src="producto.imagen" class="card-img-top border border-white  rounded" :alt="producto.producto">
+      </div>
+      <div class="col-md-5 ">
+        <div class="card-body m-3"  >
+          <h4 class="card-title m-2">{{producto.producto}}</h4>
+          <h5 class="card-title m-2">{{producto.caregoria}}</h5>
+          <p class="card-text">{{producto.descripcion}}</p>
+          <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
+          <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
+        </div>
+      </div>
+    </div>
+  </main>
+<!--Footer-->
+<div class="">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 my-5 border-top px-3 bg-secondary">
+=======
   <div id="app">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-black container-fluid">
@@ -116,10 +171,11 @@
         </div>
       </div>
     </main>
-  <!--Footer-->
+   <!--Footer-->
   
-  <footer class="d-lg-flex bg-secondary container-fluid pt-3 text-bg-light pb-4">
+   <footer class="d-lg-flex bg-black container-fluid pt-3 text-white text-bg-light pb-4">
 
+>>>>>>> 61bb3d8a20f9b42ad91c34f21a8e6adba0242233
     <!--LOGO-->
     <div class="d-md-flex col-lg-5">
       <div class="d-sm-flex col-md-6 logo-footer align-items-md-center">
@@ -130,8 +186,8 @@
         <h4 class="text-center text-lg-start text-md-start ps-lg-2 ">CONTACTO</h4>
         <div class="contacto container-fluid d-md-flex flex-lg-column p-lg-0 container-fluid justify-content-md-around">
           <div class="">
-            <p class="contact text-md-start fw-bold"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; EMAIL: <a class="link-dark link-dark-hover text-decoration-none" href="mailto:huellitas@petshop.arg">huellitas@petshop.arg</a></p>
-            <p class="contact text-md-start fw-bold"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; TEL: <a class="link-dark link-dark-hover text-decoration-none" href="tel:+54 9 11 5555-5974">+54 9 11 5555-5974</a></p>
+            <p class="contact text-md-start fw-bold"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; EMAIL: <a class="link-secondary link-white-hover text-decoration-none" href="mailto:huellitas@petshop.arg">huellitas@petshop.arg</a></p>
+            <p class="contact text-md-start fw-bold"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; TEL: <a class="link-secondary link-white-hover text-decoration-none" href="tel:+54 9 11 5555-5974">+54 9 11 5555-5974</a></p>
           </div>
           <div>
             <p class=" text-md-start fw-bold mt-3 mt-md-0"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp; Horarios de atención</p>
@@ -159,9 +215,9 @@
       <div class="mt-3 col-lg-5 mt-lg-0">
         <h4 class="text-center">SÍGUENOS</h4>
         <ul class="list-unstyled d-flex justify-content-around mb-0 mt-3 mx-auto redes">
-          <li class=""><a class="link-dark-hover text-muted" href="#"><i class="fa-brands fa-instagram fa-2x text-light icono-redes"></i></a></li>
-          <li class=""><a class="link-dark-hover text-muted" href="#"><i class="fa-brands fa-facebook fa-2x text-light icono-redes"></i></a></li>
-          <li class=""><a class="link-dark-hover text-muted" href="#"><i class="fa-brands fa-whatsapp fa-2x text-light icono-redes"></i></a></li>
+          <li class=""><a class="link-dark-hover text-muted" href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2x text-secondary icono-redes"></i></a></li>
+          <li class=""><a class="link-dark-hover text-muted" href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2x text-secondary icono-redes"></i></a></li>
+          <li class=""><a class="link-dark-hover text-muted" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp fa-2x text-secondary icono-redes"></i></a></li>
         </ul>
         <h4 class="text-center mt-3">FORMAS DE PAGO</h4>
          <img class="imgFooterFpago row" src="./assets/images/pago-seguro-argentina-1-1.png" alt="metodos de pago">
