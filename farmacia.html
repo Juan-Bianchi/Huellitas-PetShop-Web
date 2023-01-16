@@ -69,14 +69,12 @@
       <li v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
       <div>
         <div class="producto" > 
-          <a :href="'./detalles?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+          <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
           <div class="datos-producto">
-
-            <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
-          <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
-          <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
-          <p class="precio"> ${{producto.precio}} </p>
-
+            <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
+            <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
+            <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
+            <p class="precio"> ${{producto.precio}} </p>
           </div>
         </div>
       </div>
