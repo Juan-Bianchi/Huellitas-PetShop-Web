@@ -29,7 +29,7 @@ ol{
 }
 
 .filtros-aside {
- height: 700px;
+  height: 700px;
   width: 20%;
   background-color: white;
   border: 0.5px solid lightgray;
@@ -55,15 +55,11 @@ ol{
 .datos-producto{
     margin-left: 5rem;
 }
-header{
-  position: sticky;
-  top: 0;
-}
 body{
   min-height: 100vh;
-  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
-
+  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) )
 }
+
 .nav-button{
   font-size: 15px;
   color: #e0d4d4;
@@ -84,7 +80,7 @@ body{
   background-color: #f4b63a;
   top: 50%;
   transform: skewX(30deg) translate(-150%, -50%);
-  transition: all 0.5s;
+  transition: all 0.8s;
 }
 .nav-button:hover {
   background-color: #4cc9f0;
@@ -93,7 +89,7 @@ body{
 }
 .nav-button:hover::before {
   transform: skewX(30deg) translate(150%, -50%);
-  transition-delay: 0.1s;
+  transition-delay: 0.3s;
 }
 .nav-button:active {
   transform: scale(0.9);
@@ -114,13 +110,8 @@ h1{
   color:#f4b63a;
   font-size: 2rem;
 }
-.titulo-h1{
-  width: 89%; 
-}
 .titulo img{
-  width: 11%;
   height: 100%;
-  background-color: white;
 }
 .formulario1{
   margin: 1rem;
@@ -132,17 +123,12 @@ h1{
   font-size: 30px;
     size: 40px;
   }
-  
-  .imgFooterFpago{
-     
+.imgFooterFpago{
     width: 100%;
-  }
-  .mapSize{
-    
+}
+.mapSize{
     width: 100%;
-  }
-  
-  .link-dark-hover:hover{
-     color: #fff !important;
-  
-  }
+}
+.link-dark-hover:hover{
+    color: #fff !important;
+}
