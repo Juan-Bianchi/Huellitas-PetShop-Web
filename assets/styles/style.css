@@ -56,7 +56,7 @@ ol{
     margin-left: 5rem;
 }
 header{
-  position: sticky;
+  /* position: sticky; */
   top: 0;
 }
 body{
@@ -145,4 +145,9 @@ h1{
   .link-dark-hover:hover{
      color: #fff !important;
   
+  }
+
+  .contacto{
+    list-style: none;
+    /* text-align: center; */
   }
