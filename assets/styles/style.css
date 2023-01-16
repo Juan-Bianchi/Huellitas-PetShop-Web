@@ -24,11 +24,8 @@ body{
 }
 
 .carousel {
-  display: flex;
   margin: auto;
   width: 80%;
-  min-height: 40vh;
-  align-items: center;
 }
 
 ol{
@@ -192,7 +189,65 @@ h1{
 
   .contacto-contenedor{
     font-size: 12px;
+    justify-content: space-around;
   }
+
+  .contact {
+    margin: 0;
+  }
+
+
+  /*/////////////////////////INICIO/////////////////////////*/
+
+  #farmaciaInd {
+    background-image: url(../images/farmacia.jpg);
+    background-size: cover;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0);
+    min-height: 40vh;
+    margin-bottom: 3vh;
+  }
+
+  #farmaciaInd:hover {
+    background-color: rgba(0, 0, 0, 0.484);
+    background-blend-mode: darken;
+    color: white;
+  }
+
+  #jugueteriaInd {
+    background-image: url(../images/gatoJugando.jpg);
+    background-size: cover;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0);
+    min-height: 40vh;
+    margin-bottom: 3vh;
+  }
+
+  #jugueteriaInd:hover {
+    background-color: rgba(0, 0, 0, 0.484);
+    background-blend-mode: darken;
+    color: white;
+  }
+
+
+
+  /*//////////////////////////DETALLES///////////////////////*/
+
+  .text-center {
+    justify-content: center;
+    align-content: center;
+  }
+
+  /*/////////////////////////MEDIA QUERY////////////////////*/
+
 
   @media(min-width: 768px){
     .logo-footer{
