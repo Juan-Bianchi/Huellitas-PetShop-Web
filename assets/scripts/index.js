@@ -23,7 +23,7 @@ createApp({
                 }else if(window.location.pathname === "/juguete.html"){
                     this.productos = productos.filter(producto => producto.categoria === "jugueteria")
                 }
-                console.log(this.productos[0])
+    
                 this.parametroUrl= location.search
                 this.parametro = new URLSearchParams(this.parametroUrl)
                 this.id = this.parametro.get("id")

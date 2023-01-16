@@ -29,10 +29,14 @@ ol{
 }
 
 .filtros-aside {
- height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 700px;
   width: 20%;
   background-color: white;
   border: 0.5px solid lightgray;
+
 }
 
 .seccion-productos {
