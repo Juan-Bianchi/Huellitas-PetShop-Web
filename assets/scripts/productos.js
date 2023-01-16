@@ -1,7 +1,6 @@
 const { createApp } = Vue
 
 createApp({
-
     data(){
         return{
             dataOrig: [],
@@ -22,7 +21,6 @@ createApp({
         fetch("https://mindhub-xj03.onrender.com/api/petshop")
             .then(response => response.json())
             .then(productos => {
-
                 this.dataOrig = [... productos];
                 if(window.location.pathname === "/index.html"){
                     this.productos = [...this.dataOrig];
