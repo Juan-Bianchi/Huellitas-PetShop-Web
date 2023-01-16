@@ -40,19 +40,17 @@ createApp({
 
 
     methods: {
+
         filtroCruzado: function(){
-            let filtradoPorBusqueda = this.productosConPropAgregadas.filter(elemento => elemento.producto.toLowerCase().includes( this.productosPorBusqueda.toLowerCase()))
-         //console.log(filtradoPorBusqueda)
-            if( this.listaFiltrosChecks.length === 0 ){
-                this.productosFiltradosFinal = filtradoPorBusqueda
+            let filtradoPorBusqueda = this.productosConPropAgregadas.filter(elemento => elemento.producto.toLowerCase().includes( this.productosPorBusqueda.toLowerCase()));
+            if( this.checks.length === 0 ){
+                this.productosFiltradosFinal = filtradoPorBusqueda;
                 
             }else{
                 let filtradosPorCheck = filtradoPorBusqueda.filter( producto => this.checks.includes( producto.mascota)||this.checks.includes( producto.rangoPrecio))
                 console.log(filtradosPorCheck)
-                this.productosFiltradosFinal = filtradosPorCheck 
-            }
-            //console.log(this.productosFiltradosFinal)
-           
+                this.productosFiltradosFinal = filtradosPorCheck; 
+            }          
         },
         
         agregarPropiedadesFiltrosChecks() {
