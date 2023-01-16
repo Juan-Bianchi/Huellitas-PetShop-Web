@@ -149,14 +149,20 @@ h1{
 
   .contacto{
     list-style: none;
+    padding-left: 4rem;
     /* text-align: center; */
   }
 
   .redes{
     width: 80%;
   }
+
   .icono-redes{
     font-size: 2rem;
+  }
+
+  .contacto-contenedor{
+    font-size: 12px;
   }
 
   @media(min-width: 768px){
@@ -167,15 +173,18 @@ h1{
     .imgFooterFpago{
       width: 60%;
     }
+    .contacto{
+      padding-left: 0;
+    }
    
   }
 
   @media(min-width: 992px){
     .icono-redes{
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
     .imgFooterFpago{
-      width: 70%;
+      width: 75%;
     }
   
   }
