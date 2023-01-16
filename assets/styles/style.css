@@ -332,6 +332,12 @@ h1{
     color: white;
   }
 
+footer{
+  background-color: rgb(26, 60, 64) !important;
+}
+.section{
+  text-align: center;
+}
 
 
   /*//////////////////////////DETALLES///////////////////////*/
