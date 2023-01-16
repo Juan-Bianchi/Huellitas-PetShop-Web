@@ -202,13 +202,13 @@ h1{
   #farmaciaInd {
     background-image: url(../images/farmacia.jpg);
     background-size: cover;
-    width: 80%;
+    width: 90%;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     font-weight: bolder;
     color: rgba(255, 255, 255, 0);
-    min-height: 40vh;
+    min-height: 8rem;
     margin-bottom: 3vh;
     border-radius: 5px;
   }
@@ -221,15 +221,16 @@ h1{
 
 
   #jugueteriaInd {
-    background-image: url(../images/gatoJugando.jpg);
+    background-image: url(../images/jugueteria.jpg);
     background-size: cover;
-    width: 80%;
+    background-position: center;
+    width: 90%;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     font-weight: bolder;
     color: rgba(255, 255, 255, 0);
-    min-height: 40vh;
+    min-height: 8rem;
     margin-bottom: 3vh;
     border-radius: 5px;
   }
@@ -284,6 +285,9 @@ h1{
     }
     #jugueteriaInd span{
       font-size: 14px;
+    }
+    .contenedor-img{
+      height: 12rem;
     }
   
   }
