@@ -40,7 +40,7 @@ createApp ( {
 
     methods: {
 
-        actualizarStockDeLocalStorage(){
+        actualizarStockDeLocalStorage: function() {
 
             if(this.productosCarrito.length) {
                 for(let producto of this.productosModif) {
@@ -58,35 +58,66 @@ createApp ( {
             }
         },
 
-        manejarCarrito(prodAVender){
+        quitarDesdeCarrito: function(producto) {
 
-            prodAVender = this.actualizacionDePropiedades(prodAVender);
+            producto = this.actualizacionDePropiedades(producto, -1);
 
-            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
-                this.productosCarrito.push(prodAVender);
+            for(prod of this.productosCarrito) {
+                if(producto._id == prod._id) {
+                    !producto.cantPedida? delete this.productosCarrito[this.productosCarrito.indexOf(prod)]
+                                        : Object.assign(producto, this.producto);    
+                }
             }
-
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
         },
 
-        agregarCarritoPorBoton() {
 
-            this.producto = this.actualizacionDePropiedades(this.producto);
+        agregarDesdeCarrito: function(producto) {
+
+            producto = this.actualizacionDePropiedades(producto, 1);
     
             if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
                 this.productosCarrito.push(this.producto);
             }
+            else {
 
+                for(producto of this.productosCarrito) {
+                    if(this.producto._id == producto._id) {
+
+                        Object.assign(producto, this.producto);
+                    }
+                }
+            }
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
         },
 
-        actualizacionDePropiedades(prodAVender) {
 
-            prodAVender.disponibles --;
-            prodAVender.cantPedida ++;
+        agregarCarritoPorBoton: function() {
+
+            this.producto = this.actualizacionDePropiedades(this.producto, 1);
+    
+            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
+                this.productosCarrito.push(this.producto);
+            }
+            else {
+
+                for(producto of this.productosCarrito) {
+                    if(this.producto._id == producto._id) {
+
+                        Object.assign(producto, this.producto);
+                    }
+                }
+            }
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+        },
+
+        actualizacionDePropiedades(prodAVender, acumulador) {
+
+            prodAVender.disponibles -= acumulador;
+            prodAVender.cantPedida += acumulador;
 
             if(prodAVender.cantPedida >= 3) {
-                prodAVender.descuento = (prodAVender.cantPedida / 3 ) * prodAVender.precio;
+                prodAVender.descuento = ((prodAVender.cantPedida / 3 ) * prodAVender.precio).toFixed(2);
             }
             prodAVender.subtotal = prodAVender.cantPedida * prodAVender.precio;
             prodAVender.total = prodAVender.subtotal - prodAVender.descuento;
