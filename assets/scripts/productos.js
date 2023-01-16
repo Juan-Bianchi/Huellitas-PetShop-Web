@@ -1,14 +1,16 @@
 const { createApp } = Vue
 
 createApp({
-
     data(){
         return{
             dataOrig: [],
             productos: [],
             productosConPropAgregadas: [],
             listaFiltrosChecks: [],
-
+            productosPorBusqueda:"",
+            productosFiltradosFinal:[],
+            checks:[],
+            
         }
     },
     created() {
@@ -19,7 +21,6 @@ createApp({
         fetch("https://mindhub-xj03.onrender.com/api/petshop")
             .then(response => response.json())
             .then(productos => {
-
                 this.dataOrig = [... productos];
                 if(window.location.pathname === "/index.html"){
                     this.productos = [...this.dataOrig];
@@ -31,20 +32,25 @@ createApp({
                 
                 this.agregarPropiedadesFiltrosChecks();
                 this.generoListaChecks();
+                this.productosFiltradosFinal= [...this.productos]
             })
     },
 
 
     methods: {
-        /*  filtroCruzado: function(){
-            let filtradoPorBusqueda = this.listaFiltrosChecks.filter(elemento => elemento.producto.toLowerCase().includes( this.valorBusqueda.toLowerCase()))
-            if( this.checked.length === 0 ){
-                this.listaFiltrosChecks = filtradoPorBusqueda
+
+        filtroCruzado: function(){
+            let filtradoPorBusqueda = this.productosConPropAgregadas.filter(elemento => elemento.producto.toLowerCase().includes( this.productosPorBusqueda.toLowerCase()));
+            if( this.checks.length === 0 ){
+                this.productosFiltradosFinal = filtradoPorBusqueda;
+                
             }else{
-                let filtradosPorCheck = filtradoPorBusqueda.filter( producto => this.checked.includes( producto.categoria ))
-                this.personajesFiltrados = filtradosPorCheck 
-            }
-        } */
+                let filtradosPorCheck = filtradoPorBusqueda.filter( producto => this.checks.includes( producto.mascota)||this.checks.includes( producto.rangoPrecio))
+                console.log(filtradosPorCheck)
+                this.productosFiltradosFinal = filtradosPorCheck; 
+            }          
+        },
+        
         agregarPropiedadesFiltrosChecks() {
             this.productosConPropAgregadas = this.productos.map( producto => {
                 let masc;
