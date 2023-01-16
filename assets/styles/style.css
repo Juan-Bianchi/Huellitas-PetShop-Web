@@ -89,8 +89,6 @@ body{
 
 .seccion-productos {
   min-height: 80%;
-  /* width: 60%; */
-  /* margin-top: 4rem; */
 }
 
 .producto {
@@ -98,8 +96,6 @@ body{
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* margin: 0.2rem; */
-  /* height: 250px; */
   align-items: center;
   border-radius: 0.5rem;
   margin: 1.2rem 0;
