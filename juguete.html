@@ -62,7 +62,7 @@
             <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control me-2" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
         </form>
           <div class="row btn-group gap-2 justify-content-center w-50 g-2 " id="checkboxs" role="group" data-bs-toggle="buttons">
-            <label class="btn btn-dark active" v-if="listaFiltrosChecks.length" v-for="categoria of listaFiltrosChecks" >
+            <label class="btn btn-outline-danger" v-if="listaFiltrosChecks.length" v-for="categoria of listaFiltrosChecks" >
                 <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosChecks.indexOf(categoria)" autocomplete="off"> {{categoria}}
             </label>
         </div>
