@@ -8,7 +8,8 @@ createApp({
             productos: [],
             productosConPropAgregadas: [],
             listaFiltrosChecks: [],
-
+            productosPorBusqueda:"",
+            
         }
     },
     created() {
@@ -36,15 +37,17 @@ createApp({
 
 
     methods: {
-        /*  filtroCruzado: function(){
-            let filtradoPorBusqueda = this.listaFiltrosChecks.filter(elemento => elemento.producto.toLowerCase().includes( this.valorBusqueda.toLowerCase()))
+        filtroCruzado: function(){
+            let filtradoPorBusqueda = this.listaFiltrosChecks.filter(elemento => elemento.producto.toLowerCase().includes( this.productosPorBusqueda.toLowerCase()))
+            console.log(filtradoPorBusqueda)
             if( this.checked.length === 0 ){
-                this.listaFiltrosChecks = filtradoPorBusqueda
+                this.listaFiltrosChecks = productosPorBusqueda
+                console.log(listaFiltrosChecks)
             }else{
                 let filtradosPorCheck = filtradoPorBusqueda.filter( producto => this.checked.includes( producto.categoria ))
-                this.personajesFiltrados = filtradosPorCheck 
+                this.productos = filtradosPorCheck 
             }
-        } */
+        },
         agregarPropiedadesFiltrosChecks() {
             this.productosConPropAgregadas = this.productos.map( producto => {
                 let masc;

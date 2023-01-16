@@ -48,15 +48,20 @@
           </div>
           <img src="./assets/images/h1.jpg" alt="titulo">
         </div>
-        <div class="btn-group gap-2 justify-content-center w-100" id="checkboxs" role="group" data-bs-toggle="buttons">
-          <label class="btn btn-dark active" v-for="categoria of listaFiltrosChecks">
-              <input type="checkbox" class="me-2" @change="" v-model="checked" :value="categoria" name="" id="" autocomplete="off"> {{categoria}}
-          </label>
-        </div>
+        
       </main>
 
 <section class="filtros-productos">
-  <aside class="filtros-aside">FILTROS</aside>
+  <aside class="filtros-aside checkbox">
+    <form class="d-flex" role="search" id="search">
+      <input v-model="searchValue" @input="doubleFilter" class="form-control me-2" type="search" placeholder="Search By Event Name" aria-label="Search" id="searchField">
+  </form>
+    <div class="row btn-group gap-2 justify-content-center w-50 g-2 " id="checkboxs" role="group" data-bs-toggle="buttons">
+      <label class="btn btn-dark active" v-for="categoria of listaFiltrosChecks">
+          <input type="checkbox" class="me-2" @change="" v-model="checked" :value="categoria" name="" id="" autocomplete="off"> {{categoria}}
+      </label>
+  </div>
+  </aside>
   <ol class="seccion-productos">
 <li v-for="producto of productos" >
 <div>
