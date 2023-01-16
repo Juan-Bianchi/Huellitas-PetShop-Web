@@ -1,24 +1,7 @@
-body {
-   background:linear-gradient(
-    90deg,
-    rgba(160, 195, 210, 0.397) 0%,
-    rgba(234, 199, 199, 0.541) 50%,
-    rgba(160, 195, 210, 0.5) 100%
-  ), url("../images/background-huellas.png");
-  background-size: cover;
-}
-
-nav {
-  min-height: 10vh;
-}
-
-footer {
-  min-height: 15vh;
-  background-color: #a75d5d;
-}
-
-main {
-  min-height: 75vh;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 ol {
@@ -41,11 +24,6 @@ textarea {
   border: none;
 }
 
-header{
-  position: sticky;
-  top: 0;
-}
-
 .formularioAdentro {
   margin-top: 2rem;
   border-top-left-radius: 1.5rem;
@@ -57,12 +35,9 @@ header{
   flex-direction: column;
 }
 
-.navbar-dark {
-  --bs-navbar-hover-color: #eae0da;
-  --bs-navbar-color: #f7f5eb;
-}
-.bg-black {
-  background-color: #92b1bec7 !important;
+
+body{
+    background-color: rgb(231, 231, 137);
 }
 
 .cards-wrapper {
@@ -78,6 +53,7 @@ header{
 .card-text {
   text-align: center;
 }
+
 .card-body {
   align-items: baseline;
 }
@@ -96,11 +72,16 @@ header{
 }
 
 .filtros-aside {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 700px;
   width: 20%;
   background-color: white;
   border: 0.5px solid lightgray;
   margin-top: 4rem;
+
 }
 
 .seccion-productos {
@@ -161,10 +142,6 @@ header{
   color: lightslategray;
 }
 
-.logohuellitas {
-  width: 5vw;
-}
-
 .formulario .bg-light {
   --bs-bg-opacity: 0.7;
 }
@@ -193,4 +170,190 @@ header{
   opacity: 80%;
 }
 
+header{
+  /* position: sticky; */
+  top: 0;
+}
+body{
+  min-height: 100vh;
+  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
 
+}
+.nav-button{
+  font-size: 15px;
+  color: #e0d4d4;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  border-radius: 12px;
+  background-color: #ecc648;
+  font-weight: bolder;
+  box-shadow: 0 2px 0 2px #000;
+}
+.nav-button:before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 120%;
+  background-color: #f4b63a;
+  top: 50%;
+  transform: skewX(30deg) translate(-150%, -50%);
+  transition: all 0.5s;
+}
+.nav-button:hover {
+  background-color: #4cc9f0;
+  color: #fff;
+  box-shadow: 0 2px 0 2px #0d3b66;
+}
+.nav-button:hover::before {
+  transform: skewX(30deg) translate(150%, -50%);
+  transition-delay: 0.1s;
+}
+.nav-button:active {
+  transform: scale(0.9);
+}
+
+.titulo{
+  max-height: 10%;
+  border-bottom: 2px solid black;
+  background-color: white;
+}
+
+h1{
+  
+  width: 100%; 
+  height: 100%;
+  text-align: center;
+  padding-top: 0rem;
+  padding-left: 11rem;
+  padding-top: 0.6rem;
+  color:#f4b63a;
+  font-size: 2rem;
+}
+.titulo-h1{
+  width: 85%;
+}
+.titulo img{
+  height: 3.5rem;
+  background-color: white;
+}
+
+.iconSize{
+  font-size: 30px;
+    size: 40px;
+  }
+  
+  .imgFooterFpago{
+    width: 80%;
+    margin: 0 auto;
+  }
+  .mapSize{
+    
+    width: 100%;
+  }
+  
+  .link-dark-hover:hover{
+     color: #fff !important;
+  
+  }
+
+  .contacto{
+    list-style: none;
+    padding-left: 4rem;
+    /* text-align: center; */
+  }
+
+  .redes{
+    width: 80%;
+  }
+
+  .icono-redes{
+    font-size: 2rem;
+  }
+
+  .contacto-contenedor{
+    font-size: 12px;
+    justify-content: space-around;
+  }
+
+  .contact {
+    margin: 0;
+  }
+
+
+  /*/////////////////////////INICIO/////////////////////////*/
+
+  #farmaciaInd {
+    background-image: url(../images/farmacia.jpg);
+    background-size: cover;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0);
+    min-height: 40vh;
+    margin-bottom: 3vh;
+  }
+
+  #farmaciaInd:hover {
+    background-color: rgba(0, 0, 0, 0.484);
+    background-blend-mode: darken;
+    color: white;
+  }
+
+  #jugueteriaInd {
+    background-image: url(../images/gatoJugando.jpg);
+    background-size: cover;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0);
+    min-height: 40vh;
+    margin-bottom: 3vh;
+  }
+
+  #jugueteriaInd:hover {
+    background-color: rgba(0, 0, 0, 0.484);
+    background-blend-mode: darken;
+    color: white;
+  }
+
+
+
+  /*//////////////////////////DETALLES///////////////////////*/
+
+  .text-center {
+    justify-content: center;
+    align-content: center;
+  }
+
+  /*/////////////////////////MEDIA QUERY////////////////////*/
+
+
+  @media(min-width: 768px){
+    .logo-footer{
+      /* background-color: #000; */
+      height: 11rem;
+    }
+    .imgFooterFpago{
+      width: 60%;
+    }
+    .contacto{
+      padding-left: 0;
+    }
+   
+  }
+
+  @media(min-width: 992px){
+    .icono-redes{
+      font-size: 1.6rem;
+    }
+    .imgFooterFpago{
+      width: 75%;
+    }
+  
+  }
