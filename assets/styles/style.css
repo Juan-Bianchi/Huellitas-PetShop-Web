@@ -287,14 +287,15 @@ h1{
   #farmaciaInd {
     background-image: url(../images/farmacia.jpg);
     background-size: cover;
-    width: 80%;
+    width: 90%;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     font-weight: bolder;
     color: rgba(255, 255, 255, 0);
-    min-height: 40vh;
+    min-height: 8rem;
     margin-bottom: 3vh;
+    border-radius: 5px;
   }
 
   #farmaciaInd:hover {
@@ -303,17 +304,20 @@ h1{
     color: white;
   }
 
+
   #jugueteriaInd {
-    background-image: url(../images/gatoJugando.jpg);
+    background-image: url(../images/jugueteria.jpg);
     background-size: cover;
-    width: 80%;
+    background-position: center;
+    width: 90%;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     font-weight: bolder;
     color: rgba(255, 255, 255, 0);
-    min-height: 40vh;
+    min-height: 8rem;
     margin-bottom: 3vh;
+    border-radius: 5px;
   }
 
   #jugueteriaInd:hover {
@@ -345,6 +349,12 @@ h1{
     .contacto{
       padding-left: 0;
     }
+    #farmaciaInd span{
+      font-size: 11px;
+    }
+    #jugueteriaInd span{
+      font-size: 11px;
+    }
    
   }
 
@@ -354,6 +364,15 @@ h1{
     }
     .imgFooterFpago{
       width: 75%;
+    }
+    #farmaciaInd span{
+      font-size: 14px;
+    }
+    #jugueteriaInd span{
+      font-size: 14px;
+    }
+    .contenedor-img{
+      height: 12rem;
     }
   
   }
