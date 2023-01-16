@@ -41,49 +41,44 @@
         </nav>
       </header>
       <main>
-        <div class="d-flex justify-content-end titulo">
-          <div class=" d-flex justify-content-end titulo-h1" >
+        <div class="d-flex justify-content-end titulo"style="height: 60px;">
+          <div class=" d-flex justify-content-end titulo-h1 col-10" >
             <h1><strong>FARMACIA</strong></h1>
 
           </div>
-          <img src="./assets/images/h1.jpg" alt="titulo">
+          <img src="./assets/images/h1.jpg" alt="titulo" class="col-2">
         </div>
         
 
         
       </main>
 
-      <section class="filtros-productos">
-        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start">
+      <section class="filtros-productos d-flex flex-column flex-lg-row">
+        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-md-auto col-lg-3 ">
           <form class="d-flex m-3 flex-column" role="search" id="search">
             <h6 >Busca tu producto</h6>
-            <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control me-2" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
+            <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
         </form>
-          <div class="row btn-group gap-2 justify-content-center w-50 g-2 " id="checkboxs" role="group" data-bs-toggle="buttons">
-            <label class="btn btn-outline-danger" v-if="listaFiltrosChecks.length" v-for="categoria of listaFiltrosChecks" >
+          <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
+            <label class="btn btn-outline-danger d-flex" v-if="listaFiltrosChecks.length" v-for="categoria of listaFiltrosChecks" >
                 <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosChecks.indexOf(categoria)" autocomplete="off"> {{categoria}}
             </label>
         </div>
-        </aside>
-        
-        <ol class="seccion-productos">
-      <li v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
-      <div>
-        <div class="producto" > 
-          <a :href="'./detalles?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
-          <div class="datos-producto">
+        </aside>    
 
-            <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
-          <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
-          <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
-          <p class="precio"> ${{producto.precio}} </p>
-
-          </div>
+        <div class="d-md-flex flex-md-wrap justify-content-md-evenly col-lg-9">
+          <div v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
+            <div class="producto"> 
+              <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+              <div class="datos-producto">
+                <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
+                <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
+                <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
+                <p class="precio"> ${{producto.precio}} </p>
+              </div>
+            </div>
+           </div>
         </div>
-      </div>
-      </li>
-      
-        </ol>
       </section>
 
     </div>
