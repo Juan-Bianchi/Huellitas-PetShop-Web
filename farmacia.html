@@ -56,7 +56,7 @@
         <aside class="filtros-aside checkbox d-flex flex-column justify-content-start ">
           <form class="d-flex m-3 flex-column" role="search" id="search">
             <h6 >Busca tu producto</h6>
-            <input v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control me-2" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
+            <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control me-2" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
         </form>
           <div class="row btn-group gap-2 justify-content-center w-50 g-2 " id="checkboxs" role="group" data-bs-toggle="buttons">
             <label class="btn btn-dark active" v-if="listaFiltrosChecks.length" v-for="categoria of listaFiltrosChecks" >
