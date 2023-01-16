@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: 'Lato', sans-serif;
+  min-height: 100vh;
+  background: rgb(65,125,122);
+background: linear-gradient(90deg, rgba(65,125,122,.7) 0%, rgba(135,173,171,.7) 50%, rgba(65,125,122,.7) 100%), url("../images/background-huellas.png") ;
+  background-size: contain;
+}
+
 ol {
   list-style: none;
 }
@@ -24,8 +32,28 @@ textarea {
   border: none;
 }
 
+nav{
+  background-color: #039097c2;
+}
+
+footer{
+  background-color: #417D7A;
+}
+
+.formulario{
+  margin: 5rem;
+}
+
+.logo-formulario{
+  margin: auto;
+  width: 5vw;
+}
+
+.logo-formulario img{
+  width: 100%;
+}
+
 .formularioAdentro {
-  margin-top: 2rem;
   border-top-left-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
 }
@@ -35,23 +63,46 @@ textarea {
   flex-direction: column;
 }
 
-
-body{
-    background-color: rgb(231, 231, 137);
-}
-
 .cards-wrapper {
   display: flex;
   justify-content: center;
 }
 
 .card {
-  width: calc(100% / 6);
+  border: none;
+  background: rgb(211,117,107);
+  width: 230px;
+  height: 300px;
   margin: 1rem;
+  box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+	transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-20px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+.card:hover{
+  transform: scale(1.6);
+  transition-timing-function: ease-in;
+  transition: 0.2s;
 }
 
 .card-text {
   text-align: center;
+  font-weight: bold;
 }
 
 .card-body {
@@ -61,6 +112,15 @@ body{
 .carousel {
   margin: auto;
   width: 80%;
+}
+
+
+#carouselExample{
+display: flex;
+align-items: center;
+height: 320px;
+margin-top: 4rem;
+margin-bottom: 6rem;
 }
 
 .filtros-productos {
@@ -105,8 +165,11 @@ body{
 }
 
 .img-wrapper > img {
+  border-radius: 1rem;
+  padding: 1rem;
   width: 100%;
   height: 100%;
+  border-bottom: .7px solid rgb(210,179,77);
 }
 
 .producto-img-wrapper {
@@ -174,35 +237,36 @@ header{
   /* position: sticky; */
   top: 0;
 }
-body{
-  min-height: 100vh;
-  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
 
-}
 .nav-button{
+  margin: .2rem;
   font-size: 15px;
-  color: #e0d4d4;
+  color: #EDE6DB;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: all 0.3s;
   border-radius: 12px;
-  background-color: #ecc648;
+  background-color: #B2B2B2;
   font-weight: bolder;
-  box-shadow: 0 2px 0 2px #000;
 }
+
+.nav-link{
+  color: #00ABB3;
+}
+
 .nav-button:before {
   content: "";
   position: absolute;
   width: 100px;
   height: 120%;
-  background-color: #f4b63a;
+  background-color: #EDE6DB;
   top: 50%;
   transform: skewX(30deg) translate(-150%, -50%);
   transition: all 0.5s;
 }
 .nav-button:hover {
-  background-color: #4cc9f0;
+  background-color: #31859e;
   color: #fff;
   box-shadow: 0 2px 0 2px #0d3b66;
 }
@@ -216,19 +280,18 @@ body{
 
 .titulo{
   max-height: 10%;
-  border-bottom: 2px solid black;
-  background-color: white;
+  border-bottom: 1px solid black;
+  background-color: #B2B2B2;
 }
 
 h1{
-  
   width: 100%; 
   height: 100%;
   text-align: center;
   padding-top: 0rem;
   padding-left: 11rem;
   padding-top: 0.6rem;
-  color:#f4b63a;
+  color:#EDE6DB;
   font-size: 2rem;
 }
 .titulo-h1{
@@ -236,7 +299,6 @@ h1{
 }
 .titulo img{
   height: 3.5rem;
-  background-color: white;
 }
 
 .iconSize{
@@ -376,3 +438,9 @@ h1{
     }
   
   }
+
+@media(max-width: 1024px){
+  .card:nth-last-child(2){
+    display:none
+  }
+}
