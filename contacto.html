@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,44 +41,75 @@
       
       
     
-    
-    <main>
+<main>
       <div class="d-flex justify-content-end titulo">
         <div class=" d-flex justify-content-end titulo-h1" >
           <h1><strong>CONTÁCTANOS</strong></h1>
         </div>
-        <img src="./assets/images/h1.jpg" alt="titulo">
       </div>
-      <div class="formulario d-flex justify-content-center " >
-        <div class="formulario1 p-3 mb-2 bg-light text-dark col-lg-6 col-mg-7 col-sm-8 col-10 " >
-        <form action="">
-          <div class="mb-3" >
-            <label for="exampleFormControlInput1" class="form-label">Nombre y Apellido</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre Completo">
-          </div>
-          <div class="mb-3" >
-            <label for="tel">Teléfono</label>
-            <input id="tel" type="tel">
+    </nav>
+  </header>
+ 
+    <div id="appContacto" class="formulario d-flex justify-content-center border-dark border-1">
+      <div class="formularioAdentro p-3 mb-2 bg-light text-dark col-lg-6 col-mg-7 col-sm-8 col-10 ">
+        <form>
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nombre y apellido</label>
+            <input v-model="nombreUsuario" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nombre Completo">
           </div>
           <div class="mb-3">
-            <select name="animal" id="">
+            <label for="tel">Teléfono</label>
+            <input  v-model="telefonoUsuario" id="tel" type="tel">
+          </div>
+          <div class="mb-3">
+            <select v-model="mascota" name="animal" id="">
               <option value="">Selecione tipo de mascota</option>
-              <option value="">Perro</option>
-              <option value="">Gato</option>
+              <option value="perro">Perro</option>
+              <option value="gato">Gato</option>
+              <option value="otra">Otra</option>
             </select>
+            <div v-if="mascota=='otra'">
+              <p>Ingrese su mascota</p>
+              <input type="text" id="otraMascotaTA" v-model="otraMascota" @keyup="logmensaje" placeholder="Ingrese su mascota">
+            </div>
           </div>
           <div class="mb-3">
             <label for="coment">Comentarios</label>
-            <textarea id="coment" name="" rows="6" cols="50"></textarea>
+            <textarea v-model="mensaje" @keyup="logmensaje" placeholder="Escriba su mensaje" name="" rows="6"
+              cols="50"></textarea>
           </div>
-          <button type="submit" class="btn btn-dark ">Submit</button>
+
+          <!-- Modal -->
+          <div class="modal fade" @click="recargarPagina" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Enviado</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p> Gracias por su comentario!</p>
+                  <p>Su nombre: {{nombreUsuario}} </p>
+                  <p>Su teléfono:  {{telefonoUsuario? telefonoUsuario : 'No Ingreso'}} </p>
+                  <p> Su mascota: {{otraMascota ? otraMascota : mascota}} </p>
+                  <p> Su mensaje: {{mensaje}} </p>
+                </div>
+                <div class="modal-footer">
+                  <button @click="recargarPagina" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                  <button @click="recargarPagina" type="button" class="btn btn-primary">Enviar otro comentario</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+            data-bs-target="#exampleModal">Enviar</button><!-- <button type="submit" class="btn btn-dark" v-on:submit.stop.prevent="log('clicked!')"  >Submit</button> -->
         </form>
-        </div>
       </div>
+    </div>
     
     
-    </main>
-  </div>
+</main>
   <!--Footer-->
   <footer class="d-lg-flex bg-secondary container-fluid pt-3 text-bg-light pb-4">
 
@@ -135,4 +166,5 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./assets/scripts/contacto.js"></script>
 </body>
+
 </html>

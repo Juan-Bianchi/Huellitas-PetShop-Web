@@ -49,11 +49,6 @@
         <div class="d-flex justify-content-end titulo">
           <div class=" d-flex justify-content-end titulo-h1">
             <h1><strong>JUGUETES</strong></h1>
-          </div>
-          <img src="./assets/images/h1.jpg" alt="titulo">
-        </div>
-
-    
 
       <section class="filtros-productos">
         <aside class="filtros-aside checkbox d-flex flex-column justify-content-start ">
@@ -68,14 +63,16 @@
         </div>
         </aside>
         <ol class="seccion-productos">
-          <li v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal">
-              <div class="producto" > 
-                <a :href="'./detalles.html?id='+producto._id"><img :src="producto.imagen" :alt="producto.producto"></a>
-                <div class="datos-producto">
-                  <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
-                  <p v-if="producto.disponibles===0"><span class="text-danger">SIN STOCK DISPONIBLE</span></p>
-                  <p v-else-if="5>=producto.disponibles>0"><span class="text-danger">¡Ultimas unidades!</span></p>
-                  <p> ${{producto.precio}} </p>
+          <li v-for="producto of productos" >
+              <div>
+                <div class="producto" >
+                  <a :href="'./detalles?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+                  <div class="datos-producto">
+                    <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
+                  <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible</p>
+                        <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Pocas unidades </p>
+                  <p class="precio"> ${{producto.precio}} </p>
+                  </div>
                 </div>
               </div>
           </li>

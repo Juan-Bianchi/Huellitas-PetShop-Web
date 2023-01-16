@@ -47,9 +47,7 @@
     <div class="d-flex justify-content-end titulo">
       <div class=" d-flex justify-content-end titulo-h1" >
         <h1><strong>INICIO</strong></h1>
-      </div>
-      <img src="./assets/images/h1.jpg" alt="titulo">
-    </div>
+    
     
     <div id="appIndex">
       <div id="carouselExample" class="carousel carousel-dark slide ">
@@ -59,8 +57,8 @@
           </div>
           <div class="carousel-item">
             <div class="cards-wrapper">
-              <div class="card" v-for="producto of productos.slice(0,3) ">
-                <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'"> <img :src="producto.imagen " class="card-img-top" :alt="productos.producto"></a>
+              <div class="card" v-for="producto of productos.slice(0,4) ">
+                <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'"> <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top" :alt="productos.producto"></div></a>
                 <div class="card-body">
                   <p class="card-text">{{producto.producto}} </p>
                 </div>
@@ -71,8 +69,8 @@
           <div class="carousel-item">
             
               <div class="cards-wrapper">
-                <div class="card" v-for="producto of productos.slice(-3) ">
-                  <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">  <img :src="producto.imagen " class="card-img-top" :alt="productos.producto"></a>
+                <div class="card" v-for="producto of productos.slice(-4) ">
+                  <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">  <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top" :alt="productos.producto"></div></a>
                   <div class="card-body">
                     <p class="card-text">{{producto.producto}} </p>
                   </div>
