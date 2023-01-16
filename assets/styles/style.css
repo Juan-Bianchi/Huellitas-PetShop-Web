@@ -84,7 +84,7 @@ ol{
   justify-content: center;
 }
 header{
-  position: sticky;
+  /* position: sticky; */
   top: 0;
 }
 body{
@@ -156,15 +156,15 @@ h1{
   border-radius: 10px;
   border: 2px solid rgb(38, 38, 36);
   background-color: rgba(8, 8, 5, 0.329);
-}
+}alig
 .iconSize{
   font-size: 30px;
     size: 40px;
   }
   
   .imgFooterFpago{
-     
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
   }
   .mapSize{
     
@@ -173,5 +173,47 @@ h1{
   
   .link-dark-hover:hover{
      color: #fff !important;
+  
+  }
+
+  .contacto{
+    list-style: none;
+    padding-left: 4rem;
+    /* text-align: center; */
+  }
+
+  .redes{
+    width: 80%;
+  }
+
+  .icono-redes{
+    font-size: 2rem;
+  }
+
+  .contacto-contenedor{
+    font-size: 12px;
+  }
+
+  @media(min-width: 768px){
+    .logo-footer{
+      /* background-color: #000; */
+      height: 11rem;
+    }
+    .imgFooterFpago{
+      width: 60%;
+    }
+    .contacto{
+      padding-left: 0;
+    }
+   
+  }
+
+  @media(min-width: 992px){
+    .icono-redes{
+      font-size: 1.6rem;
+    }
+    .imgFooterFpago{
+      width: 75%;
+    }
   
   }
