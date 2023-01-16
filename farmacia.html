@@ -64,21 +64,20 @@
                 <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosChecks.indexOf(categoria)" autocomplete="off"> {{categoria}}
             </label>
         </div>
-        </aside>
-        
+        </aside>    
+
         <div class="d-md-flex flex-md-wrap justify-content-md-evenly col-lg-9">
           <div v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
             <div class="producto"> 
-              <a :href="'./detalles?id='+producto._id"><div class="producto-img-wrapper"><img class="p-4 " :src="producto.imagen" :alt="producto.producto"></div></a>
-              <div class="datos-producto text-center">
-                <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
+              <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+              <div class="datos-producto">
+                <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
                 <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
                 <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
                 <p class="precio"> ${{producto.precio}} </p>
               </div>
             </div>
-        </div>
-      
+           </div>
         </div>
       </section>
 

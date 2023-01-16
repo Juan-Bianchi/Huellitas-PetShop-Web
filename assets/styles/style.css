@@ -341,6 +341,10 @@ h1{
     align-content: center;
   }
 
+  .modal-carrito {
+    opacity: 100%;
+  }
+
   /*/////////////////////////MEDIA QUERY////////////////////*/
 
 
