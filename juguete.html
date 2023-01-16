@@ -45,6 +45,53 @@
           </div>
         </nav>
       </header>
+      <main>
+        <div class="d-flex justify-content-end titulo"style="height: 60px;">
+          <div class=" d-flex justify-content-end titulo-h1 col-10" >
+            <h1><strong>JUGUETES</strong></h1>
+          </div>
+          <img src="./assets/images/h1.jpg" alt="titulo" class="col-2">
+        </div>
+        <div class="btn-group gap-2 justify-content-center w-100" id="checkboxs" role="group" data-bs-toggle="buttons">
+          <label class="btn btn-dark active" v-for="categoria of listaFiltrosChecks">
+              <input type="checkbox" class="me-2" @change="" v-model="checked" :value="categoria" name="" id="" autocomplete="off"> {{categoria}}
+          </label>
+        </div>
+      
+
+<section class="filtros-productos">
+  <aside class="filtros-aside">FILTROS</aside>
+  <ol class="seccion-productos">
+<li v-for="producto of productos" >
+<div>
+  <div class="producto" >
+    <a :href="'./detalles?id='+producto._id"><img :src="producto.imagen" :alt="producto.producto"></a>
+    <div class="datos-producto">
+      <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
+    <p v-if="producto.disponibles===0">  SIN STOCK DISPONIBLE </p>
+          <p v-else-if="5>=producto.disponibles>0"> POCO STOCK </p>
+    <p> ${{producto.precio}} </p>
+    </div>
+  </div>
+</div>
+</li>
+
+  </ol>
+</section>
+<div>
+
+
+     </div>
+    </div>
+
+    </main>
+    <!--Footer-->
+  <div class="">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 my-5 border-top px-3 bg-secondary">
+      <!--LOGO-->
+      <div class="col-mb-4 col-md-6 col-lg-3 nav flex-column">
+        
+          <img class="" src="./assets/images/LOGO_HUELLITAS.png" alt="logo" width="80%">
       
       <div class="d-flex justify-content-end titulo">
         <div class=" d-flex justify-content-end titulo-h1" >
