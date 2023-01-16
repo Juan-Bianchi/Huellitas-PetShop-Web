@@ -69,7 +69,7 @@ body{
   display: flex;
   justify-content: center;
   /* background-color: rgba(211, 211, 211, 0.445); */
-  width: 85%;
+  width: 90%;
   border-radius: 8px;
 }
 
@@ -380,6 +380,11 @@ h1{
     }
     .contenedor-img{
       height: 12rem;
+    }
+    .filtros-aside {
+      position: relative;
+      height: 24rem;
+      margin-top: 1.2rem;
     }
   
   }
