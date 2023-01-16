@@ -75,6 +75,7 @@ body{
 
 .filtros-aside {
   border-radius: 8px;
+  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,15 +172,11 @@ body{
   opacity: 80%;
 }
 
-header{
-  /* position: sticky; */
-  top: 0;
-}
 body{
   min-height: 100vh;
-  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
-
+  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) )
 }
+
 .nav-button{
   font-size: 15px;
   color: #e0d4d4;
@@ -188,7 +185,7 @@ body{
   overflow: hidden;
   transition: all 0.3s;
   border-radius: 12px;
-  background-color: #ecc648;
+  background-color: #48c6ec;
   font-weight: bolder;
   box-shadow: 0 2px 0 2px #000;
 }
@@ -197,22 +194,22 @@ body{
   position: absolute;
   width: 100px;
   height: 120%;
-  background-color: #f4b63a;
+  background-color: #cbc9c5;
   top: 50%;
-  transform: skewX(30deg) translate(-150%, -50%);
-  transition: all 0.5s;
+  transform: skewX(20deg) translate(-100%, -50%);
+  transition: all 0.1s;
 }
 .nav-button:hover {
-  background-color: #4cc9f0;
+  background-color: #3a636f;
   color: #fff;
-  box-shadow: 0 2px 0 2px #0d3b66;
+  box-shadow: 0 1px 0 2px #0d3b66;
 }
 .nav-button:hover::before {
   transform: skewX(30deg) translate(150%, -50%);
   transition-delay: 0.1s;
 }
 .nav-button:active {
-  transform: scale(0.9);
+  transform: scale(0.5);
 }
 
 .titulo{
@@ -220,24 +217,26 @@ body{
   border-bottom: 2px solid black;
   background-color: white;
 }
-
+@media (min-width: 425px) and (max-width: 590px){
+  .titulo-h1 {
+      width: 80%;
+  }
+  .imagen{
+    width: 20%;
+  }
+}
 h1{
-  
   width: 100%; 
   height: 100%;
   text-align: center;
   padding-top: 0rem;
-  padding-left: 11rem;
+  padding-left: 1rem;
   padding-top: 0.6rem;
   color:#f4b63a;
   font-size: 2rem;
 }
-.titulo-h1{
-  width: 85%;
-}
 .titulo img{
-  height: 3.5rem;
-  background-color: white;
+  height: 100%;
 }
 .formulario1{
   margin: 1rem;
@@ -340,6 +339,10 @@ h1{
   .text-center {
     justify-content: center;
     align-content: center;
+  }
+
+  .modal-carrito {
+    opacity: 100%;
   }
 
   /*/////////////////////////MEDIA QUERY////////////////////*/

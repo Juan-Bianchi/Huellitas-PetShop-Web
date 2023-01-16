@@ -46,7 +46,11 @@ createApp ( {
                 for(let producto of this.productosModif) {
                     for(let prodCarro of this.productosCarrito) {
                         if(prodCarro._id === producto._id) {
-                            producto = prodCarro;
+                            producto.disponibles = prodCarro.disponibles;
+                            producto.cantPedida = prodCarro.cantPedida;
+                            producto.subtotal = prodCarro.subtotal;
+                            producto.descuento = prodCarro.descuento;
+                            producto.total = prodCarro.total;
                         }
 
                     }
@@ -55,6 +59,28 @@ createApp ( {
         },
 
         manejarCarrito(prodAVender){
+
+            prodAVender = this.actualizacionDePropiedades(prodAVender);
+
+            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
+                this.productosCarrito.push(prodAVender);
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+        },
+
+        agregarCarritoPorBoton() {
+
+            this.producto = this.actualizacionDePropiedades(this.producto);
+    
+            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
+                this.productosCarrito.push(this.producto);
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+        },
+
+        actualizacionDePropiedades(prodAVender) {
 
             prodAVender.disponibles --;
             prodAVender.cantPedida ++;
@@ -65,11 +91,7 @@ createApp ( {
             prodAVender.subtotal = prodAVender.cantPedida * prodAVender.precio;
             prodAVender.total = prodAVender.subtotal - prodAVender.descuento;
 
-            if(!this.productosCarrito.includes(prodAVender)){
-                this.productosCarrito.push(prodAVender);
-            }
-
-            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+            return prodAVender;
         },
 
 
