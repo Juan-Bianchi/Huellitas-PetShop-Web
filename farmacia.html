@@ -48,18 +48,25 @@
           </div>
           <img src="./assets/images/h1.jpg" alt="titulo">
         </div>
-        <div class="btn-group gap-2 justify-content-center w-100" id="checkboxs" role="group" data-bs-toggle="buttons">
-            <label class="btn btn-dark active" v-for="categoria of listaFiltrosChecks">
-                <input type="checkbox" class="me-2" @change="" v-model="checked" :value="categoria" name="" id="" autocomplete="off"> {{categoria}}
-            </label>
-        </div>
+        
         
       </main>
 
       <section class="filtros-productos">
-        <aside class="filtros-aside">FILTROS</aside>
+        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start ">
+          <form class="d-flex m-3 flex-column" role="search" id="search">
+            <h6 >Busca tu producto</h6>
+            <input v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control me-2" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
+        </form>
+          <div class="row btn-group gap-2 justify-content-center w-50 g-2 " id="checkboxs" role="group" data-bs-toggle="buttons">
+            <label class="btn btn-dark active" v-if="listaFiltrosChecks.length" v-for="categoria of listaFiltrosChecks" >
+                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosChecks.indexOf(categoria)" autocomplete="off"> {{categoria}}
+            </label>
+        </div>
+        </aside>
+        
         <ol class="seccion-productos">
-      <li v-for="producto of productos" >
+      <li v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
       <div>
         <div class="producto" > 
           <a :href="'./detalles?id='+producto._id"><img :src="producto.imagen" :alt="producto.producto"></a>
