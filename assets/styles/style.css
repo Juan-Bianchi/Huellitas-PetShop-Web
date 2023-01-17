@@ -68,9 +68,6 @@ nav {
 }
 
 
-/*body{
-    background-color: #6cdee4;
-}*/
 
 .cards-wrapper {
   display: flex;
@@ -122,12 +119,7 @@ nav {
   margin: auto;
   width: 80%;
 }
-/*.carousel1 {
-  margin-top:15%;
-  padding-top: 6%;
-  width: 80%;
 
-}*/
 
 .carousel-wrapper {
   max-height: 6rem;
