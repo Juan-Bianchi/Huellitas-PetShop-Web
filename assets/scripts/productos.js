@@ -35,6 +35,8 @@ createApp({
                 this.agregarPropiedadesFiltrosChecks();
                 this.generoListaChecks();
                 this.productosFiltradosFinal= [...this.productos]
+
+                
             })
     },
 
