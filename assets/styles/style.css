@@ -42,9 +42,7 @@ nav {
   background-color: #039097c2;
 }
 
-footer {
-  background-color: #417d7a;
-}
+
 
 .formulario {
   margin: 5rem;
@@ -336,7 +334,7 @@ h1{
 }
 
 .imgFooterFpago {
-  width: 80%;
+  width: 50% !important;
   margin: 0 auto;
 }
 .mapSize {
@@ -458,10 +456,11 @@ h1{
 /*//////////////////////////DETALLES///////////////////////*/
 
 footer{
-  background-color: rgb(26, 60, 64) !important;
+  background-color: #3C4048;
 }
 .section{
   text-align: center;
+  background-color: #B2B2B2;
 }
 
 .text-center {
