@@ -37,7 +37,7 @@ textarea {
 
 
 body{
-    background-color: rgb(231, 231, 137);
+    background-color: #6cdee4;
 }
 
 .cards-wrapper {
@@ -62,6 +62,12 @@ body{
   margin: auto;
   width: 80%;
 }
+/*.carousel1 {
+  margin-top:15%;
+  padding-top: 6%;
+  width: 80%;
+
+}*/
 
 .filtros-productos {
   margin: auto;
@@ -309,7 +315,11 @@ h1{
     background-blend-mode: darken;
     color: white;
   }
-
+  .img-entrada{
+    width: 550px;
+    height: 500px;
+    padding: 5%;
+  }
 
   #jugueteriaInd {
     background-image: url(../images/jugueteria.jpg);
