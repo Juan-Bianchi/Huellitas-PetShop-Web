@@ -9,7 +9,7 @@ createApp({
             otraMascota:"",
             telefonoUsuario:"",
             nombreUsuario:"",
-            
+            emailUsuario:"",
         }
     },
     created(){
@@ -32,13 +32,14 @@ createApp({
         limpiarForm(){
             window.location.reload()
         },
-        
+
         limpiarForm(){
             this.mensaje=""
             this.mascota=""
             this.otraMascota=""
             this.telefonoUsuario=""
             this.nombreUsuario=""
+            this.emailUsuario=""
         },
 
 

@@ -245,6 +245,19 @@ footer {
   padding-left: 2rem;
 }
 
+.modal h4{
+  color: #00ABB3;
+  margin: 1rem;
+  text-align: center;
+}
+
+.modal-header{
+  border-bottom: 1px solid #00ABB3 ;
+}
+
+.modal-footer{
+  border-top: 1px solid #00ABB3 ;
+}
 
 .logo-modal{
   width: 4rem;
