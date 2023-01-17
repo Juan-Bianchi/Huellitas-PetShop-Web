@@ -460,14 +460,9 @@ footer{
   
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1025px) {
   .card:nth-last-child(2) {
     display: none;
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    margin-top: 10rem;
   }
 
   .carousel{
@@ -485,8 +480,40 @@ footer{
   position: relative;
 }
 
-#section-msg-index{
-  padding-top: 20rem;
+
+
 }
+
+@media (max-width: 375px){
+  #section-msg-index{
+    padding-top: 15rem;
+  }
+
+  #img-carousel-mobile{
+    width:82vw ;
+  }
+}
+
+@media (max-width: 425px){
+  
+  #img-carousel-mobile{
+    width:82vw ;
+  }
+  #section-msg-index{
+    padding-top: 13.5rem;
+  }
+}
+
+@media (max-width: 768px){
+  #img-carousel-mobile{
+    width:50vw ;
+  }
+  #section-msg-index{
+    padding-top: 13.5rem;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    margin-top: 10rem;
+  }
 
 }
