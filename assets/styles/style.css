@@ -142,7 +142,7 @@ footer {
 
 .filtros-aside {
   border-radius: 8px;
-  height: 700px;
+  /* height: 700px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -432,6 +432,12 @@ h1{
 }
 
 
+
+/*//////////////////////////PRODUCTOS//////////////////////*/
+
+#search {
+  width: 80%;
+}
 
 /*//////////////////////////DETALLES///////////////////////*/
 
