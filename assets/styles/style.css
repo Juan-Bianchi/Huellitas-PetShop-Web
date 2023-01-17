@@ -36,10 +36,6 @@ textarea {
 }
 
 
-body{
-    background-color: rgb(231, 231, 137);
-}
-
 .cards-wrapper {
   display: flex;
   justify-content: center;
@@ -147,7 +143,9 @@ body{
 .formulario .bg-light {
   --bs-bg-opacity: 0.7;
 }
-
+.imagen-entrada{
+  width: 500px;
+}
 .btn,
 .btn-primary {
   --bs-btn-bg: rgba(214, 143, 143, 0.856) !important ;
@@ -174,48 +172,45 @@ body{
 
 body{
   min-height: 100vh;
-  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) )
+  background-image:linear-gradient( #EAEAEA,#00ABB3 )
 }
-
+.navbar{
+  background-color: #B2B2B2;
+}
 .nav-button{
-  font-size: 15px;
-  color: #e0d4d4;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s;
-  border-radius: 12px;
-  background-color: #48c6ec;
-  font-weight: bolder;
-  box-shadow: 0 2px 0 2px #000;
-}
-.nav-button:before {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 120%;
-  background-color: #cbc9c5;
-  top: 50%;
-  transform: skewX(20deg) translate(-100%, -50%);
-  transition: all 0.1s;
-}
-.nav-button:hover {
-  background-color: #3a636f;
-  color: #fff;
-  box-shadow: 0 1px 0 2px #0d3b66;
-}
-.nav-button:hover::before {
-  transform: skewX(30deg) translate(150%, -50%);
-  transition-delay: 0.1s;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color:  #B2B2B2;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .nav-button:hover {
+    background-color: #00ABB3;
+    box-shadow: 0px 15px 20px #00ABB3;
+    color: #fff;
+    transform: translateY(-7px);
 }
 .nav-button:active {
-  transform: scale(0.5);
+    transform: translateY(-1px);
+}
+.foto-logo{
+  height: 80%;
+}
+header{
+  height: 10%;
 }
 
 .titulo{
-  max-height: 10%;
-  border-bottom: 2px solid black;
-  background-color: white;
+  max-height: 30px;
+  background: linear-gradient(  #00ABB3, #00ABB3);
 }
 @media (min-width: 425px) and (max-width: 590px){
   .titulo-h1 {
@@ -228,15 +223,10 @@ body{
 h1{
   width: 100%; 
   height: 100%;
+  padding-top: 0.3rem;
   text-align: center;
-  padding-top: 0rem;
-  padding-left: 1rem;
-  padding-top: 0.6rem;
-  color:#f4b63a;
-  font-size: 2rem;
-}
-.titulo img{
-  height: 100%;
+  color:#fefdfa;
+  font-size: 1rem;
 }
 .formulario1{
   margin: 1rem;
