@@ -136,7 +136,6 @@ footer {
   margin-top: 3rem;
   display: flex;
   justify-content: center;
-  /* background-color: rgba(211, 211, 211, 0.445); */
   width: 90%;
   border-radius: 8px;
 }
@@ -148,8 +147,6 @@ footer {
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
-  /* height: 400px;
-  width: 20%; */
   background-color: white;
   border: 0.5px solid lightgray;
 }
@@ -212,9 +209,37 @@ footer {
 .formulario .bg-light {
   --bs-bg-opacity: 0.7;
 }
-.imagen-entrada{
-  width: 500px;
+
+.contenedor-hist-img{
+  background-image: url('../images/huellas.png');
+  /* background-color: #00aab2; */
+  /* background: linear-gradient(0deg, rgba(0, 169, 178, 0) 0%, rgba(0,170,178,0) 89%); */
+  background-size: contain;
+  box-shadow: 5px 6px 5px 3px rgba(0,0,0,0.49);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 90%;
 }
+
+.contenedor-hist-img h3{
+  padding-top: 4px;
+  border-radius: 3px;
+  background-color: #000000;
+  color: #EAEAEA;
+}
+
+.contenedor-img-entreda{
+  width: 100%;
+}
+
+.imagen-entrada{
+  border-radius: 5px;
+  width: 100%;
+}
+
+
+
 .btn,
 .btn-primary {
   --bs-btn-bg: rgba(214, 143, 143, 0.856) !important ;
@@ -380,6 +405,13 @@ h1{
   color: white;
 }
 
+#jugueteriaInd:hover {
+  background-color: rgba(0, 0, 0, 0.484);
+  background-blend-mode: darken;
+  color: white;
+}
+
+
 #jugueteriaInd {
   background-image: url(../images/jugueteria.jpg);
   background-size: cover;
@@ -394,6 +426,11 @@ h1{
   margin-bottom: 3vh;
   border-radius: 5px;
 }
+
+.seccion-historia{
+  padding-top: 15rem;
+}
+
 
 
 /*//////////////////////////DETALLES///////////////////////*/
@@ -433,6 +470,9 @@ footer{
   #jugueteriaInd span {
     font-size: 11px;
   }
+  .contenedor-hist-img{
+    margin-top: 4rem;
+  }
 }
 
 @media (min-width: 992px) {
@@ -452,11 +492,24 @@ footer{
     height: 12rem;
   }
  .filtros-aside {
-  position: relative;
-  height: 24rem;
-  margin-top: 1.2rem;
-}
-  
+    position: relative;
+    height: 24rem;
+    margin-top: 1.2rem;
+  }
+  .contenedor-hist-img{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+  }
+  .seccion-historia{
+    padding-top: 0;
+  }
+  .contenedor-historia{
+    width: 30%;
+  }
+  .contenedor-img-entreda{
+    width: 50%;
+  }
 }
 
 @media (max-width: 1440px){
@@ -484,7 +537,6 @@ footer{
 .carousel-wrapper{
   position: relative;
 }
-
 
 
 }
