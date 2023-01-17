@@ -129,7 +129,6 @@ footer {
   align-items: center;
   height: 320px;
   margin-top: 4rem;
-  margin-bottom: 6rem;
 }
 
 .filtros-productos {
@@ -137,20 +136,17 @@ footer {
   margin-top: 3rem;
   display: flex;
   justify-content: center;
-  /* background-color: rgba(211, 211, 211, 0.445); */
   width: 90%;
   border-radius: 8px;
 }
 
 .filtros-aside {
   border-radius: 8px;
-  height: 700px;
+  /* height: 700px; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding-bottom: 2rem;
-  /* height: 400px;
-  width: 20%; */
   background-color: white;
   border: 0.5px solid lightgray;
 }
@@ -213,9 +209,37 @@ footer {
 .formulario .bg-light {
   --bs-bg-opacity: 0.7;
 }
-.imagen-entrada{
-  width: 500px;
+
+.contenedor-hist-img{
+  background-image: url('../images/huellas.png');
+  /* background-color: #00aab2; */
+  /* background: linear-gradient(0deg, rgba(0, 169, 178, 0) 0%, rgba(0,170,178,0) 89%); */
+  background-size: contain;
+  box-shadow: 5px 6px 5px 3px rgba(0,0,0,0.49);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 90%;
 }
+
+.contenedor-hist-img h3{
+  padding-top: 4px;
+  border-radius: 3px;
+  background-color: #000000;
+  color: #EAEAEA;
+}
+
+.contenedor-img-entreda{
+  width: 100%;
+}
+
+.imagen-entrada{
+  border-radius: 5px;
+  width: 100%;
+}
+
+
+
 .btn,
 .btn-primary {
   --bs-btn-bg: rgba(214, 143, 143, 0.856) !important ;
@@ -364,6 +388,13 @@ h1{
   color: white;
 }
 
+#jugueteriaInd:hover {
+  background-color: rgba(0, 0, 0, 0.484);
+  background-blend-mode: darken;
+  color: white;
+}
+
+
 #jugueteriaInd {
   background-image: url(../images/jugueteria.jpg);
   background-size: cover;
@@ -379,6 +410,17 @@ h1{
   border-radius: 5px;
 }
 
+.seccion-historia{
+  padding-top: 15rem;
+}
+
+
+
+/*//////////////////////////PRODUCTOS//////////////////////*/
+
+#search {
+  width: 80%;
+}
 
 /*//////////////////////////DETALLES///////////////////////*/
 
@@ -417,6 +459,9 @@ footer{
   #jugueteriaInd span {
     font-size: 11px;
   }
+  .contenedor-hist-img{
+    margin-top: 4rem;
+  }
 }
 
 @media (min-width: 992px) {
@@ -436,27 +481,85 @@ footer{
     height: 12rem;
   }
  .filtros-aside {
-  position: relative;
-  height: 24rem;
-  margin-top: 1.2rem;
-}
-  
+    position: relative;
+    height: 24rem;
+    margin-top: 1.2rem;
+  }
+  .contenedor-hist-img{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+  }
+  .seccion-historia{
+    padding-top: 0;
+  }
+  .contenedor-historia{
+    width: 30%;
+  }
+  .contenedor-img-entreda{
+    width: 50%;
+  }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1440px){
+.carousel{
+  margin-bottom: 2rem;
+}
+}
+
+@media (max-width: 1025px) {
   .card:nth-last-child(2) {
     display: none;
   }
 
-  .carousel-control-prev,
-  .carousel-control-next {
-    margin-top: auto;
-    top: auto;
-  }
-
   .carousel{
+    margin-bottom: 4rem;
     height: 332px;
     margin-top: 2rem;
+  }
+
+  #img-carousel-mobile{
+    margin: auto;
+    width: 60vw;
+  }
+
+.carousel-wrapper{
+  position: relative;
+}
+
+
+}
+
+@media (max-width: 375px){
+  #section-msg-index{
+    padding-top: 15rem;
+  }
+
+  #img-carousel-mobile{
+    width:82vw ;
+  }
+}
+
+@media (max-width: 425px){
+  
+  #img-carousel-mobile{
+    width:82vw ;
+  }
+  #section-msg-index{
+    padding-top: 13.5rem;
+  }
+}
+
+@media (max-width: 768px){
+  #img-carousel-mobile{
+    width:50vw ;
+  }
+  #section-msg-index{
+    padding-top: 13.5rem;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    margin-top: 10rem;
   }
 
 }
