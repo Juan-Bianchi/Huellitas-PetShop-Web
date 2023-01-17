@@ -26,6 +26,8 @@ createApp({
                     this.productos = productos.filter(producto => producto.categoria === "jugueteria")
                 }
 
+                this.comentariosUsuario=JSON.parse(localStorage.getItem('comentarios')) || []
+
             })
     },
     methods: {
