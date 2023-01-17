@@ -499,8 +499,9 @@ footer{
   }
  .filtros-aside {
     position: relative;
-    height: 24rem;
+    height: fit-content;
     margin-top: 1.2rem;
+    
   }
   .contenedor-hist-img{
     display: flex;
