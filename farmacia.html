@@ -49,7 +49,7 @@
         
       </main>
 
-      <section class="filtros-productos d-flex flex-column flex-lg-row">
+      <section class="filtros-productos d-flex  ">
         <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
           <form class="d-flex m-3 flex-column" role="search" id="search">
             <h6 >Busqueda por producto</h6>
@@ -78,22 +78,26 @@
           </div>
 
         </aside>
-        <div class="d-md-flex flex-md-column justify-content-md-evenly col-md-6 mx-md-auto col-lg-3">
-          <div v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
+        <div >
+          <div class="card-producto" v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
             <div class="producto"> 
               <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
               <div class="datos-producto">
                 <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
+                <p class="disponibles-p">Unidades disponibles: {{producto.disponibles}} </p>
                 <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
                 <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
                 <p class="precio"> ${{producto.precio}} </p>
               </div>
+              <div v-if="producto.disponibles===0" class="carrito-wrapper "><img  class="carrito-disabled" src="./assets/images/cart-disabled.png" alt="AGREGAR AL CARRITO"></div>
+              <div v-else class="carrito-wrapper"><img tabindex="1" class="carrito" src="./assets/images/cart.png" alt="AGREGAR AL CARRITO"></div>
             </div>
            </div>
         </div>
       </section>
 
     </div>
+   
  <!--Footer-->
   
  <footer class="d-lg-flex container-fluid pt-3 text-white  pb-4">

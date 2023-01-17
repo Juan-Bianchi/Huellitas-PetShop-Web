@@ -128,12 +128,6 @@ nav {
   margin: 0 auto;
   width: 80%;
 }
-/*.carousel1 {
-  margin-top:15%;
-  padding-top: 6%;
-  width: 80%;
-
-}*/
 
 .carousel-wrapper {
   max-height: 6rem;
@@ -173,11 +167,14 @@ nav {
 .producto {
   background-color: rgba(255, 255, 255, 0.76);
   display: flex;
-  flex-direction: column;
-  width: 100%;
   align-items: center;
   border-radius: 0.5rem;
-  margin: 1.2rem 0;
+  margin: 0.5rem 0;
+  width: 50vw;
+}
+
+.disponibles-p{
+  font-weight: lighter;
 }
 
 .img-wrapper {
@@ -192,6 +189,11 @@ nav {
   border-bottom: 0.7px solid rgb(210, 179, 77);
 }
 
+.img-producto-wrapper{
+  width: 230px;
+  height: 230px;
+}
+
 .producto-img-wrapper {
   width: 250px;
   height: 250px;
@@ -201,6 +203,10 @@ nav {
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
+}
+
+.datos-producto{
+  margin-left: 1rem;
 }
 
 .datos-producto a {
@@ -309,7 +315,8 @@ nav {
 
 body{
   min-height: 100vh;
-  background-image:linear-gradient( #EAEAEA,#00ABB3 )
+  background-image:linear-gradient( #eaeaea9d,#00aab3a9 ), url('../images/background-huellas.png');
+background-size: contain;
 }
 .navbar{
   background-color:#3C4048;
@@ -392,6 +399,29 @@ h1{
 
 .contact {
   margin: 0;
+}
+
+.carrito-wrapper{
+  width: 5rem;
+  margin-left: auto;
+  margin-top: auto;
+  padding-right:  2.5rem;
+  padding-bottom: 2rem;
+}
+
+
+.carrito:hover{
+  transform: scale(1.1) translatey(-1rem);
+  background-color: #00aab34d;
+}
+
+.carrito:active{
+  background-color: #105a5e;
+}
+
+.carrito{
+  transition: all .2s ease-in-out;
+  width: 100%;
 }
 
 /*/////////////////////////INICIO/////////////////////////*/
