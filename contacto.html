@@ -69,18 +69,18 @@
             </select>
             <div v-if="mascota=='otra'">
               <p>Ingrese su mascota</p>
-              <input type="text" id="otraMascotaTA" v-model="otraMascota" @keyup="logmensaje" 
+              <input type="text" id="otraMascotaTA" v-model="otraMascota" 
                 placeholder="Ingrese su mascota">
             </div>
           </div>
           <div class="mb-3">
             <label for="coment">Mensaje</label>
-            <textarea v-model="mensaje" @keyup="logmensaje" placeholder="Escriba su mensaje" name="" rows="6"
+            <textarea v-model="mensaje"  placeholder="Escriba su mensaje" name="" rows="6"
               cols="50"></textarea>
           </div>
 
           <!-- Modal -->
-          <div class="modal fade" @click="enviarForm" id="exampleModal" tabindex="-1"
+          <div class="modal fade" @click="limpiarForm" id="exampleModal" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -99,14 +99,14 @@
                   <h4>Nos pondremos en contacto brevemente</h4>
                 </div>
                 <div class="modal-footer">
-                  <button @click="enviarForm" type="button" class="btn btn-secondary"
+                  <button @click="limpiarForm" type="button" class="btn btn-secondary"
                     data-bs-dismiss="modal">Cerrar</button>
-                  <button @click="enviarForm" type="button" class="btn btn-primary">Enviar otro comentario</button>
+                  <button @click="limpiarForm" type="button" class="btn btn-primary">Enviar otro comentario</button>
                 </div>
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+          <button type="button" @click="localStorageComentario()" class="btn btn-primary" data-bs-toggle="modal"
             data-bs-target="#exampleModal">Enviar</button><!-- <button type="submit" class="btn btn-dark" v-on:submit.stop.prevent="log('clicked!')"  >Submit</button> -->
         </form>
       </div>

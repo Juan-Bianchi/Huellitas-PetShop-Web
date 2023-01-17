@@ -30,11 +30,6 @@ createApp({
     },
     methods: {
 
-        enviarForm() {
-            this.localStorageComentario()
-            
-        },
-
         limpiarForm() {
             this.mensaje = ""
             this.mascota = ""
@@ -42,6 +37,7 @@ createApp({
             this.telefonoUsuario = ""
             this.nombreUsuario = ""
             this.emailUsuario = ""
+            console.log(this.comentariosUsuario)
         },
 
         localStorageComentario() {
@@ -51,9 +47,5 @@ createApp({
             localStorage.setItem('comentarios', JSON.stringify(this.comentariosUsuario))
         },
 
-
-        logmensaje() {
-            console.log(this.mensaje, this.otraMascota)
-        }
     }
 }).mount("#appContacto")
