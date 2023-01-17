@@ -13,61 +13,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black container-fluid">
-      <div class="container-fluid w-100">
-        <a class="navbar-brand ms-3" href="#">
-          <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5" >
-        </a>
-        <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse show" id="navbarSupportedContent">
-          <ul class="navbar-nav d-flex  ms-auto">
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" aria-current="page" href="./index.html">INICIO</a>
-              </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./contacto.html">CONTACTO</a>
-              </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./farmacia.html">FARMACIA</a>
-              </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./juguete.html">JUGUETES</a>
-              </li>
-            </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <div class="d-flex justify-content-end titulo"style="height: 60px;">
-      <div class=" d-flex justify-content-end titulo-h1 col-10" >
-        <h1><strong>DETALLES</strong></h1>
-      </div>
-      <img src="./assets/images/h1.jpg" alt="titulo" class="col-2">
-    </div>
-    <div v-if="productos"class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-center flex-wrap"  style="width: 96%;">
-      <div class="col-md-7 text-center"  >
-        <img :src="producto.imagen" class="card-img-top border border-white  rounded" :alt="producto.producto">
-      </div>
-      <div class="col-md-5 ">
-        <div class="card-body m-3"  >
-          <h4 class="card-title m-2">{{producto.producto}}</h4>
-          <h5 class="card-title m-2">{{producto.caregoria}}</h5>
-          <p class="card-text">{{producto.descripcion}}</p>
-          <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
-          <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
-        </div>
-      </div>
-    </div>
-  </main>
-<!--Footer-->
-<div class="">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 my-5 border-top px-3 bg-secondary">
-=======
   <div id="app">
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-black container-fluid">
@@ -99,50 +44,77 @@
     </header>
     <main>
 
-      <div class="modal fade modal-dialog-scrollable modal-carrito" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Compra Confirmada</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <table>
-              <!-- <table v-if="productosCarrito.length"> -->
-                <thead>
-                  <tr>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Cantidad</th>
-                    <th>Subtotal</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="producto of productosCarrito">
-                    <td>{{producto.producto}}</td>
-                    <td>{{producto.precio}}</td>
-                    <td>{{producto.cantPedida}}</td>
-                    <td>{{producto.subtotal}}</td>
-                    <td>{{producto.total}}</td>
-                  </tr>
-                </tbody>
-
-              </table>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Understood</button>
+              ¡GRACIAS POR SU COMPRA! Estaremos comunicandonos a la brevedad.
             </div>
           </div>
         </div>
       </div>
 
-      <div class="d-flex justify-content-end titulo">
-        <div class=" d-flex justify-content-end titulo-h1" >
-          <h1><strong>DETALLES</strong></h1>
+      <div class="modal fade modal-dialog-scrollable modal-carrito modal-lg" id="modalCarrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Carrito de Compras</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="w-100">
+                <colgroup>
+                  <col span="5" class="total">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Nombre</th>
+                    <th style="text-align: center">Precio</th>
+                    <th style="text-align: center">Cantidad</th>
+                    <th style="text-align: center">Subtotal</th>
+                    <th style="text-align: center">Descuento</th>
+                    <th style="text-align: right">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="producto of productosCarrito">
+                    <td style="text-align: center">  {{producto.producto}}  </td>
+                    <td style="text-align: center">  $ {{producto.precio}}  </td>
+                    <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"> </i>  {{producto.cantPedida}}  <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)" class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus"></i></td>
+                    <td style="text-align: center">  $ {{producto.subtotal}}  </td>
+                    <td style="text-align: center">  $ {{producto.descuento}}</td>
+                    <td style="text-align: right">  $ {{producto.total}}  </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Total de la compra:</td>
+                    <td colspan="5" style="text-align: right">  $ {{totalCompra}}  </td>
+                  </tr> 
+                </tfoot>
+
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalVenta">Confirmar la compra</button>
+              <button v-else type="button" class="btn btn-primary" >Confirmar la compra</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver a la Web</button>
+              <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vaciar Carrito</button>
+              <button v-else type="button" class="btn btn-primary">Vaciar Carrito</button>
+            </div>
+          </div>
         </div>
-        <img src="./assets/images/h1.jpg" alt="titulo">
+      </div>
+
+      <div class="d-flex justify-content-end titulo"style="height: 60px;">
+        <div class=" d-flex justify-content-end titulo-h1 col-10" >
+          <h1><strong>JUGUETES</strong></h1>
+        </div>
+        <img src="./assets/images/h1.jpg" alt="titulo" class="col-2">
       </div>
 
       <div v-if="producto" class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-around flex-wrap"  style="width: 96%;">
@@ -158,7 +130,16 @@
             <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
           </div>
           <div>
-            <button @click="agregarCarritoPorBoton(producto)" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <button v-if="producto.disponibles" @click="agregarCarritoPorBoton" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+              Agregar producto al carrito
+              <div v-if="productosCarrito.length">
+                <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
+              </div>
+              <div v-else>
+                <i class="fa-regular fa-cart-shopping-fast"></i> 
+              </div>
+            </button>
+            <button v-else type="button" class="btn">
               Agregar producto al carrito
               <div v-if="productosCarrito.length">
                 <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
@@ -175,7 +156,6 @@
   
    <footer class="d-lg-flex bg-black container-fluid pt-3 text-white text-bg-light pb-4">
 
->>>>>>> 61bb3d8a20f9b42ad91c34f21a8e6adba0242233
     <!--LOGO-->
     <div class="d-md-flex col-lg-5">
       <div class="d-sm-flex col-md-6 logo-footer align-items-md-center">
