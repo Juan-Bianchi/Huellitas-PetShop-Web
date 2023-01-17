@@ -54,29 +54,33 @@
           </div>
           <div class="mb-3">
             <label for="tel">Teléfono</label>
-            <input v-model="telefonoUsuario" id="tel" type="tel">
+            <input  v-model="telefonoUsuario" id="tel" type="number" placeholder="   123456789">
           </div>
           <div class="mb-3">
+            <div class="mb-3">
+              <label for="tel">Email</label>
+              <input  v-model="emailUsuario" id="email" type="email" placeholder="   usuario@email.com...">
+            </div>
             <select v-model="mascota" name="animal" id="">
-              <option value="">Selecione tipo de mascota</option>
+              <option value="">Selecione su mascota</option>
               <option value="perro">Perro</option>
               <option value="gato">Gato</option>
               <option value="otra">Otra</option>
             </select>
             <div v-if="mascota=='otra'">
               <p>Ingrese su mascota</p>
-              <input type="text" id="otraMascotaTA" v-model="otraMascota" @keyup="logmensaje"
+              <input type="text" id="otraMascotaTA" v-model="otraMascota" 
                 placeholder="Ingrese su mascota">
             </div>
           </div>
           <div class="mb-3">
-            <label for="coment">Comentarios</label>
-            <textarea v-model="mensaje" @keyup="logmensaje" placeholder="Escriba su mensaje" name="" rows="6"
+            <label for="coment">Mensaje</label>
+            <textarea v-model="mensaje"  placeholder="Escriba su mensaje" name="" rows="6"
               cols="50"></textarea>
           </div>
 
           <!-- Modal -->
-          <div class="modal fade" @click="recargarPagina" id="exampleModal" tabindex="-1"
+          <div class="modal fade" @click="limpiarForm" id="exampleModal" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -86,21 +90,23 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p> Gracias por su comentario!</p>
+                  <h4> Hemos recibido su consulta!</h4>
                   <p>Su nombre: {{nombreUsuario? nombreUsuario : 'No Ingresó'}} </p>
+                  <p>Su Email: {{emailUsuario? emailUsuario : 'No Ingresó'}} </p>
                   <p>Su teléfono: {{telefonoUsuario? telefonoUsuario : 'No Ingresó'}} </p>
                   <p> Su mascota: {{otraMascota ? otraMascota : mascota? mascota : 'No tiene mascota'}} </p>
                   <p> Su mensaje: {{mensaje? mensaje : 'No dejó mensaje :('}} </p>
+                  <h4>Nos pondremos en contacto brevemente</h4>
                 </div>
                 <div class="modal-footer">
-                  <button @click="recargarPagina" type="button" class="btn btn-secondary"
+                  <button @click="limpiarForm" type="button" class="btn btn-secondary"
                     data-bs-dismiss="modal">Cerrar</button>
-                  <button @click="recargarPagina" type="button" class="btn btn-primary">Enviar otro comentario</button>
+                  <button @click="limpiarForm" type="button" class="btn btn-primary">Enviar otro comentario</button>
                 </div>
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+          <button type="button" @click="localStorageComentario()" class="btn btn-primary" data-bs-toggle="modal"
             data-bs-target="#exampleModal">Enviar</button><!-- <button type="submit" class="btn btn-dark" v-on:submit.stop.prevent="log('clicked!')"  >Submit</button> -->
         </form>
       </div>
