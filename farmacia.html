@@ -13,27 +13,27 @@
   <body>
     <div id="app">
       <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black container-fluid">
+        <nav class="navbar navbar-expand-lg  container-fluid">
           <div class="container-fluid w-100">
-            <a class="navbar-brand ms-3" href="./index.html">
-              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-12 col-md-5 " >
+            <a class="navbar-brand ms-3 col-4" href="#">
+              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5 foto-logo " >
             </a>
             <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse show" id="navbarSupportedContent">
               <ul class="navbar-nav d-flex  ms-auto">
-                  <li class="nav-item navbar-dark bg-black nav-button">
-                    <a class="nav-link navbar-dark bg-black" aria-current="page" href="./index.html">INICIO</a>
+                  <li class="nav-item  nav-button">
+                    <a class="nav-link" aria-current="page" href="./index.html">INICIO</a>
                   </li>
-                  <li class="nav-item navbar-dark bg-black nav-button">
-                    <a class="nav-link navbar-dark bg-black" href="./contacto.html">CONTACTO</a>
+                  <li class="nav-item nav-button">
+                    <a class="nav-link " href="./contacto.html">CONTACTO</a>
                   </li>
-                  <li class="nav-item navbar-dark bg-black nav-button">
-                    <a class="nav-link navbar-dark bg-black" href="#">FARMACIA</a>
+                  <li class="nav-item  nav-button">
+                    <a class="nav-link" href="#">FARMACIA</a>
                   </li>
-                  <li class="nav-item navbar-dark bg-black nav-button">
-                    <a class="nav-link navbar-dark bg-black" href="./juguete.html">JUGUETES</a>
+                  <li class="nav-item  nav-button">
+                    <a class="nav-link " href="./juguete.html">JUGUETES</a>
                   </li>
                 </ul>
             </div>
@@ -42,11 +42,7 @@
       </header>
       <main>
         <div class="d-flex justify-content-end titulo"style="height: 60px;">
-          <div class=" d-flex justify-content-end titulo-h1 col-10" >
             <h1><strong>FARMACIA</strong></h1>
-
-          </div>
-          <img src="./assets/images/h1.jpg" alt="titulo" class="col-2">
         </div>
         
 
@@ -54,7 +50,7 @@
       </main>
 
       <section class="filtros-productos d-flex flex-column flex-lg-row">
-        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-md-auto col-lg-3 ">
+        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
           <form class="d-flex m-3 flex-column" role="search" id="search">
             <h6 >Busca tu producto</h6>
             <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
@@ -64,7 +60,7 @@
                 <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosChecks.indexOf(categoria)" autocomplete="off"> {{categoria}}
             </label>
         </div>
-        <!--<div id="carouselExampleFade" class="carousel1 slide carousel-fade " data-bs-ride="carousel">
+     <!--<div id="carouselExampleFade" class="carousel1 slide carousel-fade " data-bs-ride="carousel">
           <div class="carousel-inner">
             
             <div class="carousel-item active">
