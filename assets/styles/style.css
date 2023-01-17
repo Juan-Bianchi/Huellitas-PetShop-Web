@@ -129,7 +129,6 @@ footer {
   align-items: center;
   height: 320px;
   margin-top: 4rem;
-  margin-bottom: 6rem;
 }
 
 .filtros-productos {
@@ -458,6 +457,12 @@ footer{
   margin-top: 1.2rem;
 }
   
+}
+
+@media (max-width: 1440px){
+.carousel{
+  margin-bottom: 2rem;
+}
 }
 
 @media (max-width: 1025px) {
