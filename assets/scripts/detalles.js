@@ -142,9 +142,8 @@ createApp ( {
         },
 
         limpiarLocalStorage: function() {
-            console.log("HOLA")
             localStorage.clear();
-            productosCarrito = [];
+            this.productosCarrito = [];
         }
 
     }
