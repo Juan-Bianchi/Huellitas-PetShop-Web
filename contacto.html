@@ -54,7 +54,7 @@
           </div>
           <div class="mb-3">
             <label for="tel">Teléfono</label>
-            <input v-model="telefonoUsuario" id="tel" type="tel">
+            <input  v-model="telefonoUsuario" id="tel" type="number" placeholder="   123456789">
           </div>
           <div class="mb-3">
             <select v-model="mascota" name="animal" id="">
@@ -76,7 +76,7 @@
           </div>
 
           <!-- Modal -->
-          <div class="modal fade" @click="recargarPagina" id="exampleModal" tabindex="-1"
+          <div class="modal fade" @click="limpiarForm" id="exampleModal" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -93,9 +93,9 @@
                   <p> Su mensaje: {{mensaje? mensaje : 'No dejó mensaje :('}} </p>
                 </div>
                 <div class="modal-footer">
-                  <button @click="recargarPagina" type="button" class="btn btn-secondary"
+                  <button @click="limpiarForm" type="button" class="btn btn-secondary"
                     data-bs-dismiss="modal">Cerrar</button>
-                  <button @click="recargarPagina" type="button" class="btn btn-primary">Enviar otro comentario</button>
+                  <button @click="limpiarForm" type="button" class="btn btn-primary">Enviar otro comentario</button>
                 </div>
               </div>
             </div>

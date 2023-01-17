@@ -29,9 +29,18 @@ createApp({
     },
     methods:{
 
-        recargarPagina(){
+        limpiarForm(){
             window.location.reload()
         },
+        
+        limpiarForm(){
+            this.mensaje=""
+            this.mascota=""
+            this.otraMascota=""
+            this.telefonoUsuario=""
+            this.nombreUsuario=""
+        },
+
 
         logmensaje (){
             console.log(this.mensaje , this.otraMascota)
