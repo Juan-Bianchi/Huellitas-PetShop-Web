@@ -151,13 +151,30 @@ nav {
 
 .filtros-aside {
   border-radius: 8px;
-  /* height: 700px; */
-  display: flex;
-  justify-content: center;
+  height: 44rem;
   align-items: center;
   padding-bottom: 2rem;
   background-color: white;
   border: 0.5px solid lightgray;
+}
+
+
+.filtros-aside label{
+  border-radius: 8px!important;
+  color: #3c4048;
+  font-size: 14px;
+  background-color: #3dc2c9bd;
+}
+
+.filtros-aside div{
+  background-color: #3468e01a;
+  padding: 1.6rem 1.1rem;
+}
+
+.filtros-aside h6{
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .seccion-productos {
@@ -341,24 +358,26 @@ background-size: contain;
     transform: translateY(-7px);
 }
 .nav-button a{
-  color: white;
+ color: white;
 }
 .foto-logo{
-  height: 80%;
+  height: 90%;
 }
 header{
   height: 10%;
 }
 
 .titulo{
-  max-height: 30px;
+  max-height: 40px;
   background: linear-gradient(  #00ABB3,#00ABB3);
 }
 h1{
   width: 100%; 
   height: 100%;
-  font-size: 1.5rem;
+  padding-top: 0.2rem;
+  font-size: 1.8rem;
   text-align: center;
+  color:#3C4048;
 }
 
 .iconSize {
@@ -582,9 +601,7 @@ footer{
   }
  .filtros-aside {
     position: relative;
-    height: fit-content;
     margin-top: 1.2rem;
-    
   }
   .contenedor-hist-img{
     display: flex;
@@ -597,6 +614,14 @@ footer{
   }
   .contenedor-img-entreda{
     width: 50%;
+  }
+
+  .filtros-aside label{
+    font-size: 13px;
+  }
+  
+  .filtros-aside h6{
+    font-size: 15px;
   }
 }
 
