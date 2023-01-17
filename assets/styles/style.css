@@ -284,31 +284,29 @@ body{
   background-image:linear-gradient( #EAEAEA,#00ABB3 )
 }
 .navbar{
-  background-color: #B2B2B2;
+  background-color:#3C4048;
 }
 .nav-button{
     font-size: 12px;
+    color: white;
+    margin: 0 0.5rem;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
-    color: #000;
-    background-color:  #B2B2B2;
-    border: none;
+    background-color:#3C4048;
     border-radius: 45px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 15px rgba(249, 249, 249, 0.048);
     transition: all 0.3s ease 0s;
     cursor: pointer;
-    outline: none;
   }
   
   .nav-button:hover {
     background-color: #00ABB3;
     box-shadow: 0px 15px 20px #00ABB3;
-    color: #fff;
     transform: translateY(-7px);
 }
-.nav-button:active {
-    transform: translateY(-1px);
+.nav-button a{
+  color: white;
 }
 .foto-logo{
   height: 80%;
@@ -319,28 +317,13 @@ header{
 
 .titulo{
   max-height: 30px;
-  background: linear-gradient(  #00ABB3, #00ABB3);
-}
-@media (min-width: 425px) and (max-width: 590px){
-  .titulo-h1 {
-      width: 80%;
-  }
-  .imagen{
-    width: 20%;
-  }
+  background: linear-gradient(  #00ABB3,#00ABB3);
 }
 h1{
   width: 100%; 
   height: 100%;
-  padding-top: 0.3rem;
+  font-size: 1.5rem;
   text-align: center;
-}
-
-.formulario1{
-  margin: 1rem;
-  border-radius: 10px;
-  border: 2px solid rgb(38, 38, 36);
-  background-color: rgba(8, 8, 5, 0.329);
 }
 
 .iconSize {
