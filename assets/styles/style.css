@@ -4,6 +4,26 @@
   box-sizing: border-box;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  min-height: 100vh;
+  background: rgb(65, 125, 122);
+  background: linear-gradient(
+      90deg,
+      rgba(65, 125, 122, 0.7) 0%,
+      rgba(135, 173, 171, 0.7) 50%,
+      rgba(65, 125, 122, 0.7) 100%
+    ),
+    url("../images/background-huellas.png");
+  background-size: contain;
+}
+
 ol {
   list-style: none;
 }
@@ -24,8 +44,26 @@ textarea {
   border: none;
 }
 
+nav {
+  background-color: #039097c2;
+}
+
+
+
+.formulario {
+  margin: 5rem;
+}
+
+.logo-formulario {
+  margin: auto;
+  width: 5vw;
+}
+
+.logo-formulario img {
+  width: 100%;
+}
+
 .formularioAdentro {
-  margin-top: 2rem;
   border-top-left-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
 }
@@ -36,9 +74,9 @@ textarea {
 }
 
 
-body{
-    background-color: rgb(231, 231, 137);
-}
+/*body{
+    background-color: #6cdee4;
+}*/
 
 .cards-wrapper {
   display: flex;
@@ -46,12 +84,40 @@ body{
 }
 
 .card {
-  width: calc(100% / 6);
+  border: none;
+  background: rgb(211, 117, 107);
+  width: 230px;
+  height: 300px;
   margin: 1rem;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+}
+
+.card:hover {
+  transform: scale(1.6);
+  transition-timing-function: ease-in;
+  transition: 0.2s;
 }
 
 .card-text {
   text-align: center;
+  font-weight: bold;
 }
 
 .card-body {
@@ -59,8 +125,25 @@ body{
 }
 
 .carousel {
-  margin: auto;
+  margin: 0 auto;
   width: 80%;
+}
+/*.carousel1 {
+  margin-top:15%;
+  padding-top: 6%;
+  width: 80%;
+
+}*/
+
+.carousel-wrapper {
+  max-height: 6rem;
+}
+
+#carouselExample {
+  display: flex;
+  align-items: center;
+  height: 320px;
+  margin-top: 4rem;
 }
 
 .filtros-productos {
@@ -68,23 +151,36 @@ body{
   margin-top: 3rem;
   display: flex;
   justify-content: center;
-  /* background-color: rgba(211, 211, 211, 0.445); */
   width: 90%;
   border-radius: 8px;
 }
 
 .filtros-aside {
   border-radius: 8px;
-  display: flex;
-  justify-content: center;
+  height: 44rem;
   align-items: center;
   padding-bottom: 2rem;
-  /* height: 400px;
-  width: 20%; */
   background-color: white;
   border: 0.5px solid lightgray;
-  /* margin-top: 4rem; */
+}
 
+
+.filtros-aside label{
+  border-radius: 8px!important;
+  color: #3c4048;
+  font-size: 14px;
+  background-color: #3dc2c9bd;
+}
+
+.filtros-aside div{
+  background-color: #3468e01a;
+  padding: 1.6rem 1.1rem;
+}
+
+.filtros-aside h6{
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .seccion-productos {
@@ -106,8 +202,11 @@ body{
 }
 
 .img-wrapper > img {
+  border-radius: 1rem;
+  padding: 1rem;
   width: 100%;
   height: 100%;
+  border-bottom: 0.7px solid rgb(210, 179, 77);
 }
 
 .producto-img-wrapper {
@@ -119,10 +218,6 @@ body{
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
-}
-
-.datos-producto {
-  /* margin-left: 5rem; */
 }
 
 .datos-producto a {
@@ -147,6 +242,36 @@ body{
   --bs-bg-opacity: 0.7;
 }
 
+.contenedor-hist-img{
+  background-image: url('../images/huellas.png');
+  /* background-color: #00aab2; */
+  /* background: linear-gradient(0deg, rgba(0, 169, 178, 0) 0%, rgba(0,170,178,0) 89%); */
+  background-size: contain;
+  box-shadow: 5px 6px 5px 3px rgba(0,0,0,0.49);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.contenedor-hist-img h3{
+  padding-top: 4px;
+  border-radius: 3px;
+  background-color: #3c4048;
+  color: #EAEAEA;
+}
+
+.contenedor-img-entreda{
+  width: 100%;
+}
+
+.imagen-entrada{
+  border-radius: 5px;
+  width: 100%;
+}
+
+
+
 .btn,
 .btn-primary {
   --bs-btn-bg: rgba(214, 143, 143, 0.856) !important ;
@@ -167,127 +292,174 @@ body{
   border-color: rgba(77, 50, 50, 0.856) !important;
 }
 
-.modal{
-  opacity: 80%;
+.modal {
+  opacity: 90%;
 }
 
-header{
-  /* position: sticky; */
-  top: 0;
+.modal h1{
+  color: #165692;
+  text-align: start;
+  padding-left: 2rem;
 }
+
+.modal h4{
+  color: #00ABB3;
+  margin: 1rem;
+  text-align: center;
+}
+
+.modal-header{
+  border-bottom: 1px solid #00ABB3 ;
+}
+
+.modal-footer{
+  border-top: 1px solid #00ABB3 ;
+}
+
+.logo-modal{
+  width: 4rem;
+}
+
+.logo-modal img{
+  width: 100%;
+}
+
 body{
   min-height: 100vh;
-  background-image:linear-gradient( rgba(197, 147, 22, 0.719), rgba(224, 216, 207, 0.85) ), url("./assest/images/background.jpg") ;
-
+  background-image:linear-gradient( #EAEAEA,#00ABB3 )
+}
+.navbar{
+  background-color:#3C4048;
 }
 .nav-button{
-  font-size: 15px;
-  color: #e0d4d4;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s;
-  border-radius: 12px;
-  background-color: #ecc648;
-  font-weight: bolder;
-  box-shadow: 0 2px 0 2px #000;
+    font-size: 12px;
+    color: white;
+    margin: 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    background-color:#3C4048;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(249, 249, 249, 0.048);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+  }
+  
+  .nav-button:hover {
+    background-color: #00ABB3;
+    box-shadow: 0px 15px 20px #00ABB3;
+    transform: translateY(-7px);
 }
-.nav-button:before {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 120%;
-  background-color: #f4b63a;
-  top: 50%;
-  transform: skewX(30deg) translate(-150%, -50%);
-  transition: all 0.5s;
+.nav-button a{
+  color: white;
 }
-.nav-button:hover {
-  background-color: #4cc9f0;
-  color: #fff;
-  box-shadow: 0 2px 0 2px #0d3b66;
+.foto-logo{
+  height: 80%;
 }
-.nav-button:hover::before {
-  transform: skewX(30deg) translate(150%, -50%);
-  transition-delay: 0.1s;
-}
-.nav-button:active {
-  transform: scale(0.9);
+header{
+  height: 10%;
 }
 
 .titulo{
-  max-height: 10%;
-  border-bottom: 2px solid black;
-  background-color: white;
+  max-height: 30px;
+  background: linear-gradient(  #00ABB3,#00ABB3);
 }
-
 h1{
-  
   width: 100%; 
   height: 100%;
+  font-size: 1.5rem;
   text-align: center;
-  padding-top: 0rem;
-  padding-left: 11rem;
-  padding-top: 0.6rem;
-  color:#f4b63a;
+}
+
+.iconSize {
+  font-size: 30px;
+  size: 40px;
+}
+
+.imgFooterFpago {
+  width: 50% !important;
+  margin: 0 auto;
+}
+.mapSize {
+  width: 100%;
+}
+
+.link-dark-hover:hover {
+  color: #fff !important;
+}
+
+.contacto {
+  list-style: none;
+  padding-left: 4rem;
+  /* text-align: center; */
+}
+
+.redes {
+  width: 80%;
+}
+
+.icono-redes {
   font-size: 2rem;
 }
-.titulo-h1{
-  width: 85%;
-}
-.titulo img{
-  height: 3.5rem;
-  background-color: white;
-}
-.formulario1{
-  margin: 1rem;
-  border-radius: 10px;
-  border: 2px solid rgb(38, 38, 36);
-  background-color: rgba(8, 8, 5, 0.329);
+
+.contacto-contenedor {
+  font-size: 12px;
+  justify-content: space-around;
 }
 
-.iconSize{
-  font-size: 30px;
-    size: 40px;
-  }
-  
-  .imgFooterFpago{
-    width: 80%;
-    margin: 0 auto;
-  }
-  .mapSize{
-    
-    width: 100%;
-  }
-  
-  .link-dark-hover:hover{
-     color: #fff !important;
-  
-  }
+.contact {
+  margin: 0;
+}
 
-  .contacto{
-    list-style: none;
-    padding-left: 4rem;
-    /* text-align: center; */
-  }
+/*/////////////////////////INICIO/////////////////////////*/
 
-  .redes{
-    width: 80%;
-  }
+#farmaciaInd {
+  background-image: url(../images/farmacia.jpg);
+  background-size: cover;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bolder;
+  color: rgba(255, 255, 255, 0);
+  min-height: 8rem;
+  margin-bottom: 3vh;
+  border-radius: 5px;
+}
 
-  .icono-redes{
-    font-size: 2rem;
-  }
+#farmaciaInd:hover {
+  background-color: rgba(0, 0, 0, 0.484);
+  background-blend-mode: darken;
+  color: white;
+}
 
-  .contacto-contenedor{
-    font-size: 12px;
-    justify-content: space-around;
-  }
+#jugueteriaInd:hover {
+  background-color: rgba(0, 0, 0, 0.484);
+  background-blend-mode: darken;
+  color: white;
+}
 
-  .contact {
-    margin: 0;
-  }
 
+#jugueteriaInd {
+  background-image: url(../images/jugueteria.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bolder;
+  color: rgba(255, 255, 255, 0);
+  min-height: 8rem;
+  margin-bottom: 3vh;
+  border-radius: 5px;
+}
+
+/*//////////////////////////PRODUCTOS//////////////////////*/
+
+#search {
+  width: 80%;
+}
 
   /*/////////////////////////INICIO/////////////////////////*/
 
@@ -310,7 +482,11 @@ h1{
     background-blend-mode: darken;
     color: white;
   }
-
+  .img-entrada{
+    width: 550px;
+    height: 500px;
+    padding: 5%;
+  }
 
   #jugueteriaInd {
     background-image: url(../images/jugueteria.jpg);
@@ -332,59 +508,128 @@ h1{
     background-blend-mode: darken;
     color: white;
   }
+/*//////////////////////////DETALLES///////////////////////*/
 
+footer{
+  background-color: #3C4048;
+}
+.section{
+  text-align: center;
+  background-color: #B2B2B2;
+}
 
+.text-center {
+  justify-content: center;
+  align-content: center;
+}
 
-  /*//////////////////////////DETALLES///////////////////////*/
-
-  .text-center {
-    justify-content: center;
-    align-content: center;
+ .modal-carrito {
+    opacity: 100%;
   }
 
-  /*/////////////////////////MEDIA QUERY////////////////////*/
+/*/////////////////////////MEDIA QUERY////////////////////*/
 
+@media (min-width: 768px) {
+  .logo-footer {
+    /* background-color: #000; */
+    height: 11rem;
+  }
+  .imgFooterFpago {
+    width: 60%;
+  }
+  .contacto {
+    padding-left: 0;
+  }
+  #farmaciaInd span {
+    font-size: 11px;
+  }
+  #jugueteriaInd span {
+    font-size: 11px;
+  }
+  .contenedor-hist-img{
+    margin-top: 4rem;
+  }
+}
 
-  @media(min-width: 768px){
-    .logo-footer{
-      /* background-color: #000; */
-      height: 11rem;
-    }
-    .imgFooterFpago{
-      width: 60%;
-    }
-    .contacto{
-      padding-left: 0;
-    }
-    #farmaciaInd span{
-      font-size: 11px;
-    }
-    #jugueteriaInd span{
-      font-size: 11px;
-    }
-   
+@media (min-width: 992px) {
+  .icono-redes {
+    font-size: 1.6rem;
+  }
+  .imgFooterFpago {
+    width: 75%;
+  }
+  #farmaciaInd span {
+    font-size: 14px;
+  }
+  #jugueteriaInd span {
+    font-size: 14px;
+  }
+  .contenedor-img {
+    height: 12rem;
+  }
+ .filtros-aside {
+    position: relative;
+    margin-top: 1.2rem;
+  }
+  .contenedor-hist-img{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px 0;
+  }
+ 
+  .contenedor-historia{
+    width: 30%;
+  }
+  .contenedor-img-entreda{
+    width: 50%;
   }
 
-  @media(min-width: 992px){
-    .icono-redes{
-      font-size: 1.6rem;
-    }
-    .imgFooterFpago{
-      width: 75%;
-    }
-    #farmaciaInd span{
-      font-size: 14px;
-    }
-    #jugueteriaInd span{
-      font-size: 14px;
-    }
-    .contenedor-img{
-      height: 12rem;
-    }
-    .filtros-aside {
-      position: relative;
-      height: 24rem;
-      margin-top: 1.2rem;
-    }
+  .filtros-aside label{
+    font-size: 13px;
+  }
   
+  .filtros-aside h6{
+    font-size: 15px;
   }
+}
+
+
+@media (max-width: 1025px) {
+  .card:nth-last-child(2) {
+    display: none;
+  }
+
+  .carousel{
+    margin-bottom: 4rem;
+    height: 332px;
+    margin-top: 2rem;
+  }
+
+  #img-carousel-mobile{
+    margin: auto;
+    width: 60vw;
+  }
+
+.carousel-wrapper{
+  position: relative;
+}
+
+
+}
+
+@media (max-width: 375px){
+  #section-msg-index{
+    padding-top: 15rem;
+  }
+
+  #img-carousel-mobile{
+    width:82vw ;
+  }
+}
+
+@media (max-width: 768px){
+  .seccion-historia{
+    padding-top: 15rem;
+  }
+  
+}
