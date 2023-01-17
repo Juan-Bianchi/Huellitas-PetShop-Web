@@ -4,6 +4,20 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Lato", sans-serif;
+  min-height: 100vh;
+  background: rgb(65, 125, 122);
+  background: linear-gradient(
+      90deg,
+      rgba(65, 125, 122, 0.7) 0%,
+      rgba(135, 173, 171, 0.7) 50%,
+      rgba(65, 125, 122, 0.7) 100%
+    ),
+    url("../images/background-huellas.png");
+  background-size: contain;
+}
+
 ol {
   list-style: none;
 }
@@ -24,8 +38,28 @@ textarea {
   border: none;
 }
 
+nav {
+  background-color: #039097c2;
+}
+
+footer {
+  background-color: #417d7a;
+}
+
+.formulario {
+  margin: 5rem;
+}
+
+.logo-formulario {
+  margin: auto;
+  width: 5vw;
+}
+
+.logo-formulario img {
+  width: 100%;
+}
+
 .formularioAdentro {
-  margin-top: 2rem;
   border-top-left-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
 }
@@ -35,19 +69,46 @@ textarea {
   flex-direction: column;
 }
 
-
 .cards-wrapper {
   display: flex;
   justify-content: center;
 }
 
 .card {
-  width: calc(100% / 6);
+  border: none;
+  background: rgb(211, 117, 107);
+  width: 230px;
+  height: 300px;
   margin: 1rem;
+  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+  transform: translatey(0px);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+}
+
+.card:hover {
+  transform: scale(1.6);
+  transition-timing-function: ease-in;
+  transition: 0.2s;
 }
 
 .card-text {
   text-align: center;
+  font-weight: bold;
 }
 
 .card-body {
@@ -57,6 +118,18 @@ textarea {
 .carousel {
   margin: auto;
   width: 80%;
+}
+
+.carousel-wrapper {
+  max-height: 6rem;
+}
+
+#carouselExample {
+  display: flex;
+  align-items: center;
+  height: 320px;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
 }
 
 .filtros-productos {
@@ -80,8 +153,6 @@ textarea {
   width: 20%; */
   background-color: white;
   border: 0.5px solid lightgray;
-  /* margin-top: 4rem; */
-
 }
 
 .seccion-productos {
@@ -103,8 +174,11 @@ textarea {
 }
 
 .img-wrapper > img {
+  border-radius: 1rem;
+  padding: 1rem;
   width: 100%;
   height: 100%;
+  border-bottom: 0.7px solid rgb(210, 179, 77);
 }
 
 .producto-img-wrapper {
@@ -166,8 +240,23 @@ textarea {
   border-color: rgba(77, 50, 50, 0.856) !important;
 }
 
-.modal{
-  opacity: 80%;
+.modal {
+  opacity: 90%;
+}
+
+.modal h1{
+  color: #165692;
+  text-align: start;
+  padding-left: 2rem;
+}
+
+
+.logo-modal{
+  width: 4rem;
+}
+
+.logo-modal img{
+  width: 100%;
 }
 
 body{
@@ -225,9 +314,8 @@ h1{
   height: 100%;
   padding-top: 0.3rem;
   text-align: center;
-  color:#fefdfa;
-  font-size: 1rem;
 }
+
 .formulario1{
   margin: 1rem;
   border-radius: 10px;
@@ -235,92 +323,85 @@ h1{
   background-color: rgba(8, 8, 5, 0.329);
 }
 
-.iconSize{
+.iconSize {
   font-size: 30px;
-    size: 40px;
-  }
-  
-  .imgFooterFpago{
-    width: 80%;
-    margin: 0 auto;
-  }
-  .mapSize{
-    
-    width: 100%;
-  }
-  
-  .link-dark-hover:hover{
-     color: #fff !important;
-  
-  }
+  size: 40px;
+}
 
-  .contacto{
-    list-style: none;
-    padding-left: 4rem;
-    /* text-align: center; */
-  }
+.imgFooterFpago {
+  width: 80%;
+  margin: 0 auto;
+}
+.mapSize {
+  width: 100%;
+}
 
-  .redes{
-    width: 80%;
-  }
+.link-dark-hover:hover {
+  color: #fff !important;
+}
 
-  .icono-redes{
-    font-size: 2rem;
-  }
+.contacto {
+  list-style: none;
+  padding-left: 4rem;
+  /* text-align: center; */
+}
 
-  .contacto-contenedor{
-    font-size: 12px;
-    justify-content: space-around;
-  }
+.redes {
+  width: 80%;
+}
 
-  .contact {
-    margin: 0;
-  }
+.icono-redes {
+  font-size: 2rem;
+}
+
+.contacto-contenedor {
+  font-size: 12px;
+  justify-content: space-around;
+}
+
+.contact {
+  margin: 0;
+}
+
+/*/////////////////////////INICIO/////////////////////////*/
+
+#farmaciaInd {
+  background-image: url(../images/farmacia.jpg);
+  background-size: cover;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bolder;
+  color: rgba(255, 255, 255, 0);
+  min-height: 8rem;
+  margin-bottom: 3vh;
+  border-radius: 5px;
+}
+
+#farmaciaInd:hover {
+  background-color: rgba(0, 0, 0, 0.484);
+  background-blend-mode: darken;
+  color: white;
+}
+
+#jugueteriaInd {
+  background-image: url(../images/jugueteria.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 90%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bolder;
+  color: rgba(255, 255, 255, 0);
+  min-height: 8rem;
+  margin-bottom: 3vh;
+  border-radius: 5px;
+}
 
 
-  /*/////////////////////////INICIO/////////////////////////*/
-
-  #farmaciaInd {
-    background-image: url(../images/farmacia.jpg);
-    background-size: cover;
-    width: 90%;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-weight: bolder;
-    color: rgba(255, 255, 255, 0);
-    min-height: 8rem;
-    margin-bottom: 3vh;
-    border-radius: 5px;
-  }
-
-  #farmaciaInd:hover {
-    background-color: rgba(0, 0, 0, 0.484);
-    background-blend-mode: darken;
-    color: white;
-  }
-
-
-  #jugueteriaInd {
-    background-image: url(../images/jugueteria.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 90%;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    font-weight: bolder;
-    color: rgba(255, 255, 255, 0);
-    min-height: 8rem;
-    margin-bottom: 3vh;
-    border-radius: 5px;
-  }
-
-  #jugueteriaInd:hover {
-    background-color: rgba(0, 0, 0, 0.484);
-    background-blend-mode: darken;
-    color: white;
-  }
+/*//////////////////////////DETALLES///////////////////////*/
 
 footer{
   background-color: rgb(26, 60, 64) !important;
@@ -329,61 +410,74 @@ footer{
   text-align: center;
 }
 
+.text-center {
+  justify-content: center;
+  align-content: center;
+}
 
-  /*//////////////////////////DETALLES///////////////////////*/
-
-  .text-center {
-    justify-content: center;
-    align-content: center;
-  }
-
-  .modal-carrito {
+ .modal-carrito {
     opacity: 100%;
   }
 
-  /*/////////////////////////MEDIA QUERY////////////////////*/
+/*/////////////////////////MEDIA QUERY////////////////////*/
 
-
-  @media(min-width: 768px){
-    .logo-footer{
-      /* background-color: #000; */
-      height: 11rem;
-    }
-    .imgFooterFpago{
-      width: 60%;
-    }
-    .contacto{
-      padding-left: 0;
-    }
-    #farmaciaInd span{
-      font-size: 11px;
-    }
-    #jugueteriaInd span{
-      font-size: 11px;
-    }
-   
+@media (min-width: 768px) {
+  .logo-footer {
+    /* background-color: #000; */
+    height: 11rem;
   }
+  .imgFooterFpago {
+    width: 60%;
+  }
+  .contacto {
+    padding-left: 0;
+  }
+  #farmaciaInd span {
+    font-size: 11px;
+  }
+  #jugueteriaInd span {
+    font-size: 11px;
+  }
+}
 
-  @media(min-width: 992px){
-    .icono-redes{
-      font-size: 1.6rem;
-    }
-    .imgFooterFpago{
-      width: 75%;
-    }
-    #farmaciaInd span{
-      font-size: 14px;
-    }
-    #jugueteriaInd span{
-      font-size: 14px;
-    }
-    .contenedor-img{
-      height: 12rem;
-    }
-    .filtros-aside {
-      position: relative;
-      height: 24rem;
-      margin-top: 1.2rem;
-    }
+@media (min-width: 992px) {
+  .icono-redes {
+    font-size: 1.6rem;
+  }
+  .imgFooterFpago {
+    width: 75%;
+  }
+  #farmaciaInd span {
+    font-size: 14px;
+  }
+  #jugueteriaInd span {
+    font-size: 14px;
+  }
+  .contenedor-img {
+    height: 12rem;
+  }
+ .filtros-aside {
+  position: relative;
+  height: 24rem;
+  margin-top: 1.2rem;
+}
   
+}
+
+@media (max-width: 1023px) {
+  .card:nth-last-child(2) {
+    display: none;
   }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    margin-top: auto;
+    top: auto;
+  }
+
+  .carousel{
+    height: 332px;
+    margin-top: 2rem;
+  }
+
+}

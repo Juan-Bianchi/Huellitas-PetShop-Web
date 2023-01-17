@@ -20,7 +20,9 @@
         <a class="navbar-brand ms-3 col-4" href="#">
           <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5 foto-logo " >
         </a>
-        <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse show" id="navbarSupportedContent">
@@ -44,49 +46,105 @@
   </header>
 
   <main>
+
     <div class="d-flex flex-wrap justify-content-end titulo"style="height: 60px;">
         <h1><strong>INICIO</strong></h1>
     </div>
-    
-    
+
+
     <div id="appIndex">
-      <div id="carouselExample" class="carousel carousel-dark slide ">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./assets/images/BIENVENIDO_HUELLITAS2.png" class="d-block w-100" alt="BIENVENIDO" />
-          </div>
-          <div class="carousel-item">
-            <div class="cards-wrapper">
-              <div class="card" v-for="producto of productos.slice(0,4) ">
-                <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'"> <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top" :alt="productos.producto"></div></a>
-                <div class="card-body">
-                  <p class="card-text">{{producto.producto}} </p>
+      <template v-if="windowWidth>768">
+        <div id="carouselExample" class="carousel carousel-dark slide ">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/images/banner.png" class="d-block w-100" alt="BIENVENIDO" />
+            </div>
+            <div>
+              <div class="carousel-item primer-item">
+                <div class="cards-wrapper">
+                  <div class="card primer-item" v-for="producto of productos.slice(0,4)">
+                    <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
+                      <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
+                          :alt="productos.producto">
+                      </div>
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{producto.producto}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item segundo-item">
+
+                <div class="cards-wrapper">
+                  <div class="card segundo-item" v-for="producto of productos.slice(-4) ">
+                    <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
+                      <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top"
+                          :alt="productos.producto">
+                      </div>
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{producto.producto}} </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </template>
 
-          <div class="carousel-item">
-            
-              <div class="cards-wrapper">
-                <div class="card" v-for="producto of productos.slice(-4) ">
-                  <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">  <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top" :alt="productos.producto"></div></a>
-                  <div class="card-body">
-                    <p class="card-text">{{producto.producto}} </p>
+
+
+      <!-- MOBILE CAREOUSEL -->
+      <template v-else>
+       
+          <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./assets/images/banner-mobile.png" id="img-carousel-mobile" class="d-block w-100"
+                  alt="BIENVENIDO" />
+              </div>
+
+              <div class="carousel-item" v-for="producto of productos.slice(0,2) ">
+                <div class="cards-wrapper">
+                  <div class="card">
+                    <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
+                      <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
+                          :alt="productos.producto">
+                      </div>
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{producto.producto}} </p>
+                    </div>
                   </div>
                 </div>
-              
+              </div>
+
+            </div>
+
           </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        
+      </template>
     </div>
     
     <section class="row row-cols-lg-2 container-fluid mx-auto m-4 d-lg-flex align-items-lg-center">
@@ -94,18 +152,19 @@
           <img class="imagen-entrada" src="./assets/images/entrada.jpg" alt="entrada">
     </section>
 
-    
+
     <section class="fotosAnchorInd container-fluid col-lg-10 d-md-flex mt-5 mb-5">
       <div class="col-12 col-md-6 d-flex justify-content-center contenedor-img">
         <a href="./farmacia.html" class="d-flex " id="farmaciaInd">
           <span class="py-lg-auto">¡CONOCE NUESTROS PRODUCTOS DE FARMACIA!</span>
-        </a>  
+        </a>
       </div>
 
       <div class="col-12 col-md-6 d-flex justify-content-center contenedor-img">
         <a href="./juguete.html" class="d-flex " id="jugueteriaInd">
           <span>¡CONOCE NUESTROS PRODUCTOS DE JUGUETERIA!</span>
-        </a>  
+        </a>
+      </div>
       </div>
     </section>
 
