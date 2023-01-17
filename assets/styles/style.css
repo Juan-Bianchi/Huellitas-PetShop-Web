@@ -48,9 +48,7 @@ nav {
   background-color: #039097c2;
 }
 
-footer {
-  background-color: #417d7a;
-}
+
 
 .formulario {
   margin: 5rem;
@@ -74,6 +72,11 @@ footer {
   display: flex;
   flex-direction: column;
 }
+
+
+/*body{
+    background-color: #6cdee4;
+}*/
 
 .cards-wrapper {
   display: flex;
@@ -125,6 +128,12 @@ footer {
   margin: 0 auto;
   width: 80%;
 }
+/*.carousel1 {
+  margin-top:15%;
+  padding-top: 6%;
+  width: 80%;
+
+}*/
 
 .carousel-wrapper {
   max-height: 6rem;
@@ -351,7 +360,7 @@ h1{
 }
 
 .imgFooterFpago {
-  width: 80%;
+  width: 50% !important;
   margin: 0 auto;
 }
 .mapSize {
@@ -435,13 +444,61 @@ h1{
   width: 80%;
 }
 
+  /*/////////////////////////INICIO/////////////////////////*/
+
+  #farmaciaInd {
+    background-image: url(../images/farmacia.jpg);
+    background-size: cover;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0);
+    min-height: 8rem;
+    margin-bottom: 3vh;
+    border-radius: 5px;
+  }
+
+  #farmaciaInd:hover {
+    background-color: rgba(0, 0, 0, 0.484);
+    background-blend-mode: darken;
+    color: white;
+  }
+  .img-entrada{
+    width: 550px;
+    height: 500px;
+    padding: 5%;
+  }
+
+  #jugueteriaInd {
+    background-image: url(../images/jugueteria.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: bolder;
+    color: rgba(255, 255, 255, 0);
+    min-height: 8rem;
+    margin-bottom: 3vh;
+    border-radius: 5px;
+  }
+
+  #jugueteriaInd:hover {
+    background-color: rgba(0, 0, 0, 0.484);
+    background-blend-mode: darken;
+    color: white;
+  }
 /*//////////////////////////DETALLES///////////////////////*/
 
 footer{
-  background-color: rgb(26, 60, 64) !important;
+  background-color: #3C4048;
 }
 .section{
   text-align: center;
+  background-color: #B2B2B2;
 }
 
 .text-center {
