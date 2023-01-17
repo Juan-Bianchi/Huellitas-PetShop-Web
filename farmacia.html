@@ -50,7 +50,7 @@
       </main>
 
       <section class="filtros-productos d-flex flex-column flex-lg-row">
-        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-md-auto col-lg-3 ">
+        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
           <form class="d-flex m-3 flex-column" role="search" id="search">
             <h6 >Busca tu producto</h6>
             <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
@@ -61,20 +61,18 @@
             </label>
         </div>
         </aside>
-        
-        <div class="d-md-flex flex-md-wrap justify-content-md-evenly col-lg-9">
+        <div class="d-md-flex flex-md-column justify-content-md-evenly col-md-6 mx-md-auto col-lg-3">
           <div v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
             <div class="producto"> 
-              <a :href="'./detalles?id='+producto._id"><div class="producto-img-wrapper"><img class="p-4 " :src="producto.imagen" :alt="producto.producto"></div></a>
-              <div class="datos-producto text-center">
-                <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
+              <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+              <div class="datos-producto">
+                <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
                 <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
                 <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
                 <p class="precio"> ${{producto.precio}} </p>
               </div>
             </div>
-        </div>
-      
+           </div>
         </div>
       </section>
 

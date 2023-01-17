@@ -7,8 +7,8 @@ createApp ( {
             productosModif: [],
             producto: undefined,
             productosCarrito: [],
-            productosPromo3x2: [],
-            
+            productosPromo3x2: ["Collar de pulgas para gatos", "Hueso de goma", "Pelota dos colores para perros", "Peluche de pelota"],
+            totalCompra: 0,
         }
     },
     created(){
@@ -40,13 +40,17 @@ createApp ( {
 
     methods: {
 
-        actualizarStockDeLocalStorage(){
+        actualizarStockDeLocalStorage: function() {
 
             if(this.productosCarrito.length) {
                 for(let producto of this.productosModif) {
                     for(let prodCarro of this.productosCarrito) {
                         if(prodCarro._id === producto._id) {
-                            producto = prodCarro;
+                            producto.disponibles = prodCarro.disponibles;
+                            producto.cantPedida = prodCarro.cantPedida;
+                            producto.subtotal = prodCarro.subtotal;
+                            producto.descuento = prodCarro.descuento;
+                            producto.total = prodCarro.total;
                         }
 
                     }
@@ -54,24 +58,94 @@ createApp ( {
             }
         },
 
-        manejarCarrito(prodAVender){
+        quitarDesdeCarrito: function(producto) {
 
-            prodAVender.disponibles --;
-            prodAVender.cantPedida ++;
+            producto = this.actualizacionDePropiedades(producto, -1);
+            console.log(producto)
+            let arrayAux=[];
+            if(!producto.cantPedida) {
+                let indice = this.productosCarrito.indexOf(producto);
+                console.log(indice)
+                arrayAux = [... this.productosCarrito.slice(0,  indice)];
+                console.log(arrayAux, indice)  
+                this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
+            }  
+            this.producto = {... producto};
+           
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+            this.sumaTotal();
+        },
 
-            if(prodAVender.cantPedida >= 3) {
-                prodAVender.descuento = (prodAVender.cantPedida / 3 ) * prodAVender.precio;
+
+        agregarDesdeCarrito: function(producto) {
+
+            producto = this.actualizacionDePropiedades(producto, 1);
+    
+            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
+                this.productosCarrito.push(producto);
+            }
+            else {
+
+                for(prod of this.productosCarrito) {
+                    if(producto._id == prod._id) {
+                        this.producto = {... producto};
+                    }
+                }
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+            this.sumaTotal();
+        },
+
+
+        agregarCarritoPorBoton: function() {
+
+            this.producto = this.actualizacionDePropiedades(this.producto, 1);
+    
+            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
+                this.productosCarrito.push(this.producto);
+            }
+            else {
+
+                for(producto of this.productosCarrito) {
+                    if(this.producto._id == producto._id) {
+
+                        Object.assign(producto, this.producto);
+                    }
+                }
+            }
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+            this.sumaTotal();
+        },
+
+        actualizacionDePropiedades(prodAVender, acumulador) {
+    
+            prodAVender.disponibles -= acumulador;
+            prodAVender.cantPedida += acumulador;
+           
+
+            if(prodAVender.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == prodAVender.producto)) {
+                prodAVender.descuento = ((Math.floor(prodAVender.cantPedida / 3 )) * prodAVender.precio);
+            }
+            else {
+                prodAVender.descuento = 0;
             }
             prodAVender.subtotal = prodAVender.cantPedida * prodAVender.precio;
             prodAVender.total = prodAVender.subtotal - prodAVender.descuento;
 
-            if(!this.productosCarrito.includes(prodAVender)){
-                this.productosCarrito.push(prodAVender);
-            }
-
-            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+            
+            return prodAVender;
         },
 
+        sumaTotal: function() {
+            this.totalCompra = this.productosCarrito.reduce((acumulador, prod)=> acumulador += prod.total, 0)
+        },
+
+        limpiarLocalStorage: function() {
+            console.log("HOLA")
+            localStorage.clear();
+            productosCarrito = [];
+        }
 
     }
 
