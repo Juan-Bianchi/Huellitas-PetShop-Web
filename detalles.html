@@ -12,59 +12,6 @@
   <link rel="stylesheet" href="./assets/styles/style.css" />
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black container-fluid">
-      <div class="container-fluid w-100">
-        <a class="navbar-brand ms-3" href="#">
-          <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5" >
-        </a>
-        <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse show" id="navbarSupportedContent">
-          <ul class="navbar-nav d-flex  ms-auto">
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" aria-current="page" href="./index.html">INICIO</a>
-              </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./contacto.html">CONTACTO</a>
-              </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./farmacia.html">FARMACIA</a>
-              </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./juguete.html">JUGUETES</a>
-              </li>
-            </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <main>
-    <div class="d-flex justify-content-end titulo"style="height: 60px;">
-      <div class=" d-flex justify-content-end titulo-h1 col-10" >
-        <h1><strong>DETALLES</strong></h1>
-      </div>
-      <img src="./assets/images/h1.jpg" alt="titulo" class="col-2">
-    </div>
-    <div v-if="productos"class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-center flex-wrap"  style="width: 96%;">
-      <div class="col-md-7 text-center"  >
-        <img :src="producto.imagen" class="card-img-top border border-white  rounded" :alt="producto.producto">
-      </div>
-      <div class="col-md-5 ">
-        <div class="card-body m-3"  >
-          <h4 class="card-title m-2">{{producto.producto}}</h4>
-          <h5 class="card-title m-2">{{producto.caregoria}}</h5>
-          <p class="card-text">{{producto.descripcion}}</p>
-          <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
-          <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
-        </div>
-      </div>
-    </div>
-  </main>
-<!--Footer-->
-<div class="">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 my-5 border-top px-3 bg-secondary">
   <div id="app">
     <header>
       <nav class="navbar navbar-expand-lg  container-fluid">
@@ -197,8 +144,7 @@
         </div>
       </div>
     </main>
-   <!--Footer-->
-  
+<!--Footer-->  
  <footer class="d-lg-flex container-fluid pt-3 text-white  pb-4">
 
   <!--LOGO-->
