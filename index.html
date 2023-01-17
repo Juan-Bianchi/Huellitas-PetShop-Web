@@ -55,12 +55,12 @@
 
 
     <div id="appIndex">
-      <div id="carouselExample" class="carousel carousel-dark slide ">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./assets/images/banner.png" class="d-block w-100" alt="BIENVENIDO" />
-          </div>
-          <template v-if="windowWidth>768">
+      <template v-if="windowWidth>768">
+        <div id="carouselExample" class="carousel carousel-dark slide ">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/images/banner.png" class="d-block w-100" alt="BIENVENIDO" />
+            </div>
             <div>
               <div class="carousel-item primer-item">
                 <div class="cards-wrapper">
@@ -94,35 +94,60 @@
                 </div>
               </div>
             </div>
-          </template>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </template>
 
-          <template v-else>
-            <div class="carousel-item " v-for="producto of productos.slice(0,4) ">
-              <div class="cards-wrapper">
-                <div class="card">
-                  <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
-                    <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
-                        :alt="productos.producto">
+
+
+      <!-- MOBILE CAREOUSEL -->
+      <template v-else>
+       
+          <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="./assets/images/banner-mobile.png" id="img-carousel-mobile" class="d-block w-100"
+                  alt="BIENVENIDO" />
+              </div>
+
+              <div class="carousel-item" v-for="producto of productos.slice(0,2) ">
+                <div class="cards-wrapper">
+                  <div class="card">
+                    <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
+                      <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
+                          :alt="productos.producto">
+                      </div>
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{producto.producto}} </p>
                     </div>
-                  </a>
-                  <div class="card-body">
-                    <p class="card-text">{{producto.producto}} </p>
                   </div>
                 </div>
               </div>
-            </div>
-          </template>
 
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+            </div>
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        
+      </template>
     </div>
 
     <section class="row row-cols-lg-2 container-fluid mx-auto d-lg-flex align-items-lg-center">
@@ -146,6 +171,7 @@
         <a href="./juguete.html" class="d-flex " id="jugueteriaInd">
           <span>¡CONOCE NUESTROS PRODUCTOS DE JUGUETERIA!</span>
         </a>
+      </div>
       </div>
     </section>
 

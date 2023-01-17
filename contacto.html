@@ -95,15 +95,16 @@
             <div class="modal-dialog modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
+                  <div class="logo-modal"><img src="./assets/images/logopetshop.png" alt="ENVIADO"></div>
                   <h1 class="modal-title fs-5" id="exampleModalLabel">Enviado!</h1>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <p> Gracias por su comentario!</p>
-                  <p>Su nombre: {{nombreUsuario}} </p>
-                  <p>Su teléfono: {{telefonoUsuario? telefonoUsuario : 'No Ingreso'}} </p>
-                  <p> Su mascota: {{otraMascota ? otraMascota : mascota}} </p>
-                  <p> Su mensaje: {{mensaje}} </p>
+                  <p>Su nombre: {{nombreUsuario? nombreUsuario : 'No Ingresó'}} </p>
+                  <p>Su teléfono: {{telefonoUsuario? telefonoUsuario : 'No Ingresó'}} </p>
+                  <p> Su mascota: {{otraMascota ? otraMascota : mascota? mascota : 'No tiene mascota'}} </p>
+                  <p> Su mensaje: {{mensaje? mensaje : 'No dejó mensaje :('}} </p>
                 </div>
                 <div class="modal-footer">
                   <button @click="recargarPagina" type="button" class="btn btn-secondary"
