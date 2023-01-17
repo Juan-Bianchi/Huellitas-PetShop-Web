@@ -80,7 +80,7 @@
           </div>
 
           <!-- Modal -->
-          <div class="modal fade" @click="limpiarForm" id="exampleModal" tabindex="-1"
+          <div class="modal fade" @click="enviarForm" id="exampleModal" tabindex="-1"
             aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -92,16 +92,16 @@
                 <div class="modal-body">
                   <h4> Hemos recibido su consulta!</h4>
                   <p>Su nombre: {{nombreUsuario? nombreUsuario : 'No Ingresó'}} </p>
-                  <p>Su Email: {{usuarioEmail? usuarioEmail : 'No Ingresó'}} </p>
+                  <p>Su Email: {{emailUsuario? emailUsuario : 'No Ingresó'}} </p>
                   <p>Su teléfono: {{telefonoUsuario? telefonoUsuario : 'No Ingresó'}} </p>
                   <p> Su mascota: {{otraMascota ? otraMascota : mascota? mascota : 'No tiene mascota'}} </p>
                   <p> Su mensaje: {{mensaje? mensaje : 'No dejó mensaje :('}} </p>
                   <h4>Nos pondremos en contacto brevemente</h4>
                 </div>
                 <div class="modal-footer">
-                  <button @click="limpiarForm" type="button" class="btn btn-secondary"
+                  <button @click="enviarForm" type="button" class="btn btn-secondary"
                     data-bs-dismiss="modal">Cerrar</button>
-                  <button @click="limpiarForm" type="button" class="btn btn-primary">Enviar otro comentario</button>
+                  <button @click="enviarForm" type="button" class="btn btn-primary">Enviar otro comentario</button>
                 </div>
               </div>
             </div>
