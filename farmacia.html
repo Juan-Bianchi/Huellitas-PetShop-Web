@@ -52,36 +52,33 @@
       <section class="filtros-productos d-flex flex-column flex-lg-row">
         <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
           <form class="d-flex m-3 flex-column" role="search" id="search">
-            <h6 >Busca tu producto</h6>
-            <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search" placeholder="Nombre del producto" aria-label="Search" id="searchField">
-        </form>
+            <h6 >Busqueda por producto</h6>
+            <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search" placeholder="Ingresa el nombre de producto" aria-label="Search" id="searchField">
+          </form>
+
           <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
-            <label class="btn btn-outline-danger d-flex" v-if="listaFiltrosChecks.length" v-for="categoria of listaFiltrosChecks" >
-                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosChecks.indexOf(categoria)" autocomplete="off"> {{categoria}}
+            <h6 >Elige el rango de precio</h6>
+            <label class="btn btn-outline-danger d-flex" v-if="listaFiltrosPrecio.length" v-for="categoria of listaFiltrosPrecio" >
+                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosPrecio.indexOf(categoria)" autocomplete="off"> {{categoria}}
             </label>
-        </div>
-     <!--<div id="carouselExampleFade" class="carousel1 slide carousel-fade " data-bs-ride="carousel">
-          <div class="carousel-inner">
-            
-            <div class="carousel-item active">
-              <img src="./assets/images/carrusel 2.jpg" class="d-flex w-100 h-50" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="./assets/images/carrusel 3.jpg" class="d-flex w-100 h-50" alt="...">
-            </div>
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
-        </div>-->
-        </aside>    
-        
-        <div class="d-md-flex flex-md-wrap justify-content-md-evenly col-lg-9">
+
+          <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
+            <h6 >Selecciona productos para tu mascota</h6>
+            <label class="btn btn-outline-danger d-flex" v-if="listaFiltrosMascota.length" v-for="categoria of listaFiltrosMascota" >
+                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosMascota.indexOf(categoria)" autocomplete="off"> {{categoria}}
+            </label>
+          </div>
+
+          <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
+            <h6 >Selecciona productos para tu mascota</h6>
+            <label class="btn btn-outline-danger d-flex" v-if="listaFiltrosPromo.length" v-for="categoria of listaFiltrosPromo" >
+                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosPromo.indexOf(categoria)" autocomplete="off"> {{categoria}}
+            </label>
+          </div>
+
+        </aside>
+        <div class="d-md-flex flex-md-column justify-content-md-evenly col-md-6 mx-md-auto col-lg-3">
           <div v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
             <div class="producto"> 
               <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
