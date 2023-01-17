@@ -467,7 +467,7 @@ footer{
 
   .carousel-control-prev,
   .carousel-control-next {
-    margin-top: 20rem;
+    margin-top: 10rem;
   }
 
   .carousel{
@@ -480,5 +480,13 @@ footer{
     margin: auto;
     width: 60vw;
   }
+
+.carousel-wrapper{
+  position: relative;
+}
+
+#section-msg-index{
+  padding-top: 20rem;
+}
 
 }
