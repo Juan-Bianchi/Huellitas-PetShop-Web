@@ -467,13 +467,18 @@ footer{
 
   .carousel-control-prev,
   .carousel-control-next {
-    margin-top: auto;
-    top: auto;
+    margin-top: 20rem;
   }
 
   .carousel{
+    margin-bottom: 4rem;
     height: 332px;
     margin-top: 2rem;
+  }
+
+  #img-carousel-mobile{
+    margin: auto;
+    width: 60vw;
   }
 
 }
