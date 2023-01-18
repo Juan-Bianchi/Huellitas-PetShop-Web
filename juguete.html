@@ -303,6 +303,9 @@
                 <p v-if="producto.disponibles===0" class="sin-stock"> Sin stock disponible </p>
                 <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
                 <p class="precio"> ${{producto.precio}} </p>
+                <template v-for="promo of productosPromo3x2">
+                  <p v-if="producto._id === promo" class="">Tiene promoción</p>
+                </template>
               </div>
               <template v-if="windowWidth>700">
               <div v-if="producto.disponibles===0" class="carrito-wrapper "><img class="carrito-disabled"
