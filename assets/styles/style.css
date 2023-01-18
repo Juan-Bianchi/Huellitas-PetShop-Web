@@ -51,11 +51,6 @@ nav {
 }
 
 
-
-.formulario {
-  margin: 5rem;
-}
-
 .logo-formulario {
   margin: auto;
   width: 5vw;
@@ -587,6 +582,10 @@ span a {
   text-decoration: underline;
 }
 
+.no-show{
+  display: none;
+}
+
 /*/////////////////////////INICIO/////////////////////////*/
 
 #farmaciaInd {
@@ -821,16 +820,14 @@ footer{
     height: 169px;
   }
   #appContacto{
-    width: 360px;
-   
-    margin: 0%;
+    width: 80%;
+    margin: 0;
   }
 }
 @media (max-width:320px){
   #appContacto{
-    width: 320px;
-   
-    margin: 0%;
+    width: 80%;
+    margin: 0;
   }
 }
 
@@ -872,7 +869,7 @@ margin-top: 1.5rem;
 
 .producto-img-wrapper{
   padding: .7rem;
-  width: 300px;
-  height: 300px;
+  width: 90%;
+  height: 90%;
 } 
-}
+ }
