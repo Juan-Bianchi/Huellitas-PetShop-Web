@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./assets/styles/style.css" />
 </head>
 <body>
-  <header>
+  <div id="app">
     <nav class="navbar navbar-expand-lg  container-fluid">
       <div class="container-fluid w-100">
         <a class="navbar-brand ms-3  col-6" href="#">
@@ -40,11 +40,10 @@
       </div>
     </nav>
   </header>
-  <main>
-    <div id="app">
-    <div class="d-flex justify-content-end titulo"style="height: 60px;">
-        <h1><strong>DETALLES DEL PRODUCTO</strong></h1>
-    </div>
+    <main>
+      <div class="d-flex justify-content-end titulo"style="height: 60px;">
+          <h1><strong>DETALLES DEL PRODUCTO</strong></h1>
+      </div>
       <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -123,32 +122,15 @@
             <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
             <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
           </div>
-          <div>
-            <button v-if="producto.disponibles" @click="agregarCarritoPorBoton" type="button" class="btn carrito" data-bs-toggle="modal" data-bs-target="#modalCarrito">
-              Agregar producto al carrito
-              <div v-if="productosCarrito.length">
-                <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
-              </div>
-              <div v-else>
-                <i class="fa-regular fa-cart-shopping-fast"></i> 
-              </div>
-            </button>
-            <button v-else type="button" class="btn">
-              Agregar producto al carrito
-              <div v-if="productosCarrito.length">
-                <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
-              </div>
-              <div v-else>
-                <i class="fa-regular fa-cart-shopping-fast"></i> 
-              </div>
-            </button>
+          <div class=" d-flex">
+            <a v-if="producto.disponibles!==0" href="#" class="button">+ Agregar al carrito</a>
+            <a v-else href="#" class="button-disabled">Sin stock</a>
           </div>
         </div>
       </div>
     </div>
     </main>
-   <!--Footer-->
-  
+<!--Footer-->  
  <footer class="d-lg-flex container-fluid pt-3 text-white  pb-4">
 
   <!--LOGO-->
@@ -212,6 +194,7 @@
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="./assets/scripts/detalles.js"></script>
+  <script src="./assets/scripts/compraranimacion.js"></script>
 </body>
 
 </html>
