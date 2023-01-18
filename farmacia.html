@@ -305,11 +305,19 @@
                 <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
                 <p class="precio"> ${{producto.precio}} </p>
               </div>
+              <template v-if="windowWidth>700">
               <div v-if="producto.disponibles===0" class="carrito-wrapper "><img class="carrito-disabled"
                   src="./assets/images/cart-disabled.png" alt="AGREGAR AL CARRITO"></div>
               <div v-else class="carrito-wrapper"><img @click="agregarCarritoPorBoton(producto)" tabindex="1"
                   class="carrito" src="./assets/images/cart.png" alt="AGREGAR AL CARRITO" data-bs-toggle="modal"
-                  data-bs-target="#modalCarrito"></div>
+                  data-bs-target="#modalCarrito"></div></template>
+                  <template v-else>
+                    <div class=" d-flex">
+                      <a  v-if="producto.disponibles!==0" @click="agregarCarritoPorBoton(producto)" href="#" class="button" data-bs-toggle="modal"
+                      data-bs-target="#modalCarrito" >+ Agregar al carrito</a> 
+                      <a v-else href="#" class="button-disabled">Sin stock</a>
+                    </div>
+                  </template>
             </div>
           </div>
         </div>

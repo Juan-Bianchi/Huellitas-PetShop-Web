@@ -487,13 +487,13 @@ h1{
 }
 
 .carrito-wrapper-nav .carrito-nav{
+  cursor: pointer;
   z-index: 1;
   width: 100%;
 }
 
 .carrito-wrapper-nav .cant-productos{
   z-index: 2;
-
 }
 
 .carrito-wrapper-nav {
@@ -724,7 +724,7 @@ span a {
   }
 
   .select-ordenar{
-    width: 15vw;
+    width: 8rem;
     margin-left: auto;
     margin-right: 2px;
     background-color: #acacac85;
@@ -894,6 +894,8 @@ footer{
      
     .producto{
       width: 85vw;
+      background-color: #b3b3b359;
+      padding-bottom: 1rem;
     }
     
 }
