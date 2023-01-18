@@ -638,12 +638,13 @@ span a {
 }
 
 .box-der {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: auto;
   width: 70%;
   height: 80%;
+}
+
+.box-der p{
+  padding-top: 2rem;
 }
 
 .box-der-wrapper{
@@ -940,5 +941,19 @@ footer {
     padding: 0.7rem;
     width: 90%;
     height: 90%;
+  }
+}
+
+@media (min-width: 1024px){
+  #carouselExample {
+    height: 40vh;
+  }
+
+  .carousel-item {
+    min-height: 40vh;
+  }
+
+  .banner{
+    height: 50vh;
   }
 }
