@@ -38,15 +38,19 @@
                 </ul>
             </div>
           </div>
-        </nav>
-      </header>
-      <main>
-        <div class="d-flex justify-content-end titulo"style="height: 60px;">
-            <h1><strong>FARMACIA</strong></h1>
-            <div v-if="!productosCarrito.length" class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"></div>
-            <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"><p class="cant-productos">{{unidades}}</p></div>
         </div>
-        
+      </nav>
+    </header>
+    <main>
+      <div class="d-flex justify-content-end titulo" style="height: 60px;">
+        <h1><strong>FARMACIA</strong></h1>
+        <div v-if="!productosCarrito.length" class="carrito-wrapper-nav"><img class="carrito-nav"
+            src="./assets/images/cart-nada.png" alt="CARRITO"></div>
+        <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png"
+            alt="CARRITO">
+          <p class="cant-productos">{{unidades}}</p>
+        </div>
+      </div>        
         <select v-model="valorOrdenamiento" class="form-select form-select-sm" aria-label=".form-select-sm ordenador">
           <option selected value="1">Mayor stock</option>
           <option value="2">Menor stock</option>
@@ -54,24 +58,22 @@
           <option value="4">Menor precio</option>
         </select>
         
-      
 
-      <!-- MODALES -->
+    <!-- MODALES -->
 
-      <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Compra Confirmada</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              ¡GRACIAS POR SU COMPRA! Estaremos comunicandonos a la brevedad.
-            </div>
+    <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Compra Confirmada</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ¡GRACIAS POR SU COMPRA! Estaremos comunicandonos a la brevedad.
           </div>
         </div>
       </div>
-
+    </div>
       <div class="modal fade modal-dialog-scrollable modal-carrito modal-lg" id="modalCarrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -123,16 +125,13 @@
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- CIERRA MODALES -->
+    <!-- CIERRA MODALES -->
 
-    
-
-    <section class="filtros-productos d-flex flex-column flex-lg-row">
-
-      <!--Aside-->
-      <aside
-        class="filtros-aside checkbox d-flex flex-column justify-content-around col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
+    <section class="filtros-productos d-flex  ">
+      <aside v-if="windowWidth>1000"
+        class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
         <form class="d-flex m-3 flex-column" role="search" id="search">
           <h6>Búsqueda por producto</h6>
           <input v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search"
@@ -165,6 +164,7 @@
               :id="listaFiltrosPromo.indexOf(categoria)" autocomplete="off"> {{categoria}}
           </label>
         </div>
+        
          <!--carrusel-->
         <div id="carouselExampleDark" class="carousel carousel-dark slide bg-carrousel" data-bs-ride="carousel">
           <div class="carousel-indicators bg-carrousel">
@@ -203,13 +203,67 @@
             <span class="visually-hidden">Siguiente</span>
           </button>
         </div> <!--fin carrusel-->
-      </aside><!--fin Aside-->
-     
-      
 
+<<<<<<< HEAD
       <!--Card contanaier -->
       <div class="">
         <div v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal">
+=======
+      </aside>
+
+      <template v-else>
+        <!--------------------------------------------------------- Button trigger modal FILTROS-->
+        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Filtros
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <h6>Búsqueda por producto</h6>
+                <input v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search"
+                  placeholder="Ingresa el nombre de producto" aria-label="Search" id="searchField">
+
+                <h6>Elige el rango de precio</h6>
+                <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosPrecio.length"
+                  v-for="categoria of listaFiltrosPrecio">
+                  <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria"
+                    name="" :id="listaFiltrosPrecio.indexOf(categoria)" autocomplete="off"> {{categoria}}
+                </label>
+
+                <h6>Selecciona productos para tu mascota</h6>
+                <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosMascota.length"
+                  v-for="categoria of listaFiltrosMascota">
+                  <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria"
+                    name="" :id="listaFiltrosMascota.indexOf(categoria)" autocomplete="off"> {{categoria}}
+                </label>
+
+                <h6>Selecciona productos para tu mascota</h6>
+                <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosPromo.length"
+                  v-for="categoria of listaFiltrosPromo">
+                  <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria"
+                    name="" :id="listaFiltrosPromo.indexOf(categoria)" autocomplete="off"> {{categoria}}
+                </label>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
+
+
+      <div class="card-prod-wrapper">
+        <div class="card-producto" v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal">
+>>>>>>> d39e3cadd25cf7508fa66166b128ec7e261dc134
           <div class="producto">
             <a :href="'./detalles.html?id='+producto._id">
               <div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div>
@@ -218,14 +272,24 @@
               <a :href="'./detalles.html?id='+producto._id">
                 <p> {{producto.producto}} </p>
               </a>
+              <p class="disponibles-p">Unidades disponibles: {{producto.disponibles}} </p>
               <p v-if="producto.disponibles===0" class="sin-stock"> Sin stock disponible </p>
               <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
               <p class="precio"> ${{producto.precio}} </p>
             </div>
+            <div v-if="producto.disponibles===0" class="carrito-wrapper "><img class="carrito-disabled"
+                src="./assets/images/cart-disabled.png" alt="AGREGAR AL CARRITO"></div>
+            <div v-else class="carrito-wrapper"><img @click="agregarCarritoPorBoton(producto)" tabindex="1"
+                class="carrito" src="./assets/images/cart.png" alt="AGREGAR AL CARRITO" data-bs-toggle="modal"
+                data-bs-target="#modalCarrito"></div>
           </div>
         </div>
-      </div><!--fin-->
+      </div>
     </section>
+<<<<<<< HEAD
+=======
+
+>>>>>>> d39e3cadd25cf7508fa66166b128ec7e261dc134
   </main>
   </div>
   <!--Footer-->
@@ -272,7 +336,6 @@
           </li>
         </ul>
       </div>
-
       <!--Siguenos y formas de pago-->
       <div class="mt-3 col-lg-5 mt-lg-0">
         <h4 class="text-center">SÍGUENOS</h4>
@@ -288,16 +351,17 @@
         <img class="imgFooterFpago row" src="./assets/images/mediosPago.png" alt="metodos de pago">
       </div>
     </div>
-
-
 </footer>
 <section class="section">
   <p><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</p>
 </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./assets/scripts/detalles.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./assets/scripts/detalles.js"></script>
 </body>
 
 </html>
