@@ -134,7 +134,7 @@ nav {
 
 .banner{
   margin: auto;
-  height: 32vh;
+  height: 70vh;
 }
 
 
@@ -914,7 +914,6 @@ footer{
      
     .producto{
       width: 85vw;
-      background-color: #b3b3b359;
       padding-bottom: 1rem;
     }
     
