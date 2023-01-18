@@ -126,24 +126,7 @@
 
       <!-- CIERRA MODALES -->
 
-      <section class="filtros-productos d-flex  ">
-        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
-          <form class="d-flex m-3 flex-column" role="search" id="search">
-            <h6 >Búsqueda por producto</h6>
-            <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search" placeholder="Ingresa el nombre de producto" aria-label="Search" id="searchField">
-          </form>
-
-          <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
-            <h6 >Elige el rango de precio</h6>
-            <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosPrecio.length" v-for="categoria of listaFiltrosPrecio" >
-                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosPrecio.indexOf(categoria)" autocomplete="off"> {{categoria}}
-            </label>
-          </div>
-
-
-
-
-    </main>
+    
 
     <section class="filtros-productos d-flex flex-column flex-lg-row">
 
@@ -225,7 +208,7 @@
       
 
       <!--Card contanaier -->
-      <div class="d-md-flex flex-md-column justify-content-md-evenly col-md-6 mx-md-auto col-lg-3">
+      <div class="">
         <div v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal">
           <div class="producto">
             <a :href="'./detalles.html?id='+producto._id">
@@ -243,7 +226,7 @@
         </div>
       </div><!--fin-->
     </section>
-
+  </main>
   </div>
   <!--Footer-->
 
