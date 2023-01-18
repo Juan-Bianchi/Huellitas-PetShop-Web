@@ -401,7 +401,7 @@ h1{
 }
 .nombre{
   color:  #00ABB3 ;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 .agregarBoton{
@@ -523,16 +523,17 @@ h1{
   width: fit-content;
   padding: 0 0.5rem ;
 }
-.precio{
-  font-size: 1.7rem;
+.precio-detalle{
+  font-size: 1.5rem;
   color:rgb(20, 102, 125) ;
 }
 
 .button-disabled{
   cursor: default;
+  margin: 0.5rem;
   text-decoration: none;
   display: inline-block;
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 10rem;
   color: #fff;
   font-size: 1rem;
@@ -547,9 +548,9 @@ h1{
   background-color: #00ABB3;
   text-decoration: none;
   display: inline-block;
-  padding: 0.7rem 1.2rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 10rem;
-  margin: 0.7rem;
+  margin: 0.5rem;
   color: #fff;
   font-size: 1rem;
   letter-spacing: 0.15rem;
@@ -565,7 +566,7 @@ h1{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0cf;
+  background-color: rgb(3, 174, 216);
   border-radius: 10rem;
   z-index: -2;
 }
@@ -576,7 +577,7 @@ h1{
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: #008fb3;
+  background-color: #11c8a9;
   transition: all 0.3s;
   border-radius: 10rem;
   z-index: -1;
