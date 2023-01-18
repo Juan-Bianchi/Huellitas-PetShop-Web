@@ -128,6 +128,7 @@ nav {
   width: 80%;
 }
 
+
 .carousel-wrapper {
   max-height: 6rem;
 }
@@ -150,7 +151,7 @@ nav {
 
 .filtros-aside {
   border-radius: 8px;
-  height: 44rem;
+  height: fit-content;
   align-items: center;
   padding-bottom: 2rem;
   background-color: white;
@@ -677,6 +678,17 @@ span a {
     background-blend-mode: darken;
     color: white;
   }
+
+  .bg-carrousel{
+    background-color: transparent !important;
+  }
+  .bg-carrouselImg{
+    background-color: #00ABB3 !important
+
+  }
+  .img-perro{
+    height: 170px;
+  }
 /*//////////////////////////DETALLES///////////////////////*/
 
 footer{
@@ -793,6 +805,21 @@ footer{
 
   #img-carousel-mobile{
     width:82vw ;
+  }
+  .img-perro{
+    height: 169px;
+  }
+  #appContacto{
+    width: 360px;
+   
+    margin: 0%;
+  }
+}
+@media (max-width:320px){
+  #appContacto{
+    width: 320px;
+   
+    margin: 0%;
   }
 }
 
