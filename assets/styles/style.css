@@ -388,16 +388,7 @@ h1 {
   text-align: center;
   color: #3c4048;
 }
-.descripcion {
-  text-align: justify;
-  font-size: 0.9rem;
-  margin: 0 1rem;
-}
-.nombre {
-  color: #00abb3;
-  font-size: 1.2rem;
-  text-align: center;
-}
+
 .agregarBoton {
   background-color: #00abb3;
   color: white;
@@ -615,7 +606,7 @@ span a {
   margin: auto;
   background-color: #15797e70;
   margin-top: 5rem;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .faq-wrapper > img {
@@ -660,6 +651,78 @@ span a {
 
 .box-der-wrapper {
   width: 100%;
+}
+
+.img-details-wrap {
+  height: 20rem;
+  width: 20rem;
+}
+
+.img-details {
+  height: 100%;
+  width: 100%;
+}
+
+.img-precio-btn {
+  display: flex;
+  width: 100%;
+}
+
+.nombre {
+  margin: auto;
+  font-size: 2rem;
+  color: #00abb3;
+  margin-left: 3rem;
+  text-align: center;
+}
+
+.precio-btn {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.precio-detalle-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 80%;
+}
+
+.precio-detalle-detail > div {
+  margin-left: 0;
+}
+
+.precio-stock-p {
+  font-size: 1.3rem;
+}
+
+.detalles-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  background-color: rgba(182, 182, 182, 0.425);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border:1px solid  #00abb3;
+}
+
+.descripcion {
+  text-align: justify;
+  font-size: 1.2rem;
+  margin: auto;
+  margin-top: 0.2rem;
+}
+
+.div-descripcion {
+  margin-top: 3rem;
+}
+
+.card-img-top {
+  border-radius: 0.7rem;
 }
 
 /*/////////////////////////INICIO/////////////////////////*/
@@ -932,14 +995,56 @@ footer {
     height: 60vh;
   }
 
-  .faq-wrapper{
+  .faq-wrapper {
     flex-direction: column;
   }
 
   .col-izq {
     width: 100%;
   }
+
+  .img-precio-btn {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .card-img-top {
+    margin: auto;
+    border-radius: 0.7rem;
+  }
+
+  .card-img-top img {
+    margin: auto;
+  }
+
+  .img-details-wrap {
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+
+  .precio-detalle-detail {
+    width: 100%;
+  }
+
+  .img-precio-btn {
+    margin: auto;
+  }
+
+  .detalles-wrap {
+    justify-content: center;
+    width: 90%;
+  }
+
+.img-details-wrap{
+  width: 100%;
+  height: 
+  
 }
+
+.nombre{
+  margin-left: auto;
+}
+ }
 
 @media (max-width: 1000px) {
   .filtros-productos {
