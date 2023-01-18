@@ -66,7 +66,7 @@
 
       <!-- MODALES -->
 
-      <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modalFarmacia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -75,6 +75,20 @@
             </div>
             <div class="modal-body">
               ¡GRACIAS POR SU COMPRA! Estaremos comunicandonos a la brevedad.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalJugueteVaciar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito Vacio</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              El carrito ha sido vaciado.
             </div>
           </div>
         </div>
@@ -128,12 +142,13 @@
             </div>
             <div class="modal-footer">
               <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button"
-                class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
-                data-bs-target="#modalVenta">Confirmar la compra</button>
+                class="btn btn-secondary"  data-bs-dismiss="modal" data-bs-toggle="modal"
+                data-bs-target="#modalFarmacia">Confirmar la compra</button>
               <button v-else type="button" class="btn btn-primary">Confirmar la compra</button>
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver a la Web</button>
               <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button"
-                class="btn btn-secondary" data-bs-dismiss="modal">Vaciar Carrito</button>
+                class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal"
+                data-bs-target="#modalJugueteVaciar">Vaciar Carrito</button>
               <button v-else type="button" class="btn btn-primary">Vaciar Carrito</button>
             </div>
           </div>
