@@ -673,7 +673,7 @@ span a {
   }
 
   #jugueteriaInd:hover {
-    background-color: rgba(0, 0, 0, 0.484);
+    background-color: rgba(0, 0, 0, 0.694);
     background-blend-mode: darken;
     color: white;
   }
@@ -815,9 +815,10 @@ footer{
 }
 @media (max-width:320px){
   #appContacto{
-    width: 80%;
+    width: 100%;
     margin: 0;
-  }
+    text-align: center;
+}
 }
 
 @media (max-width: 768px){
