@@ -21,6 +21,7 @@ createApp ( {
             productosOrdenadosPorPrecio: [],
             productosOrdenadosPorStock: [],
             valorOrdenamiento: 0,
+            unidades:0,
         }
     },
     created(){
@@ -98,6 +99,7 @@ createApp ( {
             this.producto = {... producto};
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
 
@@ -119,6 +121,7 @@ createApp ( {
 
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
 
@@ -140,6 +143,7 @@ createApp ( {
             }
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
         actualizacionDePropiedades(prodAVender, acumulador) {
@@ -232,10 +236,14 @@ createApp ( {
             }          
         },
 
-        
-    },
-
     computed: {
+        unidadesCarrito(){
+            let contador=0
+            for (let each of this.productosCarrito){
+                contador+=each.cantPedida            
+            }
+            this.unidades= contador
+        }
 
         renderizarOrdenado: function(){
             

@@ -15,8 +15,8 @@
       <header>
         <nav class="navbar navbar-expand-lg  container-fluid">
           <div class="container-fluid w-100">
-            <a class="navbar-brand ms-3  col-6" href="#">
-              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-6 foto-logo " >
+            <a class="navbar-brand ms-3  col-7" href="./index.html">
+              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5 foto-logo " >
             </a>
             <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -44,7 +44,7 @@
         <div class="d-flex justify-content-end titulo"style="height: 60px;">
             <h1><strong>FARMACIA</strong></h1>
             <div v-if="!productosCarrito.length" class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"></div>
-            <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"><p class="cant-productos">{{productosCarrito.length}}</p></div>
+            <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"><p class="cant-productos">{{unidades}}</p></div>
         </div>
         
         <select v-model="valorOrdenamiento" class="form-select form-select-sm" aria-label=".form-select-sm ordenador">
@@ -73,54 +73,53 @@
           </div>
         </div>
 
-        <div class="modal fade modal-dialog-scrollable modal-carrito modal-lg" id="modalCarrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Carrito de Compras</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <table class="w-100">
-                  <colgroup>
-                    <col span="5" class="total">
-                  </colgroup>
-                  <thead>
-                    <tr>
-                      <th style="text-align: center">Nombre</th>
-                      <th style="text-align: center">Precio</th>
-                      <th style="text-align: center">Cantidad</th>
-                      <th style="text-align: center">Subtotal</th>
-                      <th style="text-align: center">Descuento</th>
-                      <th style="text-align: right">Total</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr v-for="producto of productosCarrito">
-                      <td style="text-align: center">  {{producto.producto}}  </td>
-                      <td style="text-align: center">  $ {{producto.precio}}  </td>
-                      <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"> </i>  {{producto.cantPedida}}  <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)" class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus"></i></td>
-                      <td style="text-align: center">  $ {{producto.subtotal}}  </td>
-                      <td style="text-align: center">  $ {{producto.descuento}}</td>
-                      <td style="text-align: right">  $ {{producto.total}}  </td>
-                    </tr>
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <td>Total de la compra:</td>
-                      <td colspan="5" style="text-align: right">  $ {{totalCompra}}  </td>
-                    </tr> 
-                  </tfoot>
+      <div class="modal fade modal-dialog-scrollable modal-carrito modal-lg" id="modalCarrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Carrito de Compras</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="w-100">
+                <colgroup>
+                  <col span="5" class="total">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Nombre</th>
+                    <th style="text-align: center">Precio</th>
+                    <th style="text-align: center">Cantidad</th>
+                    <th style="text-align: center">Subtotal</th>
+                    <th style="text-align: center">Descuento</th>
+                    <th style="text-align: right">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="producto of productosCarrito">
+                    <td style="text-align: center">  {{producto.producto}}  </td>
+                    <td style="text-align: center">  $ {{producto.precio}}  </td>
+                    <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"> </i>  {{producto.cantPedida}}  <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)" class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus icono-mas"></i></td>
+                    <td style="text-align: center">  $ {{producto.subtotal}}  </td>
+                    <td style="text-align: center">  $ {{producto.descuento}}</td>
+                    <td style="text-align: right">  $ {{producto.total}}  </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Total de la compra:</td>
+                    <td colspan="5" style="text-align: right">  $ {{totalCompra}}  </td>
+                  </tr> 
+                </tfoot>
 
-                </table>
-              </div>
-              <div class="modal-footer">
-                <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalVenta">Confirmar la compra</button>
-                <button v-else type="button" class="btn btn-primary" >Confirmar la compra</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver a la Web</button>
-                <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vaciar Carrito</button>
-                <button v-else type="button" class="btn btn-primary">Vaciar Carrito</button>
-              </div>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalVenta">Confirmar la compra</button>
+              <button v-else type="button" class="btn btn-primary" >Confirmar la compra</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver a la Web</button>
+              <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vaciar Carrito</button>
+              <button v-else type="button" class="btn btn-primary">Vaciar Carrito</button>
             </div>
           </div>
         </div>
@@ -154,21 +153,18 @@
                   <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosPromo.indexOf(categoria)" autocomplete="off"> {{categoria}}
               </label>
             </div>
-
-          </aside>
-          <div >
-            <div class="card-producto" v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
-              <div class="producto"> 
-                <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
-                <div class="datos-producto">
-                  <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
-                  <p class="disponibles-p">Unidades disponibles: {{producto.disponibles}} </p>
-                  <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
-                  <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
-                  <p class="precio"> ${{producto.precio}} </p>
-                </div>
-                <div v-if="producto.disponibles===0" class="carrito-wrapper "><img  class="carrito-disabled" src="./assets/images/cart-disabled.png" alt="AGREGAR AL CARRITO"></div>
-                <div v-else class="carrito-wrapper"><img @click="agregarCarritoPorBoton(producto)" tabindex="1" class="carrito" src="./assets/images/cart.png" alt="AGREGAR AL CARRITO" data-bs-toggle="modal" data-bs-target="#modalCarrito"></div>
+            
+        </aside>
+        <div class="card-prod-wrapper">
+          <div class="card-producto" v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
+            <div class="producto"> 
+              <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+              <div class="datos-producto">
+                <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
+                <p class="disponibles-p">Unidades disponibles: {{producto.disponibles}} </p>
+                <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible </p>
+                <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
+                <p class="precio"> ${{producto.precio}} </p>
               </div>
             </div>
           </div>
