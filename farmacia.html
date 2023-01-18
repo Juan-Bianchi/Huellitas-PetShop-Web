@@ -103,7 +103,7 @@
                   <td style="text-align: center"> {{producto.producto}} </td>
                   <td style="text-align: center"> $ {{producto.precio}} </td>
                   <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus">
-                    </i> {{producto.cantPedida}} <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)"
+                    </i> {{producto.cantPedida}} <i v-if="producto.disponibles" @click="agregarCarritoPorBoton(producto)"
                       class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus"></i></td>
                   <td style="text-align: center"> $ {{producto.subtotal}} </td>
                   <td style="text-align: center"> $ {{producto.descuento}}</td>
