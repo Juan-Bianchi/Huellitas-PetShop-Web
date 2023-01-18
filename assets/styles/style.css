@@ -75,26 +75,23 @@ nav {
   flex-direction: column;
 }
 
-
-/*body{
-    background-color: #6cdee4;
-}*/
-
 .cards-wrapper {
   display: flex;
   justify-content: center;
 }
 
 .card {
+  background-color: #23cbd385;
   border: none;
-  background: rgb(211, 117, 107);
   width: 230px;
   height: 300px;
   margin: 1rem;
   box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
   transform: translatey(0px);
   animation: float 6s ease-in-out infinite;
+  border-radius: 20px;
 }
+
 
 @keyframes float {
   0% {
@@ -201,11 +198,11 @@ nav {
 }
 
 .img-wrapper > img {
+  /* background-color: #302b47ab; */
   border-radius: 1rem;
   padding: 1rem;
   width: 100%;
   height: 100%;
-  border-bottom: 0.7px solid rgb(210, 179, 77);
 }
 
 .img-producto-wrapper{
@@ -370,14 +367,14 @@ header{
 }
 
 .titulo{
-  max-height: 48px;
-  background: linear-gradient( #00ABB3 ,#00ABB3);
+  max-height: 70px;
+  background: linear-gradient(  #00ABB3,#00ABB3);
 }
 h1{
   width: 100%; 
   height: 100%;
-  padding-top: 0.1rem;
-  font-size: 2.5rem;
+  padding-top: 0.7rem;
+  font-size: 1.8rem;
   text-align: center;
   color:#3C4048;
 }
@@ -485,8 +482,18 @@ h1{
 
 .carrito-wrapper-nav .cant-productos{
   z-index: 2;
-  border-radius: 100%;
-  background-color: rgba(55, 74, 78, 0.575);
+
+}
+
+.carrito-wrapper-nav {
+  z-index: 2;
+  color: white;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.icono-mas{
+  color: #e2e2e2;
 }
 
 
@@ -502,7 +509,6 @@ h1{
 }
 
 
-/*  */ 
 .button-disabled{
   cursor: default;
   text-decoration: none;
@@ -557,9 +563,9 @@ h1{
 
 h1 {
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
-  color: #777;
+  color: white;
 }
 
 span {
@@ -794,6 +800,41 @@ footer{
   .seccion-historia{
     padding-top: 15rem;
   }
-  
+
 }
 
+@media (max-width: 1000px){
+    .filtros-productos{
+      flex-direction: column;
+    }
+
+    .card-producto{
+      width: fit-content;
+    }
+
+    .card-prod-wrapper{
+      margin: auto;
+    }
+     
+    .producto{
+      width: 85vw;
+    }
+    
+}
+@media (max-width: 650px){
+  .producto{
+  flex-direction: column;
+  width: 65vw;
+}
+
+.datos-producto{
+margin-left: 0;
+margin-top: 1.5rem;
+}
+
+.producto-img-wrapper{
+  padding: .7rem;
+  width: 300px;
+  height: 300px;
+} 
+}

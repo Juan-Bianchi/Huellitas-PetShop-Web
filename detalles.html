@@ -123,9 +123,10 @@
             <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
             <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
           </div>
-          <div class=" d-flex text-center">
-            <a v-if="producto.disponibles!==0" href="#" class="button ">+ Agregar al carrito</a>
+          <div class=" d-flex">
+            <a  v-if="producto.disponibles!==0" href="#" class="button">+ Agregar al carrito</a> 
             <a v-else href="#" class="button-disabled">Sin stock</a>
+         
           </div>
         </div>
       </div>
