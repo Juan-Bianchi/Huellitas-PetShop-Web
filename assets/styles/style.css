@@ -10,20 +10,6 @@ main {
   gap: 5vh;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-  min-height: 100vh;
-  background: rgb(65, 125, 122);
-  background: linear-gradient(
-      90deg,
-      rgba(65, 125, 122, 0.7) 0%,
-      rgba(135, 173, 171, 0.7) 50%,
-      rgba(65, 125, 122, 0.7) 100%
-    ),
-    url("../images/background-huellas.png");
-  background-size: contain;
-}
-
 ol {
   list-style: none;
 }
@@ -72,11 +58,6 @@ nav {
   display: flex;
   flex-direction: column;
 }
-
-
-/*body{
-    background-color: #6cdee4;
-}*/
 
 .cards-wrapper {
   display: flex;
@@ -370,13 +351,13 @@ header{
 }
 
 .titulo{
-  max-height: 40px;
+  max-height: 70px;
   background: linear-gradient(  #00ABB3,#00ABB3);
 }
 h1{
   width: 100%; 
   height: 100%;
-  padding-top: 0.2rem;
+  padding-top: 0.7rem;
   font-size: 1.8rem;
   text-align: center;
   color:#3C4048;
@@ -472,8 +453,9 @@ h1{
 
 .carrito-wrapper-nav .cant-productos{
   z-index: 2;
-  border-radius: 100%;
-  background-color: rgba(55, 74, 78, 0.575);
+  color: white;
+  font-size: larger;
+  font-weight: bold;
 }
 
 
@@ -489,7 +471,6 @@ h1{
 }
 
 
-/*  */ 
 .button-disabled{
   cursor: default;
   text-decoration: none;
@@ -560,7 +541,7 @@ h1{
 
 h1 {
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
   color: #777;
 }
