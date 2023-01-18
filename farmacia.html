@@ -150,7 +150,7 @@
           </div>
 
         </aside>
-        <div >
+        <div class="card-prod-wrapper">
           <div class="card-producto" v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
             <div class="producto"> 
               <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>

@@ -791,6 +791,41 @@ footer{
   .seccion-historia{
     padding-top: 15rem;
   }
-  
+
 }
 
+@media (max-width: 1000px){
+    .filtros-productos{
+      flex-direction: column;
+    }
+
+    .card-producto{
+      width: fit-content;
+    }
+
+    .card-prod-wrapper{
+      margin: auto;
+    }
+     
+    .producto{
+      width: 85vw;
+    }
+    
+}
+@media (max-width: 650px){
+  .producto{
+  flex-direction: column;
+  width: 65vw;
+}
+
+.datos-producto{
+margin-left: 0;
+margin-top: 1.5rem;
+}
+
+.producto-img-wrapper{
+  padding: .7rem;
+  width: 300px;
+  height: 300px;
+} 
+}

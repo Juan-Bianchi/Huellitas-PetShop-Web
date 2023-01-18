@@ -240,10 +240,9 @@ createApp ( {
         unidadesCarrito(){
             let contador=0
             for (let each of this.productosCarrito){
-                contador+=each.cantPedida            }
-            console.log(this.productosCarrito)
+                contador+=each.cantPedida            
+            }
             this.unidades= contador
-            console.log(this.unidades)
         }
 
 
