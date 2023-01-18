@@ -7,8 +7,21 @@ createApp ( {
             productosModif: [],
             producto: undefined,
             productosCarrito: [],
-            productosPromo3x2: ["Collar de pulgas para gatos", "Hueso de goma", "Pelota dos colores para perros", "Peluche de pelota"],
             totalCompra: 0,
+            dataOrig: [],
+            productos: [],
+            productosConPropAgregadas: [],
+            listaFiltrosPrecio: [],
+            listaFiltrosMascota: [],
+            listaFiltrosPromo: [],
+            productosPorBusqueda:"",
+            productosFiltradosFinal:[],
+            checks:[],
+            productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
+            productosOrdenadosPorPrecio: [],
+            productosOrdenadosPorStock: [],
+            valorOrdenamiento: 0,
+            unidades:0,
         }
     },
     created(){
@@ -31,9 +44,19 @@ createApp ( {
                 })
                 this.productosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
                 this.actualizarStockDeLocalStorage();
-                this.producto = this.productosModif.find( prod => prod._id === id);
-                
 
+                if(window.location.pathname === "/index.html" ){
+                    this.productos = [...this.productosModif];
+                }else if(window.location.pathname === "/farmacia.html"){
+                    this.productos = this.productosModif.filter(producto => producto.categoria === "farmacia")
+                }else if(window.location.pathname === "/juguete.html"){
+                    this.productos = this.productosModif.filter(producto => producto.categoria === "jugueteria")
+                }
+
+                this.agregarPropiedadesFiltrosChecks();
+                this.generoListaChecks();
+                this.producto = this.productosModif.find( prod => prod._id === id);
+                this.productosFiltradosFinal= [...this.productos]
             })
             //.catch(err => console.error(err.message));
     },
@@ -61,19 +84,21 @@ createApp ( {
         quitarDesdeCarrito: function(producto) {
 
             producto = this.actualizacionDePropiedades(producto, -1);
-            console.log(producto)
+            //console.log(producto)
             let arrayAux=[];
             if(!producto.cantPedida) {
-                let indice = this.productosCarrito.indexOf(producto);
-                console.log(indice)
-                arrayAux = [... this.productosCarrito.slice(0,  indice)];
-                console.log(arrayAux, indice)  
-                this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
+                arrayAux = this.productosCarrito.filter(prod => producto._id !== prod._id);
+                this.productosCarrito = [... arrayAux];
+                // let indice = this.productosCarrito.indexOf(producto);
+                // console.log(indice)
+                // arrayAux = [... this.productosCarrito.slice(0,  indice)];
+                //console.log(this.productosCarrito)  
+                //this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
             }  
             this.producto = {... producto};
-           
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
 
@@ -95,27 +120,29 @@ createApp ( {
 
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
 
-        agregarCarritoPorBoton: function() {
+        agregarCarritoPorBoton: function(producto) {
 
-            this.producto = this.actualizacionDePropiedades(this.producto, 1);
+            producto = this.actualizacionDePropiedades(producto, 1);
     
-            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
-                this.productosCarrito.push(this.producto);
+            if(!this.productosCarrito.some(prod => producto._id == prod._id)){
+                this.productosCarrito.push(producto);
             }
             else {
 
-                for(producto of this.productosCarrito) {
-                    if(this.producto._id == producto._id) {
+                for(prod of this.productosCarrito) {
+                    if(producto._id == prod._id) {
 
-                        Object.assign(producto, this.producto);
+                        this.producto = {... producto};
                     }
                 }
             }
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
         actualizacionDePropiedades(prodAVender, acumulador) {
@@ -124,7 +151,7 @@ createApp ( {
             prodAVender.cantPedida += acumulador;
            
 
-            if(prodAVender.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == prodAVender.producto)) {
+            if(prodAVender.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == prodAVender._id)) {
                 prodAVender.descuento = ((Math.floor(prodAVender.cantPedida / 3 )) * prodAVender.precio);
             }
             else {
@@ -144,9 +171,108 @@ createApp ( {
         limpiarLocalStorage: function() {
             localStorage.clear();
             this.productosCarrito = [];
-        }
+            // location.reload();
+        },
 
-    }
+        agregarPropiedadesFiltrosChecks() {
+            this.productosConPropAgregadas = this.productos.map( producto => {
+                let masc;
+                let precio;
+                let promo;
+                
+                if(producto.descripcion.toLowerCase().includes('perr') || producto.producto.toLowerCase().includes('perr')) {
+                    masc = 'Para tu perro';
+                }
+                else if(producto.descripcion.toLowerCase().includes('gat') || producto.producto.toLowerCase().includes('gat')) {
+                    masc = 'Para tu gato';
+                }
+                else {
+                    masc = 'Para ambos';
+                }
+
+
+                if(producto.precio <= 1000 ) {
+                    precio = 'Hasta $1000';
+                }
+                else if(producto.precio > 1000 && producto.precio < 2000){
+                    precio = 'De $1000 a $2000';
+                }
+                else {
+                    precio = 'Más de $2000';
+                }
+
+                promo = this.productosPromo3x2.some(prod => prod.includes(producto._id))? 'Productos en promoción': 'No tienen promoción';
+                return {
+                    ... producto,
+                    mascota: masc,
+                    rangoPrecio: precio,
+                    promocion: promo
+                };
+            });
+        },
+
+        generoListaChecks() {
+            let listaFiltrosChecks = []
+            let filtros = this.productosConPropAgregadas.map(prod => [ prod.mascota, prod.rangoPrecio, prod.promocion]);
+            for(let filtro of filtros) {
+                listaFiltrosChecks.push(...filtro);
+            }
+            listaFiltrosChecks = [... new Set(listaFiltrosChecks)].sort();
+            this.listaFiltrosPrecio = listaFiltrosChecks.filter(categoria => categoria.startsWith('H') || categoria.startsWith('D') || categoria.startsWith('M'));
+            this.listaFiltrosMascota = listaFiltrosChecks.filter(categoria => categoria.startsWith('Pa'));
+            this.listaFiltrosPromo = listaFiltrosChecks.filter(categoria => categoria.startsWith('Pr'));
+        },
+
+        filtroCruzado: function(){
+            let filtradoPorBusqueda = this.productosConPropAgregadas.filter(elemento => elemento.producto.toLowerCase().includes( this.productosPorBusqueda.toLowerCase()));
+            if( this.checks.length === 0 ){
+                this.productosFiltradosFinal = filtradoPorBusqueda;
+                
+            }else{
+                let filtradosPorCheck = filtradoPorBusqueda.filter( producto => this.checks.includes( producto.mascota)||this.checks.includes( producto.rangoPrecio)||this.checks.includes( producto.promocion))
+                //console.log(filtradosPorCheck)
+                this.productosFiltradosFinal = filtradosPorCheck; 
+            }          
+        },
+
+        unidadesCarrito(){
+            let contador=0
+            for (let each of this.productosCarrito){
+                contador+=each.cantPedida 
+                console.log(each, contador)           
+            }
+            this.unidades= contador
+        },
+    },
+
+    computed: {
+        
+
+        renderizarOrdenado: function(){
+            
+            if(this.valorOrdenamiento === '1'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.disponibles - b.disponibles;
+                }).reverse();
+                console.log(this.productosFiltradosFinal)
+            }
+            if(this.valorOrdenamiento === '2'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.disponibles - b.disponibles;
+                });
+            }
+            if(this.valorOrdenamiento === '3'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.precio - b.precio;
+                }).reverse();
+            }
+            if(this.valorOrdenamiento === '4'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.precio - b.precio;
+                });
+            }
+        }
+    },}
 
 }).mount('#app')
 

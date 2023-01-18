@@ -12,84 +12,34 @@
   <link rel="stylesheet" href="./assets/styles/style.css" />
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black container-fluid">
+  <div id="app">
+    <nav class="navbar navbar-expand-lg  container-fluid">
       <div class="container-fluid w-100">
-        <a class="navbar-brand ms-3" href="#">
-          <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5" >
+        <a class="navbar-brand ms-3  col-6" href="#">
+          <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-5 foto-logo" >
         </a>
         <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse show" id="navbarSupportedContent">
           <ul class="navbar-nav d-flex  ms-auto">
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" aria-current="page" href="./index.html">INICIO</a>
+              <li class="nav-item   nav-button">
+                <a class="nav-link" aria-current="page" href="./index.html">INICIO</a>
               </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./contacto.html">CONTACTO</a>
+              <li class="nav-item  nav-button">
+                <a class="nav-link" href="./contacto.html">CONTACTO</a>
               </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./farmacia.html">FARMACIA</a>
+              <li class="nav-item nav-button">
+                <a class="nav-link" href="./farmacia.html">FARMACIA</a>
               </li>
-              <li class="nav-item navbar-dark bg-black  nav-button">
-                <a class="nav-link navbar-dark bg-black" href="./juguete.html">JUGUETES</a>
+              <li class="nav-item   nav-button">
+                <a class="nav-link " href="./juguete.html">JUGUETES</a>
               </li>
             </ul>
         </div>
       </div>
     </nav>
   </header>
-  <main>
-    <div class="d-flex justify-content-end titulo"style="height: 60px;">
-      <div class=" d-flex justify-content-end titulo-h1 col-10" >
-        <h1><strong>DETALLES</strong></h1>
-      </div>
-      <img src="./assets/images/h1.jpg" alt="titulo" class="col-2">
-    </div>
-    <div v-if="productos"class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-center flex-wrap"  style="width: 96%;">
-      <div class="col-md-7 text-center"  >
-        <img :src="producto.imagen" class="card-img-top border border-white  rounded" :alt="producto.producto">
-      </div>
-      <div class="col-md-5 ">
-        <div class="card-body m-3"  >
-          <h4 class="card-title m-2">{{producto.producto}}</h4>
-          <h5 class="card-title m-2">{{producto.caregoria}}</h5>
-          <p class="card-text">{{producto.descripcion}}</p>
-          <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
-          <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
-        </div>
-      </div>
-    </div>
-  </main>
-<!--Footer-->
-<div class="">
-  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 my-5 border-top px-3 bg-secondary">
-  <div id="app">
-    <header>
-      <nav class="navbar navbar-expand-lg  container-fluid">
-        <div class="container-fluid w-100">
-          <a class="navbar-brand ms-3 col-4" href="#">
-            <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5 foto-logo " >
-          </a>
-          <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse show" id="navbarSupportedContent">
-            <ul class="navbar-nav d-flex  ms-auto">
-                <li class="nav-item  nav-button">
-                  <a class="nav-link " aria-current="page" href="./index.html">INICIO</a>
-                </li>
-                <li class="nav-item   nav-button">
-                  <a class="nav-link" href="./contacto.html">CONTACTO</a>
-                </li>
-                <li class="nav-item   nav-button">
-                  <a class="nav-link" href="./farmacia.html">FARMACIA</a>
-                </li>
-                <li class="nav-item  nav-button">
-                  <a class="nav-link " href="./juguete.html">JUGUETES</a>
-                </li>
-    </header>
     <main>
       <div class="d-flex justify-content-end titulo"style="height: 60px;">
           <h1><strong>DETALLES DEL PRODUCTO</strong></h1>
@@ -159,46 +109,30 @@
           </div>
         </div>
       </div>
-
-      
-
-      <div v-if="producto" class="row g-0 border  border-2 border-white rounded bg-dark bg-success p-2 text-white bg-opacity-50 m-3 d-flex justify-content-around flex-wrap"  style="width: 96%;">
-        <div class="d-flex col-md-6 text-center">
-          <img :src="producto.imagen" class="card-img-top border border-white  rounded" :alt="producto.producto">
+      <div class="d-flex justify-content-center ">
+      <div v-if="producto" class="row g-0 border  border-2 border-white rounded bg-light  p-2 text-black bg-opacity-75 m-3 d-flex justify-content-center flex-wrap"  style="width: 55%;">
+        <div>
+          <h4 class="card-title nombre m-2"><strong>{{producto.producto.toUpperCase()}}</strong></h4>
         </div>
-        <div class="col-md-5 ">
-          <div class="card-body m-3"  >
-            <h4 class="card-title m-2">{{producto.producto}}</h4>
-            <h5 class="card-title m-2">{{producto.caregoria}}</h5>
-            <p class="card-text">{{producto.descripcion}}</p>
+        <div class="d-flex flex-wrap text-center" >
+          <img :src="producto.imagen"  style="width: 55%;" class="card-img-top col-md-6 border border-white  rounded" :alt="producto.producto">
+          <p class="card-text col-md-4 descripcion">{{producto.descripcion}}</p>
+        </div>
+        <div>
+          <div class="m-2" >
             <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
             <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
           </div>
-          <div>
-            <button v-if="producto.disponibles" @click="agregarCarritoPorBoton" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalCarrito">
-              Agregar producto al carrito
-              <div v-if="productosCarrito.length">
-                <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
-              </div>
-              <div v-else>
-                <i class="fa-regular fa-cart-shopping-fast"></i> 
-              </div>
-            </button>
-            <button v-else type="button" class="btn">
-              Agregar producto al carrito
-              <div v-if="productosCarrito.length">
-                <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
-              </div>
-              <div v-else>
-                <i class="fa-regular fa-cart-shopping-fast"></i> 
-              </div>
-            </button>
+          <div class=" d-flex">
+            <a  v-if="producto.disponibles!==0" @click="agregarCarritoPorBoton(producto)" href="#" class="button">+ Agregar al carrito</a> 
+            <a v-else href="#" class="button-disabled">Sin stock</a>
+         
           </div>
         </div>
       </div>
+    </div>
     </main>
-   <!--Footer-->
-  
+<!--Footer-->  
  <footer class="d-lg-flex container-fluid pt-3 text-white  pb-4">
 
   <!--LOGO-->
@@ -251,7 +185,7 @@
 
 </footer>
 <section class="section">
-  <h4><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</h4>
+  <p><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</p>
 </section>
   </div>
   
@@ -262,6 +196,7 @@
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="./assets/scripts/detalles.js"></script>
+  <script src="./assets/scripts/compraranimacion.js"></script>
 </body>
 
 </html>

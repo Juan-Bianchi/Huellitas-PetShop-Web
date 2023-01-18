@@ -13,34 +13,89 @@
 </head>
 
 <body>
-  <div id="app">
-    <header>
-      <nav class="navbar navbar-expand-lg container-fluid">
-        <div class="container-fluid w-100">
-          <a class="navbar-brand ms-3 col-4" href="#">
-            <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-7 col-md-5 foto-logo ">
-          </a>
-          <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse show" id="navbarSupportedContent">
-            <ul class="navbar-nav d-flex  ms-auto">
-              <li class="nav-item  nav-button">
-                <a class="nav-link " aria-current="page" href="./index.html">INICIO</a>
-              </li>
-              <li class="nav-item  nav-button">
-                <a class="nav-link" href="./contacto.html">CONTACTO</a>
-              </li>
-              <li class="nav-item   nav-button">
-                <a class="nav-link" href="./farmacia.html">FARMACIA</a>
-              </li>
-              <li class="nav-item nav-button">
-                <a class="nav-link" href="#">JUGUETES</a>
-              </li>
-            </ul>
+
+    <div id="app">
+      <header>
+        <nav class="navbar navbar-expand-lg container-fluid">
+          <div class="container-fluid w-100">
+            <a class="navbar-brand ms-3  col-6" href="#">
+              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-5 foto-logo " >
+            </a>
+            <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+              <ul class="navbar-nav d-flex  ms-auto">
+                <li class="nav-item  nav-button">
+                  <a class="nav-link " aria-current="page" href="./index.html">INICIO</a>
+                </li>
+                <li class="nav-item  nav-button">
+                  <a class="nav-link" href="./contacto.html">CONTACTO</a>
+                </li>
+                <li class="nav-item   nav-button">
+                  <a class="nav-link" href="./farmacia.html">FARMACIA</a>
+                </li>
+                <li class="nav-item nav-button">
+                  <a class="nav-link" href="#">JUGUETES</a>
+                </li>
+              </ul>
+            </div>
           </div>
+        </nav>
+      </header>
+      <main>
+        <div class="d-flex justify-content-end titulo"style="height: 60px;">
+            <h1><strong>JUGUETES</strong></h1>
+        </div>
+        <div class="btn-group gap-2 justify-content-center w-100" id="checkboxs" role="group" data-bs-toggle="buttons">
+          <label class="btn btn-dark active" v-for="categoria of listaFiltrosChecks">
+              <input type="checkbox" class="me-2" @change="" v-model="checked" :value="categoria" name="" id="" autocomplete="off"> {{categoria}}
+          </label>
+        </div>
+      
+
+<section class="filtros-productos">
+  <aside class="filtros-aside">FILTROS</aside>
+  <ol class="seccion-productos">
+<li v-for="producto of productos" >
+<div>
+  <div class="producto" >
+    <a :href="'./detalles?id='+producto._id"><div class="img-producto-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+    <div class="datos-producto">
+      <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
+      <p>Unidades disponibles: {{producto.stock}} </p>
+      <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible</p>
+      <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Pocas unidades </p>
+<p class="precio"> ${{producto.precio}} </p>
+    </div>
+  </div>
+</div>
+</li>
+
+  </ol>
+</section>
+<div>
+
+
+     </div>
+    </div>
+
+    
+    <!--Footer-->
+  <div class="">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-4 py-5 my-5 border-top px-3 bg-secondary">
+      <!--LOGO-->
+      <div class="col-mb-4 col-md-6 col-lg-3 nav flex-column">
+        
+          <img class="" src="./assets/images/LOGO_HUELLITAS.png" alt="logo" width="80%">
+      
+      <div class="d-flex justify-content-end titulo">
+        <div class=" d-flex justify-content-end titulo-h1" >
+          <h1><strong>JUEGUETES</strong></h1>
+
+
         </div>
       </nav>
     </header>
@@ -59,23 +114,23 @@
       <section class="filtros-productos">
         <aside class="filtros-aside">FILTROS</aside>
         <ol class="seccion-productos">
-          <li v-for="producto of productos">
-            <div>
-              <div class="producto">
-                <a :href="'./detalles?id='+producto._id"><img :src="producto.imagen" :alt="producto.producto"></a>
-                <div class="datos-producto">
-                  <a :href="'./detalles?id='+producto._id">
-                    <p> {{producto.producto}} </p>
-                  </a>
-                  <p v-if="producto.disponibles===0"> SIN STOCK DISPONIBLE </p>
-                  <p v-else-if="5>=producto.disponibles>0"> POCO STOCK </p>
-                  <p> ${{producto.precio}} </p>
-                </div>
+
+          <li v-for="producto of productos" >
+          <div>
+            <div class="producto" >
+              <a :href="'./detalles?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+                <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
+              <p v-if="producto.disponibles===0">  SIN STOCK DISPONIBLE </p>
+                    <p v-else-if="5>=producto.disponibles>0"> POCO STOCK </p>
+              <p> ${{producto.precio}} </p>
               </div>
             </div>
-          </li>
+          </div>
 
-        </ol>
+          </li>
+          
+          
+            </ol>
       </section>
 
   </div>-->
@@ -237,10 +292,12 @@
       </div>
     </div>
 
+
   </footer>
   <section class="section">
     <h4><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</h4>
   </section>
+
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
