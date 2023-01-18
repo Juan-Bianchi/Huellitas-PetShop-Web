@@ -18,7 +18,7 @@
         <nav class="navbar navbar-expand-lg container-fluid">
           <div class="container-fluid w-100">
             <a class="navbar-brand ms-3  col-6" href="#">
-              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-6 foto-logo " >
+              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-5 foto-logo " >
             </a>
             <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
@@ -61,12 +61,13 @@
 <li v-for="producto of productos" >
 <div>
   <div class="producto" >
-    <a :href="'./detalles?id='+producto._id"><img :src="producto.imagen" :alt="producto.producto"></a>
+    <a :href="'./detalles?id='+producto._id"><div class="img-producto-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
     <div class="datos-producto">
       <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
-    <p v-if="producto.disponibles===0">  SIN STOCK DISPONIBLE </p>
-          <p v-else-if="5>=producto.disponibles>0"> POCO STOCK </p>
-    <p> ${{producto.precio}} </p>
+      <p>Unidades disponibles: {{producto.stock}} </p>
+      <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible</p>
+      <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Pocas unidades </p>
+<p class="precio"> ${{producto.precio}} </p>
     </div>
   </div>
 </div>
@@ -112,20 +113,20 @@
         
         <ol class="seccion-productos">
           <li v-for="producto of productos" >
-              <div>
-                <div class="producto" >
-                  <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
-                  <div class="datos-producto">
-                    <a :href="'./detalles.html?id='+producto._id"><p> {{producto.producto}} </p></a>
-                        <p v-if="producto.disponibles===0" class="sin-stock">  Sin stock disponible</p>
-                        <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Pocas unidades </p>
-                  <p class="precio"> ${{producto.precio}} </p>
-                  </div>
-                </div>
+          <div>
+            <div class="producto" >
+              <a :href="'./detalles?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
+                <a :href="'./detalles?id='+producto._id"><p> {{producto.producto}} </p></a>
+              <p v-if="producto.disponibles===0">  SIN STOCK DISPONIBLE </p>
+                    <p v-else-if="5>=producto.disponibles>0"> POCO STOCK </p>
+              <p> ${{producto.precio}} </p>
               </div>
+            </div>
+          </div>
           </li>
-
-        </ol>
+          
+          
+            </ol>
       </section>
       <div>
 
@@ -188,7 +189,7 @@
 
 </footer>
 <section class="section">
-  <h4><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</h4>
+  <p><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</p>
 </section>
 
   

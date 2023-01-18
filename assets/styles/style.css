@@ -9,7 +9,9 @@ main {
   flex-direction: column;
   gap: 5vh;
 }
-
+.fa-copyright{
+  font-size: 1rem;
+}
 body {
   font-family: "Lato", sans-serif;
   min-height: 100vh;
@@ -128,12 +130,6 @@ nav {
   margin: 0 auto;
   width: 80%;
 }
-/*.carousel1 {
-  margin-top:15%;
-  padding-top: 6%;
-  width: 80%;
-
-}*/
 
 .carousel-wrapper {
   max-height: 6rem;
@@ -190,11 +186,14 @@ nav {
 .producto {
   background-color: rgba(255, 255, 255, 0.76);
   display: flex;
-  flex-direction: column;
-  width: 100%;
   align-items: center;
   border-radius: 0.5rem;
-  margin: 1.2rem 0;
+  margin: 0.5rem 0;
+  width: 50vw;
+}
+
+.disponibles-p{
+  font-weight: lighter;
 }
 
 .img-wrapper {
@@ -209,6 +208,11 @@ nav {
   border-bottom: 0.7px solid rgb(210, 179, 77);
 }
 
+.img-producto-wrapper{
+  width: 230px;
+  height: 230px;
+}
+
 .producto-img-wrapper {
   width: 250px;
   height: 250px;
@@ -218,6 +222,10 @@ nav {
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
+}
+
+.datos-producto{
+  margin-left: 1rem;
 }
 
 .datos-producto a {
@@ -326,7 +334,8 @@ nav {
 
 body{
   min-height: 100vh;
-  background-image:linear-gradient( #EAEAEA,#00ABB3 )
+  background-image:linear-gradient( #eaeaea9d,#00aab3a9 ), url('../images/background-huellas.png');
+background-size: contain;
 }
 .navbar{
   background-color:#3C4048;
@@ -339,7 +348,7 @@ body{
     letter-spacing: 2.5px;
     font-weight: 500;
     background-color:#3C4048;
-    border-radius: 45px;
+    border-radius: .5rem;
     box-shadow: 0px 8px 15px rgba(249, 249, 249, 0.048);
     transition: all 0.3s ease 0s;
     cursor: pointer;
@@ -374,12 +383,18 @@ h1{
 }
 .descripcion{
   text-align: justify;
+  font-size: 0.9rem;
+  margin: 0 1rem;
 }
 .nombre{
   color:  #00ABB3 ;
   font-size: 1.2rem;
+  text-align: center;
 }
-
+.agregarBoton{
+  background-color: #00ABB3;
+  color: white;
+}
 .iconSize {
   font-size: 30px;
   size: 40px;
@@ -409,6 +424,11 @@ h1{
 
 .icono-redes {
   font-size: 2rem;
+  transition: all .2s ease-in-out;
+}
+
+.icono-redes:hover{
+  transform: scale(1.2);
 }
 
 .contacto-contenedor {
@@ -418,6 +438,140 @@ h1{
 
 .contact {
   margin: 0;
+}
+
+.carrito-wrapper{
+  width: 5rem;
+  margin-left: auto;
+  margin-top: auto;
+  padding-right:  2.5rem;
+  padding-bottom: 2rem;
+}
+
+
+.carrito:hover{
+  transform: scale(1.1) translatey(-1rem);
+  background-color: #00aab34d;
+}
+
+.carrito:active{
+  transform: scale(.9);
+  background-color: #105a5e;
+}
+
+.carrito{
+  transition: all .2s ease-in-out;
+  width: 100%;
+}
+
+.carrito-wrapper-nav{
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  width: 3rem;
+  cursor: pointer;
+  margin-right: 3rem;
+}
+
+.carrito-wrapper-nav > * {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+}
+
+.carrito-wrapper-nav .carrito-nav{
+  z-index: 1;
+  width: 100%;
+}
+
+.carrito-wrapper-nav .cant-productos{
+  z-index: 2;
+  border-radius: 100%;
+  background-color: rgba(55, 74, 78, 0.575);
+}
+
+
+.comprar-detalles{
+  cursor: pointer;
+  color: black;
+  border-radius: 4rem;
+  background-color: rgba(255, 255, 255, 0.527);
+  justify-content: center;
+  align-items: baseline;
+  width: fit-content;
+  padding: 0 0.5rem ;
+}
+
+
+/*  */ 
+.button-disabled{
+  cursor: default;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(168, 181, 194);
+}
+
+.button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #fff;
+}
+.button:hover:before {
+  width: 100%;
+}
+.button:active{
+  transform: scale(.9);
+}
+
+.container {
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  color: #777;
+}
+
+span {
+  display: block;
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  color: #777;
+}
+span a {
+  font-size: 0.7rem;
+  color: #999;
+  text-decoration: underline;
 }
 
 /*/////////////////////////INICIO/////////////////////////*/
@@ -487,7 +641,7 @@ h1{
   }
 
   #farmaciaInd:hover {
-    background-color: rgba(0, 0, 0, 0.484);
+    background-color: rgba(0, 0, 0, 0.715);
     background-blend-mode: darken;
     color: white;
   }
