@@ -616,9 +616,9 @@ span a {
   background-color: #15797e70;
 }
 
-.faq-wrapper > img{
+.faq-wrapper > img {
   height: 2rem;
-  width: 2rem
+  width: 2rem;
 }
 
 .col-izq {
@@ -627,14 +627,23 @@ span a {
   margin-bottom: 0.5rem;
 }
 
-.col-izq > div{
+.col-izq > div {
   font-size: small;
-  text-transform: capitalize;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
   padding: 2rem;
+}
+
+.col-izq > div:focus {
+  background-color: #43d4dbd5;
+  transition: all 0.3s;
 }
 
 .faq-box-place {
   text-align: center;
+  font-weight: bolder;
+  font-size: larger;
 }
 
 .box-der {
@@ -643,11 +652,11 @@ span a {
   height: 80%;
 }
 
-.box-der p{
+.box-der p {
   padding-top: 2rem;
 }
 
-.box-der-wrapper{
+.box-der-wrapper {
   width: 100%;
 }
 
@@ -761,6 +770,13 @@ span a {
   margin-left: auto;
   margin-right: 2px;
   background-color: #acacac85;
+}
+
+.ayuda-faq {
+  color: #3c4048;
+  margin: auto;
+  text-align: center;
+  width: fit-content;
 }
 
 /*//////////////////////////DETALLES///////////////////////*/
@@ -906,6 +922,13 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .carousel-item {
+    min-height: 40vh;
+  }
+
+  .banner {
+    height: 60vh;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -944,7 +967,7 @@ footer {
   }
 }
 
-@media (min-width: 1024px){
+@media (min-width: 1024px) {
   #carouselExample {
     height: 40vh;
   }
@@ -953,7 +976,7 @@ footer {
     min-height: 40vh;
   }
 
-  .banner{
+  .banner {
     height: 50vh;
   }
 }
