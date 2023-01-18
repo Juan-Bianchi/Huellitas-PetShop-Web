@@ -18,6 +18,8 @@ createApp ( {
             productosFiltradosFinal:[],
             checks:[],
             productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
+            productosOrdenadosPorPrecio: [],
+            productosOrdenadosPorStock: [],
         }
     },
     created(){
@@ -122,19 +124,19 @@ createApp ( {
         },
 
 
-        agregarCarritoPorBoton: function() {
+        agregarCarritoPorBoton: function(producto) {
 
-            this.producto = this.actualizacionDePropiedades(this.producto, 1);
+            producto = this.actualizacionDePropiedades(producto, 1);
     
-            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
-                this.productosCarrito.push(this.producto);
+            if(!this.productosCarrito.some(prod => producto._id == prod._id)){
+                this.productosCarrito.push(producto);
             }
             else {
 
-                for(producto of this.productosCarrito) {
-                    if(this.producto._id == producto._id) {
+                for(prod of this.productosCarrito) {
+                    if(producto._id == prod._id) {
 
-                        Object.assign(producto, this.producto);
+                        this.producto = {... producto};
                     }
                 }
             }
@@ -168,6 +170,7 @@ createApp ( {
         limpiarLocalStorage: function() {
             localStorage.clear();
             this.productosCarrito = [];
+            // location.reload();
         },
 
         agregarPropiedadesFiltrosChecks() {

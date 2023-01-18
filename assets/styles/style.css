@@ -510,7 +510,7 @@ h1{
   }
 
   #farmaciaInd:hover {
-    background-color: rgba(0, 0, 0, 0.484);
+    background-color: rgba(0, 0, 0, 0.715);
     background-blend-mode: darken;
     color: white;
   }

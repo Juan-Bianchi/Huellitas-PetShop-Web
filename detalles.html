@@ -125,7 +125,7 @@
             <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
           </div>
           <div>
-            <button v-if="producto.disponibles" @click="agregarCarritoPorBoton" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+            <button v-if="producto.disponibles" @click="agregarCarritoPorBoton(producto)" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalCarrito">
               Agregar producto al carrito
               <div v-if="productosCarrito.length">
                 <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
