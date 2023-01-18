@@ -124,25 +124,9 @@
             <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
             <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
           </div>
-          <div>
-            <button v-if="producto.disponibles" @click="agregarCarritoPorBoton(producto)" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modalCarrito">
-              Agregar producto al carrito
-              <div v-if="productosCarrito.length">
-                <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
-              </div>
-              <div v-else>
-                <i class="fa-regular fa-cart-shopping-fast disabled"></i> 
-              </div>
-            </button>
-            <button v-else type="button" class="btn">
-              Agregar producto al carrito
-              <div v-if="productosCarrito.length">
-                <i class="fa-sharp fa-solid fa-cart-shopping-fast"></i>
-              </div>
-              <div v-else>
-                <i class="fa-regular fa-cart-shopping-fast"></i> 
-              </div>
-            </button>
+          <div class=" d-flex">
+            <a v-if="producto.disponibles!==0" href="#" class="button">+ Agregar al carrito</a>
+            <a v-else href="#" class="button-disabled">Sin stock</a>
           </div>
         </div>
       </div>
@@ -211,6 +195,7 @@
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="./assets/scripts/detalles.js"></script>
+  <script src="./assets/scripts/compraranimacion.js"></script>
 </body>
 
 </html>

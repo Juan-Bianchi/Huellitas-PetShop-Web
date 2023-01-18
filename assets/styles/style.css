@@ -346,7 +346,7 @@ background-size: contain;
     letter-spacing: 2.5px;
     font-weight: 500;
     background-color:#3C4048;
-    border-radius: 45px;
+    border-radius: .5rem;
     box-shadow: 0px 8px 15px rgba(249, 249, 249, 0.048);
     transition: all 0.3s ease 0s;
     cursor: pointer;
@@ -409,6 +409,11 @@ h1{
 
 .icono-redes {
   font-size: 2rem;
+  transition: all .2s ease-in-out;
+}
+
+.icono-redes:hover{
+  transform: scale(1.2);
 }
 
 .contacto-contenedor {
@@ -435,12 +440,139 @@ h1{
 }
 
 .carrito:active{
+  transform: scale(.9);
   background-color: #105a5e;
 }
 
 .carrito{
   transition: all .2s ease-in-out;
   width: 100%;
+}
+
+.carrito-wrapper-nav{
+  display: grid;
+  grid-template: 1fr / 1fr;
+  place-items: center;
+  width: 3rem;
+  cursor: pointer;
+  margin-right: 3rem;
+}
+
+.carrito-wrapper-nav > * {
+  grid-column: 1 / 1;
+  grid-row: 1 / 1;
+}
+
+.carrito-wrapper-nav .carrito-nav{
+  z-index: 1;
+  width: 100%;
+}
+
+.carrito-wrapper-nav .cant-productos{
+  z-index: 2;
+  border-radius: 100%;
+  background-color: rgba(55, 74, 78, 0.575);
+}
+
+
+.comprar-detalles{
+  cursor: pointer;
+  color: black;
+  border-radius: 4rem;
+  background-color: rgba(255, 255, 255, 0.527);
+  justify-content: center;
+  align-items: baseline;
+  width: fit-content;
+  padding: 0 0.5rem ;
+}
+
+
+/*  */ 
+.button-disabled{
+  cursor: default;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(168, 181, 194);
+}
+
+.button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0cf;
+  border-radius: 10rem;
+  z-index: -2;
+}
+.button:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #008fb3;
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+.button:hover {
+  color: #fff;
+}
+.button:hover:before {
+  width: 100%;
+}
+.button:active{
+  transform: scale(.9);
+}
+
+.container {
+  padding-top: 50px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  color: #777;
+}
+
+span {
+  display: block;
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  color: #777;
+}
+span a {
+  font-size: 0.7rem;
+  color: #999;
+  text-decoration: underline;
 }
 
 /*/////////////////////////INICIO/////////////////////////*/
