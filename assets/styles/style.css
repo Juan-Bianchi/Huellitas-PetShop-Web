@@ -614,6 +614,7 @@ span a {
   width: 80%;
   margin: auto;
   background-color: #15797e70;
+  margin-top: 5rem;
 }
 
 .faq-wrapper > img {
@@ -928,6 +929,14 @@ footer {
 
   .banner {
     height: 60vh;
+  }
+
+  .faq-wrapper{
+    flex-direction: column;
+  }
+
+  .col-izq {
+    width: 100%;
   }
 }
 
