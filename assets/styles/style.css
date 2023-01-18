@@ -615,6 +615,7 @@ span a {
   margin: auto;
   background-color: #15797e70;
   margin-top: 5rem;
+  border-radius: .5rem;
 }
 
 .faq-wrapper > img {
