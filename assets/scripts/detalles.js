@@ -71,7 +71,6 @@ createApp ( {
                 this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
             }  
             this.producto = {... producto};
-           
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
         },
@@ -122,8 +121,7 @@ createApp ( {
     
             prodAVender.disponibles -= acumulador;
             prodAVender.cantPedida += acumulador;
-           
-
+          
             if(prodAVender.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == prodAVender.producto)) {
                 prodAVender.descuento = ((Math.floor(prodAVender.cantPedida / 3 )) * prodAVender.precio);
             }
