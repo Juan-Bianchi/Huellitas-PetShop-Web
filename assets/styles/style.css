@@ -631,6 +631,18 @@ footer{
   .img-perro{
     height: 169px;
   }
+  #appContacto{
+    width: 360px;
+   
+    margin: 0%;
+  }
+}
+@media (max-width:320px){
+  #appContacto{
+    width: 320px;
+   
+    margin: 0%;
+  }
 }
 
 @media (max-width: 768px){
