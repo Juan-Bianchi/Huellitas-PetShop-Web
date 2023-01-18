@@ -707,7 +707,7 @@ span a {
   background-color: rgba(182, 182, 182, 0.425);
   padding: 2rem;
   border-radius: 0.5rem;
-  border:1px solid  #00abb3;
+  border: 1px solid #00abb3;
 }
 
 .descripcion {
@@ -1035,16 +1035,14 @@ footer {
     width: 90%;
   }
 
-.img-details-wrap{
-  width: 100%;
-  height: 
-  
-}
+  .img-details-wrap {
+    width: 100%;
+  }
 
-.nombre{
-  margin-left: auto;
+  .nombre {
+    margin-left: auto;
+  }
 }
- }
 
 @media (max-width: 1000px) {
   .filtros-productos {
