@@ -468,7 +468,7 @@ h1{
   width: 100%;
 }
 
-.carrito-wrapper-nav .cant-productos{
+.carrito-wrapper-nav {
   z-index: 2;
   border-radius: 100%;
   background-color: rgba(55, 74, 78, 0.575);
