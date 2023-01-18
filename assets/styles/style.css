@@ -9,6 +9,11 @@ main {
   flex-direction: column;
   gap: 5vh;
 }
+
+.footer-p {
+  margin: 0;
+}
+
 .fa-copyright{
   font-size: 1rem;
 }
