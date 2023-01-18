@@ -20,6 +20,7 @@ createApp ( {
             productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
             productosOrdenadosPorPrecio: [],
             productosOrdenadosPorStock: [],
+            valorOrdenamiento: 0,
         }
     },
     created(){
@@ -57,9 +58,7 @@ createApp ( {
 
                 this.producto = this.productosModif.find( prod => prod._id === id);
 
-                this.productosFiltradosFinal= [...this.productos]
-                
-
+                this.productosFiltradosFinal= [...this.productos];
             })
             //.catch(err => console.error(err.message));
     },
@@ -233,7 +232,35 @@ createApp ( {
             }          
         },
 
+        
+    },
 
+    computed: {
+
+        renderizarOrdenado: function(){
+            
+            if(this.valorOrdenamiento === '1'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.disponibles - b.disponibles;
+                }).reverse();
+                console.log(this.productosFiltradosFinal)
+            }
+            if(this.valorOrdenamiento === '2'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.disponibles - b.disponibles;
+                });
+            }
+            if(this.valorOrdenamiento === '3'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.precio - b.precio;
+                }).reverse();
+            }
+            if(this.valorOrdenamiento === '4'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.precio - b.precio;
+                });
+            }
+        }
     }
 
 }).mount('#app')
