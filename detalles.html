@@ -42,7 +42,7 @@
   </header>
     <main>
       <div class="d-flex justify-content-end titulo"style="height: 60px;">
-          <h1><strong>DETALLES DEL PRODUCTO</strong></h1>
+          <h1><strong>PRODUCTO</strong></h1>
       </div>
       <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -110,24 +110,24 @@
         </div>
       </div>
       <div class="d-flex justify-content-center ">
-      <div v-if="producto" class="row g-0 border  border-2 border-white rounded bg-light  p-2 text-black bg-opacity-75 m-3 d-flex justify-content-center flex-wrap"  style="width: 55%;">
+      <div v-if="producto" class="row g-0 border detalle border-2 border-white rounded bg-light col-lg-6 col-md-9 col-11 p-2 text-black bg-opacity-75 m-3 d-flex justify-content-center flex-wrap" >
+        <img :src="producto.imagen"  style="width: 90%;" class="card-img-top col-md-10 border border-white  rounded" :alt="producto.producto">
         <div>
           <h4 class="card-title nombre m-2"><strong>{{producto.producto.toUpperCase()}}</strong></h4>
         </div>
-        <div class="d-flex flex-wrap text-center" >
-          <img :src="producto.imagen"  style="width: 55%;" class="card-img-top col-md-6 border border-white  rounded" :alt="producto.producto">
-          <p class="card-text col-md-4 descripcion">{{producto.descripcion}}</p>
+        <div class="m-2" >
+            <p class="card-text precio"><strong>Precio :</strong> $ {{producto.precio}}</p>
+            <p class="card-text"><strong>Stock : </strong>{{producto.disponibles}} unidades</p>
         </div>
-        <div>
-          <div class="m-2" >
-            <p class="card-text"><strong>Precio: $ </strong>{{producto.precio}}</p>
-            <p class="card-text"><strong>Stock:</strong>{{producto.disponibles}} unidades</p>
-          </div>
-          <div class=" d-flex">
+          <div class=" d-flex justify-content-center boton-carrito">
             <a  v-if="producto.disponibles!==0" @click="agregarCarritoPorBoton(producto)" href="#" class="button">+ Agregar al carrito</a> 
             <a v-else href="#" class="button-disabled">Sin stock</a>
-         
           </div>
+          <p class="card-text col-md-11 descripcion">{{producto.descripcion}}</p>
+      </div>
+        <div>
+          
+          
         </div>
       </div>
     </div>
