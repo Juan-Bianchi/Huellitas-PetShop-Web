@@ -18,7 +18,7 @@
     <nav class="navbar navbar-expand-lg  container-fluid">
       <div class="container-fluid w-100">
         <a class="navbar-brand ms-3 col-6" href="#">
-          <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-6 foto-logo " >
+          <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-5 foto-logo " >
         </a>
         <button class="navbar-toggler border-0  px-3 py-1" type="button" data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
@@ -45,7 +45,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="index-main">
 
     <div class="d-flex flex-wrap justify-content-end titulo"style="height: 60px;">
         <h1><strong>INICIO</strong></h1>
@@ -57,12 +57,12 @@
         <div id="carouselExample" class="carousel carousel-dark slide ">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="./assets/images/BIENVENIDO_HUELLITAS2.png" class="d-block w-100" alt="BIENVENIDO" />
+              <img src="./assets/images/BIENVENIDO_HUELLITAS2.png" class="d-block banner" alt="BIENVENIDO" />
             </div>
             <div>
               <div class="carousel-item primer-item">
                 <div class="cards-wrapper">
-                  <div class="card primer-item" v-for="producto of productos.slice(0,4)">
+                  <div class="card card-index primer-item" v-for="producto of productos.slice(0,4)">
                     <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
                       <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
                           :alt="productos.producto">
@@ -78,7 +78,7 @@
               <div class="carousel-item segundo-item">
 
                 <div class="cards-wrapper">
-                  <div class="card segundo-item" v-for="producto of productos.slice(-4) ">
+                  <div class="card card-index segundo-item" v-for="producto of productos.slice(-4) ">
                     <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
                       <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top"
                           :alt="productos.producto">
@@ -191,8 +191,8 @@
       <h4 class="text-center text-lg-start text-md-start ps-lg-2 ">CONTACTO</h4>
       <div class="contacto container-fluid d-md-flex flex-lg-column p-lg-0 container-fluid justify-content-md-around">
         <div class="">
-          <p class="contact text-md-start fw-bold"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; EMAIL: <a class="link-white link-white-hover text-decoration-none" href="mailto:huellitas@petshop.arg">huellitas@petshop.arg</a></p>
-          <p class="contact text-md-start fw-bold"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; TEL: <a class="link-white link-white-hover text-decoration-none" href="tel:+54 9 11 5555-5974">+54 9 11 5555-5974</a></p>
+          <p class="contact text-md-start fw-bold"><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i>&nbsp; EMAIL: <a class="link-secondary link-white-hover text-decoration-none" href="mailto:huellitas@petshop.arg">huellitas@petshop.arg</a></p>
+          <p class="contact text-md-start fw-bold"><i class="fa fa-phone fa-fw" aria-hidden="true"></i>&nbsp; TEL: <a class="link-secondary link-white-hover text-decoration-none" href="tel:+54 9 11 5555-5974">+54 9 11 5555-5974</a></p>
         </div>
         <div>
           <p class=" text-md-start fw-bold mt-3 mt-md-0"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>&nbsp; Horarios de atención</p>
@@ -223,15 +223,16 @@
         <li ><a class="link-dark-hover text-muted" href="https://www.instagram.com/"><i class="fa-brands fa-instagram fa-2x text-white icono-redes"></i></a></li>
         <li ><a class="link-dark-hover text-muted" href="https://www.facebook.com/"><i class="fa-brands fa-facebook fa-2x text-white icono-redes"></i></a></li>
         <li ><a class="link-dark-hover text-muted" href="https://web.whatsapp.com/"><i class="fa-brands fa-whatsapp fa-2x text-white icono-redes"></i></a></li>
+
       </ul>
-      <h6 class="text-center mt-3 pt-3">FORMAS DE PAGO</h6>
+      <h6 class="text-center mt-3 p-3">FORMAS DE PAGO</h6>
        <img class="imgFooterFpago row" src="./assets/images/mediosPago.png" alt="metodos de pago">
     </div>
   </div>
 
 </footer>
 <section class="section">
-  <h4><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</h4>
+  <p><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</p>
 </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
