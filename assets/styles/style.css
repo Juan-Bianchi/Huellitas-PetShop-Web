@@ -9,6 +9,22 @@ main {
   flex-direction: column;
   gap: 5vh;
 }
+.fa-copyright{
+  font-size: 1rem;
+}
+body {
+  font-family: "Lato", sans-serif;
+  min-height: 100vh;
+  background: rgb(65, 125, 122);
+  background: linear-gradient(
+      90deg,
+      rgba(65, 125, 122, 0.7) 0%,
+      rgba(135, 173, 171, 0.7) 50%,
+      rgba(65, 125, 122, 0.7) 100%
+    ),
+    url("../images/background-huellas.png");
+  background-size: contain;
+}
 
 ol {
   list-style: none;
@@ -364,12 +380,18 @@ h1{
 }
 .descripcion{
   text-align: justify;
+  font-size: 0.9rem;
+  margin: 0 1rem;
 }
 .nombre{
   color:  #00ABB3 ;
   font-size: 1.2rem;
+  text-align: center;
 }
-
+.agregarBoton{
+  background-color: #00ABB3;
+  color: white;
+}
 .iconSize {
   font-size: 30px;
   size: 40px;
@@ -519,22 +541,6 @@ h1{
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0cf;
-  border-radius: 10rem;
-  z-index: -2;
-}
-.button:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #008fb3;
-  transition: all 0.3s;
   border-radius: 10rem;
   z-index: -1;
 }
