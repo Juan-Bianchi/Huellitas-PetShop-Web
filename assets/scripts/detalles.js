@@ -97,7 +97,6 @@ createApp ( {
                 this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
             }  
             this.producto = {... producto};
-           
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
         },
