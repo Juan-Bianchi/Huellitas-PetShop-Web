@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <header></header>
+    <main id="appFAQ">
+
+        <div class="d-flex col-sm-12">
+            <div class="col-sm-4">
+                <div id="entrega" class="col-sm-12" @click="" tabindex="1"> ¿CUÁNTO TARDARÁ EN LLEGAR MI PEDIDO?</div>
+                <div id="defecto" class="col-sm-12" @click="" tabindex="2">¿QUÉ PASA SI MI PRODUCTO TIENE UN DEFECTO O
+                    NO CUMPLE CON
+                    LOS ESTÁNDARES DE CALIDAD?</div>
+            </div>
+            <div id="tiempo" class="col-sm-12" @click="" tabindex="3">¿CUÁNTO TARDA LA DEVOLCUION EN VERSE REFLEJADA EN
+                MI TARJETA?</div>
+            <div id="precios" class="col-sm-12" @click="" tabindex="4"> ¿El precio que figura en la web es el precio
+                final?</div>
+
+            <div class="col-sm-8" v-if="entrega">
+
+                <p>Una vez que nuestro almacén termine la preparación de tu pedido recibirás un correo electrónico de
+                    confirmación con tu guía de seguimiento.
+                    adidas realizará la entrega en la dirección registrada en la orden de 4(cuatro) a 7 (siete) en
+                    Ciudad Autónoma de Buenos Aires y hasta 10 días hábiles en resto del país.
+
+                    Si utilizaste nuestro Servicio Express, valida los parámetros y tiempos establecidos aquí.
+
+                    Recordá que pódes realizar el seguimiento de tu pedido en:
+                <ol>
+                    <li>Seguimiento de Pedidos: Con tu número de pedido
+                    </li>
+                    <li>Socio logístico: Ingresa al sitio de nuestro socio logístico OCA y Correo Argentino con la guía
+                        de despacho asignada.</li>
+                    <li> Si detectas cualquier anormalidad o retraso de entrega deberás comunicarte con nuestro <a
+                            href="./contacto.html">Centro
+                            de Atención a Cliente para que podamos apoyarte.</a></li>
+                </ol>
+
+                Nota: Los periodos de entrega son indicativos y, por consiguiente, no se consideran fechas límite
+                estrictas. El mero hecho de haber excedido un periodo de entrega no le dará ningún derecho de
+                compensación.</p>
+
+            </div>
+            <div class="col-sm-8" v-if="defecto">
+                <p>Comprobamos exhaustivamente todos nuestros productos en condiciones reales para asegurarnos de que
+                    están en óptimas condiciones para soportar los usos para los que han sido diseñados. Sin embargo, a
+                    veces resulta inevitable que se entregue un producto defectuoso.
+                    Por ello, si tu producto no cumple con los estándares de calidad adidas y sufre algun daño durante
+                    su uso NORMAL:
+                <ol>
+                    <li>Tienes un plazo de hasta 180 días para comunicarte con nuestro Servicio de Atención a Clientes
+                    </li>
+                    <li> Si al momento de tu solicitud: </li>
+                    <ul>
+                        <li> 2.1 Contamos con el inventario para reemplazar tu producto, te haremos llegar uno nuevo.
+                        </li>
+                        <li> 2.2 Si no contamos con el inventario disponible, haremos el reembolso integro de tu
+                            artículo(s)</li>
+                    </ul>
+                </ol>
+                </p>
+            </div>
+            <div class="col-sm-8" v-if="tiempo">
+                <p>Si tu compra fue realizada con tarjeta de crédito, verás reflejado el reembolso en los siguientes 12
+                    días hábiles.
+                    El plazo para compras efectuadas con tarjeta de débito es de 20 días hábiles.
+
+                    La acreditación puede variar dependiendo del medio de pago utilizado en la compra y del cierre del
+                    resumen de cuenta.
+
+                    Si pasados los 12 días hábiles no ves reflejada la devolución, contactate con la entidad emisora de
+                    la tarjeta.</p>
+            </div>
+            <div class="col-sm-8" v-if="precios">
+                <p>Todos los precios en la web incluyen el IVA, y se encuentran expresados en pesos argentinos.</p>
+            </div>
+
+        </div>
+
+    </main>
+    <footer></footer>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/scripts/faq.js"></script>
+</body>
+
+</html>
