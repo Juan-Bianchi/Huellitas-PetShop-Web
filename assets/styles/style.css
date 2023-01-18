@@ -827,14 +827,18 @@ footer{
   }
 
   .carousel{
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     height: 332px;
     margin-top: 2rem;
   }
 
+  .cards-wrapper{
+    margin-top: 5vh;
+  }
+
   #img-carousel-mobile{
     margin: auto;
-    width: 60vw;
+  
   }
 
 .carousel-wrapper{
@@ -850,8 +854,7 @@ footer{
  }
 
  .banner{
-  width: 90%;
-  height: 90%;
+  height: 70vh;
  }
  }
 
