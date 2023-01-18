@@ -9,6 +9,22 @@ main {
   flex-direction: column;
   gap: 5vh;
 }
+.fa-copyright{
+  font-size: 1rem;
+}
+body {
+  font-family: "Lato", sans-serif;
+  min-height: 100vh;
+  background: rgb(65, 125, 122);
+  background: linear-gradient(
+      90deg,
+      rgba(65, 125, 122, 0.7) 0%,
+      rgba(135, 173, 171, 0.7) 50%,
+      rgba(65, 125, 122, 0.7) 100%
+    ),
+    url("../images/background-huellas.png");
+  background-size: contain;
+}
 
 ol {
   list-style: none;
@@ -112,6 +128,7 @@ nav {
   width: 80%;
 }
 
+
 .carousel-wrapper {
   max-height: 6rem;
 }
@@ -134,7 +151,7 @@ nav {
 
 .filtros-aside {
   border-radius: 8px;
-  height: 44rem;
+  height: fit-content;
   align-items: center;
   padding-bottom: 2rem;
   background-color: white;
@@ -364,12 +381,18 @@ h1{
 }
 .descripcion{
   text-align: justify;
+  font-size: 0.9rem;
+  margin: 0 1rem;
 }
 .nombre{
   color:  #00ABB3 ;
   font-size: 1.2rem;
+  text-align: center;
 }
-
+.agregarBoton{
+  background-color: #00ABB3;
+  color: white;
+}
 .iconSize {
   font-size: 30px;
   size: 40px;
@@ -470,6 +493,9 @@ h1{
   font-weight: bold;
 }
 
+.icono-mas{
+  color: #e2e2e2;
+}
 
 
 .comprar-detalles{
@@ -516,22 +542,6 @@ h1{
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #0cf;
-  border-radius: 10rem;
-  z-index: -2;
-}
-.button:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: #008fb3;
-  transition: all 0.3s;
   border-radius: 10rem;
   z-index: -1;
 }
@@ -556,7 +566,7 @@ h1 {
   text-transform: uppercase;
   font-size: 2rem;
   margin-bottom: 2rem;
-  color: #777;
+  color: white;
 }
 
 span {
@@ -671,6 +681,17 @@ span a {
     background-color: rgba(0, 0, 0, 0.484);
     background-blend-mode: darken;
     color: white;
+  }
+
+  .bg-carrousel{
+    background-color: transparent !important;
+  }
+  .bg-carrouselImg{
+    background-color: #00ABB3 !important
+
+  }
+  .img-perro{
+    height: 170px;
   }
 /*//////////////////////////DETALLES///////////////////////*/
 
@@ -788,6 +809,21 @@ footer{
 
   #img-carousel-mobile{
     width:82vw ;
+  }
+  .img-perro{
+    height: 169px;
+  }
+  #appContacto{
+    width: 360px;
+   
+    margin: 0%;
+  }
+}
+@media (max-width:320px){
+  #appContacto{
+    width: 320px;
+   
+    margin: 0%;
   }
 }
 

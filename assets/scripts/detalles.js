@@ -20,6 +20,7 @@ createApp ( {
             productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
             productosOrdenadosPorPrecio: [],
             productosOrdenadosPorStock: [],
+            valorOrdenamiento: 0,
             unidades:0,
             windowWidth: window.innerWidth,
         }
@@ -56,13 +57,8 @@ createApp ( {
 
                 this.agregarPropiedadesFiltrosChecks();
                 this.generoListaChecks();
-                this.productosFiltradosFinal= [...this.productos]
-
                 this.producto = this.productosModif.find( prod => prod._id === id);
-
                 this.productosFiltradosFinal= [...this.productos]
-                
-
             })
             //.catch(err => console.error(err.message));
     },
@@ -96,14 +92,16 @@ createApp ( {
         quitarDesdeCarrito: function(producto) {
 
             producto = this.actualizacionDePropiedades(producto, -1);
-            console.log(producto)
+            //console.log(producto)
             let arrayAux=[];
             if(!producto.cantPedida) {
-                let indice = this.productosCarrito.indexOf(producto);
-                console.log(indice)
-                arrayAux = [... this.productosCarrito.slice(0,  indice)];
-                console.log(arrayAux, indice)  
-                this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
+                arrayAux = this.productosCarrito.filter(prod => producto._id !== prod._id);
+                this.productosCarrito = [... arrayAux];
+                // let indice = this.productosCarrito.indexOf(producto);
+                // console.log(indice)
+                // arrayAux = [... this.productosCarrito.slice(0,  indice)];
+                //console.log(this.productosCarrito)  
+                //this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
             }  
             this.producto = {... producto};
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
@@ -240,7 +238,7 @@ createApp ( {
                 
             }else{
                 let filtradosPorCheck = filtradoPorBusqueda.filter( producto => this.checks.includes( producto.mascota)||this.checks.includes( producto.rangoPrecio)||this.checks.includes( producto.promocion))
-                console.log(filtradosPorCheck)
+                //console.log(filtradosPorCheck)
                 this.productosFiltradosFinal = filtradosPorCheck; 
             }          
         },
@@ -248,14 +246,42 @@ createApp ( {
         unidadesCarrito(){
             let contador=0
             for (let each of this.productosCarrito){
-                contador+=each.cantPedida            
+                contador+=each.cantPedida 
+                console.log(each, contador)           
             }
             console.log(this.productosCarrito)
             this.unidades= contador
+        },
+    },
+
+    computed: {
+        
+
+        renderizarOrdenado: function(){
+            
+            if(this.valorOrdenamiento === '1'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.disponibles - b.disponibles;
+                }).reverse();
+                console.log(this.productosFiltradosFinal)
+            }
+            if(this.valorOrdenamiento === '2'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.disponibles - b.disponibles;
+                });
+            }
+            if(this.valorOrdenamiento === '3'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.precio - b.precio;
+                }).reverse();
+            }
+            if(this.valorOrdenamiento === '4'){
+                this.productosFiltradosFinal.sort(function (a, b){
+                    return a.precio - b.precio;
+                });
+            }
         }
-
-
-    }
+    },}
 
 }).mount('#app')
 

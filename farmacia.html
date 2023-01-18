@@ -1,45 +1,42 @@
 <!doctype html>
 <html lang="es">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
-  <title>Farmacia | Huellitas Petshop</title>
-  <script src="https://kit.fontawesome.com/e7963be4ed.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./assets/styles/style.css" />
-</head>
-
-<body>
-  <div id="app">
-    <header>
-      <nav class="navbar navbar-expand-lg  container-fluid">
-        <div class="container-fluid w-100">
-          <a class="navbar-brand ms-3  col-6" href="#">
-            <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-6 foto-logo ">
-          </a>
-          <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse show" id="navbarSupportedContent">
-            <ul class="navbar-nav d-flex  ms-auto">
-              <li class="nav-item  nav-button">
-                <a class="nav-link" aria-current="page" href="./index.html">INICIO</a>
-              </li>
-              <li class="nav-item nav-button">
-                <a class="nav-link " href="./contacto.html">CONTACTO</a>
-              </li>
-              <li class="nav-item  nav-button">
-                <a class="nav-link" href="#">FARMACIA</a>
-              </li>
-              <li class="nav-item  nav-button">
-                <a class="nav-link " href="./juguete.html">JUGUETES</a>
-              </li>
-            </ul>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <title>Farmacia | Huellitas Petshop</title>
+    <script src="https://kit.fontawesome.com/e7963be4ed.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <nav class="navbar navbar-expand-lg  container-fluid">
+          <div class="container-fluid w-100">
+            <a class="navbar-brand ms-3  col-6" href="#">
+              <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-5 foto-logo " >
+            </a>
+            <button class="navbar-toggler border-0 bgb px-3 py-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+              <ul class="navbar-nav d-flex  ms-auto">
+                  <li class="nav-item  nav-button">
+                    <a class="nav-link" aria-current="page" href="./index.html">INICIO</a>
+                  </li>
+                  <li class="nav-item nav-button">
+                    <a class="nav-link " href="./contacto.html">CONTACTO</a>
+                  </li>
+                  <li class="nav-item  nav-button">
+                    <a class="nav-link" href="#">FARMACIA</a>
+                  </li>
+                  <li class="nav-item  nav-button">
+                    <a class="nav-link " href="./juguete.html">JUGUETES</a>
+                  </li>
+                </ul>
+            </div>
           </div>
         </div>
       </nav>
@@ -53,11 +50,14 @@
             alt="CARRITO">
           <p class="cant-productos">{{unidades}}</p>
         </div>
-      </div>
-
-
-
-    
+      </div>        
+        <select v-model="valorOrdenamiento" class="form-select form-select-sm" aria-label=".form-select-sm ordenador">
+          <option selected value="1">Mayor stock</option>
+          <option value="2">Menor stock</option>
+          <option value="3">Mayor precio</option>
+          <option value="4">Menor precio</option>
+        </select>
+        
 
     <!-- MODALES -->
 
@@ -74,59 +74,54 @@
         </div>
       </div>
     </div>
+      <div class="modal fade modal-dialog-scrollable modal-carrito modal-lg" id="modalCarrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Carrito de Compras</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="w-100">
+                <colgroup>
+                  <col span="5" class="total">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Nombre</th>
+                    <th style="text-align: center">Precio</th>
+                    <th style="text-align: center">Cantidad</th>
+                    <th style="text-align: center">Subtotal</th>
+                    <th style="text-align: center">Descuento</th>
+                    <th style="text-align: right">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-if="productosCarrito.length" v-for="producto of productosCarrito">
+                    <td style="text-align: center">  {{producto.producto}}  </td>
+                    <td style="text-align: center">  $ {{producto.precio}}  </td>
+                    <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"> </i>  {{producto.cantPedida}}  <i v-if="producto.disponibles" @click="agregarCarritoPorBoton(producto)" class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus icono-mas"></i></td>
+                    <td style="text-align: center">  $ {{producto.subtotal}}  </td>
+                    <td style="text-align: center">  $ {{producto.descuento}}</td>
+                    <td style="text-align: right">  $ {{producto.total}}  </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Total de la compra:</td>
+                    <td colspan="5" style="text-align: right">  $ {{totalCompra}}  </td>
+                  </tr> 
+                </tfoot>
 
-    <div class="modal fade modal-dialog-scrollable modal-carrito modal-lg  " id="modalCarrito" data-bs-backdrop="static"
-      data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Carrito de Compras</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <table class="w-100">
-              <colgroup>
-                <col span="5" class="total">
-              </colgroup>
-              <thead>
-                <tr>
-                  <th style="text-align: center">Nombre</th>
-                  <th style="text-align: center">Precio</th>
-                  <th style="text-align: center">Cantidad</th>
-                  <th style="text-align: center">Subtotal</th>
-                  <th style="text-align: center">Descuento</th>
-                  <th style="text-align: right">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr v-for="producto of productosCarrito">
-                  <td style="text-align: center"> {{producto.producto}} </td>
-                  <td style="text-align: center"> $ {{producto.precio}} </td>
-                  <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus">
-                    </i> {{producto.cantPedida}} <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)"
-                      class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus"></i></td>
-                  <td style="text-align: center"> $ {{producto.subtotal}} </td>
-                  <td style="text-align: center"> $ {{producto.descuento}}</td>
-                  <td style="text-align: right"> $ {{producto.total}} </td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>Total de la compra:</td>
-                  <td colspan="5" style="text-align: right"> $ {{totalCompra}} </td>
-                </tr>
-              </tfoot>
-
-            </table>
-          </div>
-          <div class="modal-footer">
-            <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary"
-              data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalVenta">Confirmar la compra</button>
-            <button v-else type="button" class="btn btn-primary">Confirmar la compra</button>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver a la Web</button>
-            <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary"
-              data-bs-dismiss="modal">Vaciar Carrito</button>
-            <button v-else type="button" class="btn btn-primary">Vaciar Carrito</button>
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalVenta">Confirmar la compra</button>
+              <button v-else type="button" class="btn btn-primary" >Confirmar la compra</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver a la Web</button>
+              <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vaciar Carrito</button>
+              <button v-else type="button" class="btn btn-primary">Vaciar Carrito</button>
+            </div>
           </div>
         </div>
       </div>
@@ -169,6 +164,45 @@
               :id="listaFiltrosPromo.indexOf(categoria)" autocomplete="off"> {{categoria}}
           </label>
         </div>
+        
+         <!--carrusel-->
+        <div id="carouselExampleDark" class="carousel carousel-dark slide bg-carrousel" data-bs-ride="carousel">
+          <div class="carousel-indicators bg-carrousel">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3"
+              aria-label="Slide 4"></button>
+          </div>
+          <div class="carousel-inner bg-carrousel">
+            <div class="carousel-item active bg-carrouselImg" data-bs-interval="10000" class="active" aria-current="true">
+              <img src="./assets/images/D_NQ_NP_927263-MLA48305114986_112021-O.jpg" class="img-perro bg-carrouselImg d-block w-100"
+                alt="leche perro">
+  
+            </div>
+            <div class="carousel-item bg-carrouselImg" data-bs-interval="2000">
+              <img src="./assets/images/oferta 2x.png" class="img-perro bg-carrouselImg d-block w-100" alt="ofertax2">
+  
+            </div>
+            <div class="carousel-item bg-carrouselImg" data-bs-interval="2000">
+              <img src="./assets/images/oferta.png" class="img-perro bg-carrouselImg d-block w-100" alt="oferta">  
+            </div>
+            <div class="carousel-item bg-carrouselImg">
+              <img src="./assets/images/leche gato.png" class="img-perro bg-carrouselImg d-block w-100" alt="leche gato">
+  
+            </div>
+          </div>
+          <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div> <!--fin carrusel-->
 
       </aside>
 
@@ -249,7 +283,6 @@
 
   </main>
   </div>
-
   <!--Footer-->
 
   <footer class="d-lg-flex container-fluid pt-3 text-white  pb-4">
@@ -294,7 +327,6 @@
           </li>
         </ul>
       </div>
-
       <!--Siguenos y formas de pago-->
       <div class="mt-3 col-lg-5 mt-lg-0">
         <h4 class="text-center">SÍGUENOS</h4>
@@ -310,11 +342,11 @@
         <img class="imgFooterFpago row" src="./assets/images/mediosPago.png" alt="metodos de pago">
       </div>
     </div>
+</footer>
+<section class="section">
+  <p><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</p>
+</section>
 
-  </footer>
-  <section class="section">
-    <h4><i class="fas fa-copyright"></i>&nbsp;2023-Todos los derechos reservados-Huellitas-Cohorte 41</h4>
-  </section>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
