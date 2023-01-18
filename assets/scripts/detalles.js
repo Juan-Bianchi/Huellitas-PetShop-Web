@@ -18,6 +18,9 @@ createApp ( {
             productosFiltradosFinal:[],
             checks:[],
             productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
+            productosOrdenadosPorPrecio: [],
+            productosOrdenadosPorStock: [],
+            unidades:0,
         }
     },
     created(){
@@ -95,9 +98,9 @@ createApp ( {
                 this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
             }  
             this.producto = {... producto};
-           
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
 
@@ -119,27 +122,29 @@ createApp ( {
 
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
 
-        agregarCarritoPorBoton: function() {
+        agregarCarritoPorBoton: function(producto) {
 
-            this.producto = this.actualizacionDePropiedades(this.producto, 1);
+            producto = this.actualizacionDePropiedades(producto, 1);
     
-            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
-                this.productosCarrito.push(this.producto);
+            if(!this.productosCarrito.some(prod => producto._id == prod._id)){
+                this.productosCarrito.push(producto);
             }
             else {
 
-                for(producto of this.productosCarrito) {
-                    if(this.producto._id == producto._id) {
+                for(prod of this.productosCarrito) {
+                    if(producto._id == prod._id) {
 
-                        Object.assign(producto, this.producto);
+                        this.producto = {... producto};
                     }
                 }
             }
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
         actualizacionDePropiedades(prodAVender, acumulador) {
@@ -168,6 +173,7 @@ createApp ( {
         limpiarLocalStorage: function() {
             localStorage.clear();
             this.productosCarrito = [];
+            // location.reload();
         },
 
         agregarPropiedadesFiltrosChecks() {
@@ -230,6 +236,15 @@ createApp ( {
                 this.productosFiltradosFinal = filtradosPorCheck; 
             }          
         },
+
+        unidadesCarrito(){
+            let contador=0
+            for (let each of this.productosCarrito){
+                contador+=each.cantPedida            }
+            console.log(this.productosCarrito)
+            this.unidades= contador
+            console.log(this.unidades)
+        }
 
 
     }
