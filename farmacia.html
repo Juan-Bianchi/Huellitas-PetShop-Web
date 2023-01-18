@@ -47,9 +47,14 @@
             <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"><p class="cant-productos">{{unidades}}</p></div>
         </div>
         
-
+        <select v-model="valorOrdenamiento" class="form-select form-select-sm" aria-label=".form-select-sm ordenador">
+          <option selected value="1">Mayor stock</option>
+          <option value="2">Menor stock</option>
+          <option value="3">Mayor precio</option>
+          <option value="4">Menor precio</option>
+        </select>
         
-      </main>
+      
 
       <!-- MODALES -->
 
@@ -167,7 +172,7 @@
            </div>
         </div>
       </section>
-
+      </main>  
     </div>
    
  <!--Footer-->

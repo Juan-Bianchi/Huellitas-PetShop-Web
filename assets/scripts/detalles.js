@@ -254,7 +254,7 @@ createApp ( {
                 this.productosFiltradosFinal.sort(function (a, b){
                     return a.disponibles - b.disponibles;
                 }).reverse();
-                //console.log(this.productosFiltradosFinal)
+                console.log(this.productosFiltradosFinal)
             }
             if(this.valorOrdenamiento === '2'){
                 this.productosFiltradosFinal.sort(function (a, b){
