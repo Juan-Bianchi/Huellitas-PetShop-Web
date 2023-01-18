@@ -44,7 +44,7 @@
         <div class="d-flex justify-content-end titulo"style="height: 60px;">
             <h1><strong>FARMACIA</strong></h1>
             <div v-if="!productosCarrito.length" class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"></div>
-            <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"><p class="cant-productos">{{productosCarrito.length}}</p></div>
+            <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"><p class="cant-productos">{{unidades}}</p></div>
         </div>
         
 
@@ -150,7 +150,7 @@
           </div>
 
         </aside>
-        <div >
+        <div class="card-prod-wrapper">
           <div class="card-producto" v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
             <div class="producto"> 
               <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>

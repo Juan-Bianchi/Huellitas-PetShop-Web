@@ -20,6 +20,7 @@ createApp ( {
             productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
             productosOrdenadosPorPrecio: [],
             productosOrdenadosPorStock: [],
+            unidades:0,
         }
     },
     created(){
@@ -99,6 +100,7 @@ createApp ( {
             this.producto = {... producto};
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
 
@@ -120,6 +122,7 @@ createApp ( {
 
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
 
@@ -141,6 +144,7 @@ createApp ( {
             }
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
+            this.unidadesCarrito();
         },
 
         actualizacionDePropiedades(prodAVender, acumulador) {
@@ -232,6 +236,14 @@ createApp ( {
                 this.productosFiltradosFinal = filtradosPorCheck; 
             }          
         },
+
+        unidadesCarrito(){
+            let contador=0
+            for (let each of this.productosCarrito){
+                contador+=each.cantPedida            
+            }
+            this.unidades= contador
+        }
 
 
     }
