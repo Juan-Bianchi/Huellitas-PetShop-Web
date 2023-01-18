@@ -47,31 +47,25 @@
             <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"><p class="cant-productos">{{unidades}}</p></div>
         </div>
         
-        <select v-model="valorOrdenamiento" class="form-select form-select-sm" aria-label=".form-select-sm ordenador">
-          <option selected>Ordenar por</option>
-          <option value="1">Mayor stock</option>
-          <option value="2">Menor stock</option>
-          <option value="3">Mayor precio</option>
-          <option value="4">Menor precio</option>
-        </select>
+
         
-      
+      </main>
 
-        <!-- MODALES -->
+      <!-- MODALES -->
 
-        <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Compra Confirmada</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                ¡GRACIAS POR SU COMPRA! Estaremos comunicandonos a la brevedad.
-              </div>
+      <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Compra Confirmada</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ¡GRACIAS POR SU COMPRA! Estaremos comunicandonos a la brevedad.
             </div>
           </div>
         </div>
+      </div>
 
       <div class="modal fade modal-dialog-scrollable modal-carrito modal-lg" id="modalCarrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -96,10 +90,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="producto of productosCarrito">
+                  <tr v-if="productosCarrito.length" v-for="producto of productosCarrito">
                     <td style="text-align: center">  {{producto.producto}}  </td>
                     <td style="text-align: center">  $ {{producto.precio}}  </td>
-                    <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"> </i>  {{producto.cantPedida}}  <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)" class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus icono-mas"></i></td>
+                    <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"> </i>  {{producto.cantPedida}}  <i v-if="producto.disponibles" @click="agregarCarritoPorBoton(producto)" class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus icono-mas"></i></td>
                     <td style="text-align: center">  $ {{producto.subtotal}}  </td>
                     <td style="text-align: center">  $ {{producto.descuento}}</td>
                     <td style="text-align: right">  $ {{producto.total}}  </td>
@@ -123,39 +117,40 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- CIERRA MODALES -->
+      <!-- CIERRA MODALES -->
 
-        <section class="filtros-productos d-flex ">
-          <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
-            <form class="d-flex m-3 flex-column" role="search" id="search">
-              <h6 >Búsqueda por producto</h6>
-              <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search" placeholder="Ingresa el nombre de producto" aria-label="Search" id="searchField">
-            </form>
+      <section class="filtros-productos d-flex  ">
+        <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
+          <form class="d-flex m-3 flex-column" role="search" id="search">
+            <h6 >Búsqueda por producto</h6>
+            <input  v-model="productosPorBusqueda" @input="filtroCruzado" class="form-control" type="search" placeholder="Ingresa el nombre de producto" aria-label="Search" id="searchField">
+          </form>
 
-            <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
-              <h6 >Elige el rango de precio</h6>
-              <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosPrecio.length" v-for="categoria of listaFiltrosPrecio" >
-                  <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosPrecio.indexOf(categoria)" autocomplete="off"> {{categoria}}
-              </label>
-            </div>
+          <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
+            <h6 >Elige el rango de precio</h6>
+            <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosPrecio.length" v-for="categoria of listaFiltrosPrecio" >
+                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosPrecio.indexOf(categoria)" autocomplete="off"> {{categoria}}
+            </label>
+          </div>
 
-            <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
-              <h6 >Selecciona productos para tu mascota</h6>
-              <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosMascota.length" v-for="categoria of listaFiltrosMascota" >
-                  <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosMascota.indexOf(categoria)" autocomplete="off"> {{categoria}}
-              </label>
-            </div>
+          <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
+            <h6 >Selecciona productos para tu mascota</h6>
+            <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosMascota.length" v-for="categoria of listaFiltrosMascota" >
+                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosMascota.indexOf(categoria)" autocomplete="off"> {{categoria}}
+            </label>
+          </div>
 
-            <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
-              <h6 >Selecciona productos para tu mascota</h6>
-              <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosPromo.length" v-for="categoria of listaFiltrosPromo" >
-                  <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosPromo.indexOf(categoria)" autocomplete="off"> {{categoria}}
-              </label>
-            </div>
-            
+          <div class="container row btn-group d-flex col-11" id="checkboxs" role="group" data-bs-toggle="buttons">
+            <h6 >Selecciona productos para tu mascota</h6>
+            <label class="btn btn-outline-secondary d-flex" v-if="listaFiltrosPromo.length" v-for="categoria of listaFiltrosPromo" >
+                <input type="checkbox" class="me-2" @change="filtroCruzado" v-model="checks" :value="categoria" name="" :id="listaFiltrosPromo.indexOf(categoria)" autocomplete="off"> {{categoria}}
+            </label>
+          </div>
+
         </aside>
-        <div class="card-prod-wrapper">
+        <div >
           <div class="card-producto" v-if="productosFiltradosFinal.length" v-for="producto of productosFiltradosFinal" >
             <div class="producto"> 
               <a :href="'./detalles.html?id='+producto._id"><div class="producto-img-wrapper"><img :src="producto.imagen" :alt="producto.producto"></div></a>
@@ -166,10 +161,13 @@
                 <p v-else-if="5>=producto.disponibles>0" class="poco-stock"> Poco stock</p>
                 <p class="precio"> ${{producto.precio}} </p>
               </div>
+              <div v-if="producto.disponibles===0" class="carrito-wrapper "><img  class="carrito-disabled" src="./assets/images/cart-disabled.png" alt="AGREGAR AL CARRITO"></div>
+              <div v-else class="carrito-wrapper"><img @click="agregarCarritoPorBoton(producto)" tabindex="1" class="carrito" src="./assets/images/cart.png" alt="AGREGAR AL CARRITO" data-bs-toggle="modal" data-bs-target="#modalCarrito"></div>
             </div>
-          </div>
-        </section>
-      </main>
+           </div>
+        </div>
+      </section>
+
     </div>
    
  <!--Footer-->
