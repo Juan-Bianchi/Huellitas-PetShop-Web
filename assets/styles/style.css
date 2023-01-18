@@ -9,6 +9,11 @@ main {
   flex-direction: column;
   gap: 5vh;
 }
+
+.footer-p {
+  margin: 0;
+}
+
 .fa-copyright{
   font-size: 1rem;
 }
@@ -518,13 +523,17 @@ h1{
   width: fit-content;
   padding: 0 0.5rem ;
 }
-
+.precio-detalle{
+  font-size: 1.5rem;
+  color:rgb(20, 102, 125) ;
+}
 
 .button-disabled{
   cursor: default;
+  margin: 0.5rem;
   text-decoration: none;
   display: inline-block;
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 10rem;
   color: #fff;
   font-size: 1rem;
@@ -536,10 +545,12 @@ h1{
 }
 
 .button {
+  background-color: #00ABB3;
   text-decoration: none;
   display: inline-block;
-  padding: 0.75rem 1.25rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 10rem;
+  margin: 0.5rem;
   color: #fff;
   font-size: 1rem;
   letter-spacing: 0.15rem;
@@ -555,7 +566,7 @@ h1{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0cf;
+  background-color: rgb(3, 174, 216);
   border-radius: 10rem;
   z-index: -2;
 }
@@ -566,13 +577,14 @@ h1{
   left: 0;
   width: 0%;
   height: 100%;
-  background-color: #008fb3;
+  background-color: #11c8a9;
   transition: all 0.3s;
   border-radius: 10rem;
   z-index: -1;
 }
 .button:hover {
-  color: #fff;
+  color: rgb(235, 224, 224);
+
 }
 .button:hover:before {
   width: 100%;
@@ -704,7 +716,7 @@ span a {
   }
 
   #jugueteriaInd:hover {
-    background-color: rgba(0, 0, 0, 0.484);
+    background-color: rgba(0, 0, 0, 0.694);
     background-blend-mode: darken;
     color: white;
   }
@@ -744,7 +756,12 @@ footer{
   }
 
 /*/////////////////////////MEDIA QUERY////////////////////*/
-
+@media (min-width: 425px) and (max-width: 590px){
+  .detalle {
+      width: 95%;
+      
+  }
+}
 @media (min-width: 768px) {
   .logo-footer {
     /* background-color: #000; */
@@ -857,9 +874,10 @@ footer{
 }
 @media (max-width:320px){
   #appContacto{
-    width: 80%;
+    width: 100%;
     margin: 0;
-  }
+    text-align: center;
+}
 }
 
 @media (max-width: 768px){
