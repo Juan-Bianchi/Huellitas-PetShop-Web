@@ -381,7 +381,7 @@ h1{
 }
 .nombre{
   color:  #00ABB3 ;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-align: center;
 }
 .agregarBoton{
@@ -503,7 +503,10 @@ h1{
   width: fit-content;
   padding: 0 0.5rem ;
 }
-
+.precio{
+  font-size: 1.7rem;
+  color:rgb(20, 102, 125) ;
+}
 
 .button-disabled{
   cursor: default;
@@ -521,10 +524,12 @@ h1{
 }
 
 .button {
+  background-color: #00ABB3;
   text-decoration: none;
   display: inline-block;
-  padding: 0.75rem 1.25rem;
+  padding: 0.7rem 1.2rem;
   border-radius: 10rem;
+  margin: 0.7rem;
   color: #fff;
   font-size: 1rem;
   letter-spacing: 0.15rem;
@@ -541,7 +546,8 @@ h1{
   z-index: -1;
 }
 .button:hover {
-  color: #fff;
+  color: rgb(235, 224, 224);
+
 }
 .button:hover:before {
   width: 100%;
@@ -708,7 +714,12 @@ footer{
   }
 
 /*/////////////////////////MEDIA QUERY////////////////////*/
-
+@media (min-width: 425px) and (max-width: 590px){
+  .detalle {
+      width: 95%;
+      
+  }
+}
 @media (min-width: 768px) {
   .logo-footer {
     /* background-color: #000; */
