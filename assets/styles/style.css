@@ -10,20 +10,6 @@ main {
   gap: 5vh;
 }
 
-body {
-  font-family: "Lato", sans-serif;
-  min-height: 100vh;
-  background: rgb(65, 125, 122);
-  background: linear-gradient(
-      90deg,
-      rgba(65, 125, 122, 0.7) 0%,
-      rgba(135, 173, 171, 0.7) 50%,
-      rgba(65, 125, 122, 0.7) 100%
-    ),
-    url("../images/background-huellas.png");
-  background-size: contain;
-}
-
 ol {
   list-style: none;
 }
@@ -72,11 +58,6 @@ nav {
   display: flex;
   flex-direction: column;
 }
-
-
-/*body{
-    background-color: #6cdee4;
-}*/
 
 .cards-wrapper {
   display: flex;
@@ -282,9 +263,9 @@ nav {
 
 .btn,
 .btn-primary {
-  --bs-btn-bg: rgba(214, 143, 143, 0.856) !important ;
-  --bs-btn-color: rgb(119, 119, 190) !important;
-  --bs-btn-border-color: rgba(214, 143, 143, 0.164) !important;
+  --bs-btn-bg: #00ABB3 !important ;
+  --bs-btn-color: black !important;
+  --bs-btn-border-color: #69edf4a9 !important;
   margin: 0.2rem !important;
   font-weight: bold !important;
   border-radius: 1.5rem !important;
@@ -295,9 +276,9 @@ nav {
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
-  color: rgb(87, 87, 138) !important;
-  background-color: rgba(175, 115, 115, 0.856) !important;
-  border-color: rgba(77, 50, 50, 0.856) !important;
+  color:black !important;
+  background-color: #00ABB3 !important;
+  border-color:  #00ABB3 !important;
 }
 
 .modal {
@@ -343,7 +324,7 @@ background-size: contain;
 .nav-button{
     font-size: 12px;
     color: white;
-    margin: 0 0.5rem;
+    margin: 0 0.3rem;
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-weight: 500;
@@ -360,7 +341,7 @@ background-size: contain;
     transform: translateY(-7px);
 }
 .nav-button a{
- color: white;
+  color: white;
 }
 .foto-logo{
   height: 90%;
@@ -370,16 +351,23 @@ header{
 }
 
 .titulo{
-  max-height: 40px;
+  max-height: 70px;
   background: linear-gradient(  #00ABB3,#00ABB3);
 }
 h1{
   width: 100%; 
   height: 100%;
-  padding-top: 0.2rem;
+  padding-top: 0.7rem;
   font-size: 1.8rem;
   text-align: center;
   color:#3C4048;
+}
+.descripcion{
+  text-align: justify;
+}
+.nombre{
+  color:  #00ABB3 ;
+  font-size: 1.2rem;
 }
 
 .iconSize {
@@ -472,8 +460,9 @@ h1{
 
 .carrito-wrapper-nav .cant-productos{
   z-index: 2;
-  border-radius: 100%;
-  background-color: rgba(55, 74, 78, 0.575);
+  color: white;
+  font-size: larger;
+  font-weight: bold;
 }
 
 
@@ -489,7 +478,6 @@ h1{
 }
 
 
-/*  */ 
 .button-disabled{
   cursor: default;
   text-decoration: none;
@@ -560,7 +548,7 @@ h1{
 
 h1 {
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
   color: #777;
 }
@@ -799,3 +787,4 @@ footer{
   }
   
 }
+
