@@ -43,12 +43,83 @@
       <main>
         <div class="d-flex justify-content-end titulo"style="height: 60px;">
             <h1><strong>FARMACIA</strong></h1>
+            <div v-if="!productosCarrito.length" class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"><p class="">  {{productosCarrito.length}} </p></div>
+            <div v-else class="carrito-wrapper-nav"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO"></div>
         </div>
         
 
         
       </main>
 
+      <!-- MODALES -->
+
+      <div class="modal fade" id="modalVenta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Compra Confirmada</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              ¡GRACIAS POR SU COMPRA! Estaremos comunicandonos a la brevedad.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade modal-dialog-scrollable modal-carrito modal-lg" id="modalCarrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Carrito de Compras</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="w-100">
+                <colgroup>
+                  <col span="5" class="total">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th style="text-align: center">Nombre</th>
+                    <th style="text-align: center">Precio</th>
+                    <th style="text-align: center">Cantidad</th>
+                    <th style="text-align: center">Subtotal</th>
+                    <th style="text-align: center">Descuento</th>
+                    <th style="text-align: right">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="producto of productosCarrito">
+                    <td style="text-align: center">  {{producto.producto}}  </td>
+                    <td style="text-align: center">  $ {{producto.precio}}  </td>
+                    <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"> </i>  {{producto.cantPedida}}  <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)" class="fa-solid fa-plus"></i><i v-else class="fa-solid fa-plus"></i></td>
+                    <td style="text-align: center">  $ {{producto.subtotal}}  </td>
+                    <td style="text-align: center">  $ {{producto.descuento}}</td>
+                    <td style="text-align: right">  $ {{producto.total}}  </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Total de la compra:</td>
+                    <td colspan="5" style="text-align: right">  $ {{totalCompra}}  </td>
+                  </tr> 
+                </tfoot>
+
+              </table>
+            </div>
+            <div class="modal-footer">
+              <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#modalVenta">Confirmar la compra</button>
+              <button v-else type="button" class="btn btn-primary" >Confirmar la compra</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver a la Web</button>
+              <button v-if="productosCarrito.length" @click="limpiarLocalStorage" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vaciar Carrito</button>
+              <button v-else type="button" class="btn btn-primary">Vaciar Carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CIERRA MODALES -->
 
       <section class="filtros-productos d-flex  ">
         <aside class="filtros-aside checkbox d-flex flex-column justify-content-start col-md-6 mx-lg-5 mx-md-auto col-lg-3 ">
@@ -91,7 +162,7 @@
                 <p class="precio"> ${{producto.precio}} </p>
               </div>
               <div v-if="producto.disponibles===0" class="carrito-wrapper "><img  class="carrito-disabled" src="./assets/images/cart-disabled.png" alt="AGREGAR AL CARRITO"></div>
-              <div v-else class="carrito-wrapper"><img tabindex="1" class="carrito" src="./assets/images/cart.png" alt="AGREGAR AL CARRITO"></div>
+              <div v-else class="carrito-wrapper"><img @click="agregarCarritoPorBoton(producto)" tabindex="1" class="carrito" src="./assets/images/cart.png" alt="AGREGAR AL CARRITO" data-bs-toggle="modal" data-bs-target="#modalCarrito"></div>
             </div>
            </div>
         </div>
