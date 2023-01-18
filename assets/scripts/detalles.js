@@ -21,9 +21,11 @@ createApp ( {
             productosOrdenadosPorPrecio: [],
             productosOrdenadosPorStock: [],
             unidades:0,
+            windowWidth: window.innerWidth,
         }
     },
     created(){
+        window.addEventListener('resize', this.onResize)
         let urlString = location.search;
         let parameters = new URLSearchParams(urlString);
         let id = parameters.get('id');
@@ -67,6 +69,12 @@ createApp ( {
 
     methods: {
 
+        onResize(event) {
+            console.log('window has been resized', event)
+            this.windowWidth = screen.width
+            console.log(this.windowWidth)
+        },
+
         actualizarStockDeLocalStorage: function() {
 
             if(this.productosCarrito.length) {
@@ -108,7 +116,7 @@ createApp ( {
 
             producto = this.actualizacionDePropiedades(producto, 1);
     
-            if(!this.productosCarrito.some(prod => this.producto._id == prod._id)){
+            if(this.productosCarrito.some(prod => this.producto._id !== prod._id)){
                 this.productosCarrito.push(producto);
             }
             else {
@@ -242,6 +250,7 @@ createApp ( {
             for (let each of this.productosCarrito){
                 contador+=each.cantPedida            
             }
+            console.log(this.productosCarrito)
             this.unidades= contador
         }
 
