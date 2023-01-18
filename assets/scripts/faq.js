@@ -7,6 +7,7 @@ createApp({
             defecto:null,
             tiempo:null,
             precios:null,
+            factura:null,
         }
     },
     created() {
@@ -36,6 +37,12 @@ createApp({
                 this.defectos=0
                 this.tiempo=0
                 this.precios=1
+            }
+            if(el.id=='factura') {this.entrega=0
+                this.defectos=0
+                this.tiempo=0
+                this.precios=0
+                this.factura=1
             }
             console.log(el.id)
             

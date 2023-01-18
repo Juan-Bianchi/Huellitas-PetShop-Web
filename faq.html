@@ -1,30 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+    <title>Farmacia | Huellitas Petshop</title>
+    <script src="https://kit.fontawesome.com/e7963be4ed.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
 </head>
 
 <body>
     <header></header>
+
     <main id="appFAQ">
 
-        <div class="d-flex col-sm-12">
-            <div class="col-sm-4">
-                <div id="entrega" class="col-sm-12" @click="" tabindex="1"> ¿CUÁNTO TARDARÁ EN LLEGAR MI PEDIDO?</div>
-                <div id="defecto" class="col-sm-12" @click="" tabindex="2">¿QUÉ PASA SI MI PRODUCTO TIENE UN DEFECTO O
-                    NO CUMPLE CON
-                    LOS ESTÁNDARES DE CALIDAD?</div>
+        <div class="d-flex faq-wrapper ">
+            <div class="d-flex  flex-column col-izq">
+                
+                    <div id="entrega" class="" @click="" tabindex="1"> ¿CUÁNTO TARDARÁ EN LLEGAR MI PEDIDO?</div>
+                    <div id="defecto" class="" @click="" tabindex="2">¿QUÉ PASA SI MI PRODUCTO TIENE UN DEFECTO O
+                        NO CUMPLE CON
+                        LOS ESTÁNDARES DE CALIDAD?</div>
+                
+                <div id="tiempo" class="" @click="" tabindex="3">¿CUÁNTO TARDA LA devolución EN VERSE REFLEJADA EN
+                    MI TARJETA?</div>
+                <div id="precios" class="" @click="" tabindex="4"> ¿El precio que figura en la web es el precio
+                    final?</div>
+                <div id="factura" class="" @click="" tabindex="5">¿Cómo tramito la factura de mi compra? </div>
             </div>
-            <div id="tiempo" class="col-sm-12" @click="" tabindex="3">¿CUÁNTO TARDA LA DEVOLCUION EN VERSE REFLEJADA EN
-                MI TARJETA?</div>
-            <div id="precios" class="col-sm-12" @click="" tabindex="4"> ¿El precio que figura en la web es el precio
-                final?</div>
-
-            <div class="col-sm-8" v-if="entrega">
+            <div class="box-der" v-if="entrega">
 
                 <p>Una vez que nuestro almacén termine la preparación de tu pedido recibirás un correo electrónico de
                     confirmación con tu guía de seguimiento.
@@ -49,7 +56,8 @@
                 compensación.</p>
 
             </div>
-            <div class="col-sm-8" v-if="defecto">
+            <div class="faq-box-place"> Encuentre las preguntas más frecuentes aquí </div>
+            <div class="box-der" v-if="defecto">
                 <p>Comprobamos exhaustivamente todos nuestros productos en condiciones reales para asegurarnos de que
                     están en óptimas condiciones para soportar los usos para los que han sido diseñados. Sin embargo, a
                     veces resulta inevitable que se entregue un producto defectuoso.
@@ -68,7 +76,7 @@
                 </ol>
                 </p>
             </div>
-            <div class="col-sm-8" v-if="tiempo">
+            <div class="box-der" v-if="tiempo">
                 <p>Si tu compra fue realizada con tarjeta de crédito, verás reflejado el reembolso en los siguientes 12
                     días hábiles.
                     El plazo para compras efectuadas con tarjeta de débito es de 20 días hábiles.
@@ -79,8 +87,15 @@
                     Si pasados los 12 días hábiles no ves reflejada la devolución, contactate con la entidad emisora de
                     la tarjeta.</p>
             </div>
-            <div class="col-sm-8" v-if="precios">
+            <div class="box-der" v-if="precios">
                 <p>Todos los precios en la web incluyen el IVA, y se encuentran expresados en pesos argentinos.</p>
+            </div>
+
+            <div class="box-der" v-if="factura">
+                <p>En todas las compras efectuadas en la web,
+                    brindamos sin excepción alguna, la factura de compra. Una vez que realiza y abona el pedido,
+                    enviamos a
+                    tu dirección de correo electrónico la factura correspondiente.</p>
             </div>
 
         </div>

@@ -859,6 +859,17 @@ footer{
  }
 
 
+ .faq-wrapper{
+  margin: auto;
+  background-color: #105a5e;
+ }
+
+ .col-izq{
+  padding: 2rem;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+ }
+
 @media (max-width: 375px){
   #section-msg-index{
     padding-top: 15rem;
