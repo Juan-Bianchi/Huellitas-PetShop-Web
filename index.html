@@ -45,7 +45,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="index-main">
 
     <div class="d-flex flex-wrap justify-content-end titulo"style="height: 60px;">
         <h1><strong>INICIO</strong></h1>
@@ -57,12 +57,12 @@
         <div id="carouselExample" class="carousel carousel-dark slide ">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="./assets/images/BIENVENIDO_HUELLITAS2.png" class="d-block w-100" alt="BIENVENIDO" />
+              <img src="./assets/images/BIENVENIDO_HUELLITAS2.png" class="d-block banner" alt="BIENVENIDO" />
             </div>
             <div>
               <div class="carousel-item primer-item">
                 <div class="cards-wrapper">
-                  <div class="card primer-item" v-for="producto of productos.slice(0,4)">
+                  <div class="card card-index primer-item" v-for="producto of productos.slice(0,4)">
                     <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
                       <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
                           :alt="productos.producto">
@@ -78,7 +78,7 @@
               <div class="carousel-item segundo-item">
 
                 <div class="cards-wrapper">
-                  <div class="card segundo-item" v-for="producto of productos.slice(-4) ">
+                  <div class="card card-index segundo-item" v-for="producto of productos.slice(-4) ">
                     <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
                       <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top"
                           :alt="productos.producto">

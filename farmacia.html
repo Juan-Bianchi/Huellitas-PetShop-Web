@@ -48,16 +48,16 @@
       <div class="d-flex justify-content-end titulo" style="height: 60px;">
         <h1><strong>FARMACIA</strong></h1>
         <div v-if="!productosCarrito.length" class="carrito-wrapper-nav" data-bs-toggle="modal"
-        data-bs-target="#modalCarrito"><img class="carrito-nav"
-            src="./assets/images/cart-nada.png" alt="CARRITO"></div>
-        <div v-else class="carrito-wrapper-nav" data-bs-toggle="modal" data-bs-target="#modalCarrito"><img class="carrito-nav" src="./assets/images/cart-nada.png"
-            alt="CARRITO">
+          data-bs-target="#modalCarrito"><img class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO">
+        </div>
+        <div v-else class="carrito-wrapper-nav" data-bs-toggle="modal" data-bs-target="#modalCarrito"><img
+            class="carrito-nav" src="./assets/images/cart-nada.png" alt="CARRITO">
           <p class="cant-productos">{{unidades}}</p>
         </div>
       </div>
-
-      <select v-model="valorOrdenamiento" class="form-select form-select-sm" aria-label=".form-select-sm ordenador">
-        <option selected>Ordenar por</option>
+     
+      <select v-model="valorOrdenamiento" class="form-select select-ordenar" aria-label="Default select example">
+        <option value="0">Ordenar ...</option>
         <option value="1">Mayor stock</option>
         <option value="2">Menor stock</option>
         <option value="3">Mayor precio</option>
@@ -179,7 +179,8 @@
           </div>
 
           <!--carrusel-->
-          <div id="carouselExampleDark" class="carousel carousel-dark slide bg-carrousel" data-bs-ride="carousel">
+          <div id="carouselExampleDark" class="carousel carousel-aside carousel-dark slide bg-carrousel"
+            data-bs-ride="carousel">
             <div class="carousel-indicators bg-carrousel">
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
