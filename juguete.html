@@ -62,7 +62,7 @@
         </div>
       </div>
      
-      <select v-model="valorOrdenamiento" class="form-select select-ordenar" aria-label="Default select example">
+      <select v-model="valorOrdenamiento" @click="renderizarOrdenado()" class="form-select select-ordenar" aria-label="Default select example">
         <option value="0">Ordenar ...</option>
         <option value="1">Mayor stock</option>
         <option value="2">Menor stock</option>
@@ -128,10 +128,12 @@
                   <tr v-for="producto of productosCarrito">
                     <td style="text-align: center"> {{producto.producto}} </td>
                     <td style="text-align: center"> $ {{producto.precio}} </td>
-                    <td style="text-align: center"><i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus">
-                      </i> {{producto.cantPedida}} <i v-if="producto.disponibles"
-                        @click="agregarCarritoPorBoton(producto)" class="fa-solid fa-plus"></i><i v-else
-                        class="fa-solid fa-plus icono-mas"></i></td>
+                    <td style="text-align: center">
+                      <i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"></i> 
+                      {{producto.cantPedida}} 
+                      <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)" class="fa-solid fa-plus"></i>
+                      <i v-else class="fa-solid fa-plus icono-mas"></i>
+                    </td>
                     <td style="text-align: center"> $ {{producto.subtotal}} </td>
                     <td style="text-align: center"> $ {{producto.descuento}}</td>
                     <td style="text-align: right"> $ {{producto.total}} </td>
@@ -396,7 +398,7 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <script src="./assets/scripts/detalles.js"></script>
+  <script src="./assets/scripts/productos.js"></script>
 </body>
 
 </html>

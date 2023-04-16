@@ -226,6 +226,7 @@ createApp ( {
                 listaFiltrosChecks.push(...filtro);
             }
             listaFiltrosChecks = [... new Set(listaFiltrosChecks)].sort();
+            console.log(listaFiltrosChecks);
             this.listaFiltrosPrecio = listaFiltrosChecks.filter(categoria => categoria.startsWith('H') || categoria.startsWith('D') || categoria.startsWith('M'));
             this.listaFiltrosMascota = listaFiltrosChecks.filter(categoria => categoria.startsWith('Pa'));
             this.listaFiltrosPromo = listaFiltrosChecks.filter(categoria => categoria.startsWith('Pr'));
