@@ -19,6 +19,7 @@ createApp({
             totalCompra: 0,
             valorOrdenamiento: 0,
             windowWidth: window.innerWidth,
+            navMenu: false,
         }
     },
     created() {
@@ -241,6 +242,10 @@ createApp({
 
         onResize(event) {
             this.windowWidth = screen.width
+        },
+
+        toggleMenu(){
+            this.navMenu = !this.navMenu
         },
 
     }
