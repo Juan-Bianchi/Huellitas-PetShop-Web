@@ -13,6 +13,7 @@ createApp ( {
             id: undefined,
             productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
             productosConPropAgregadas: [],
+            navMenu: false,
         }
     },
     created(){
@@ -156,6 +157,10 @@ createApp ( {
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
         },
+        toggleMenu(){
+            this.navMenu = !this.navMenu
+        },
+    },
 
         limpiarLocalStorage: function() {
             localStorage.clear();

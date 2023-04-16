@@ -9,6 +9,7 @@ createApp({
             precios:null,
             factura:null,
             boxplace:1,
+            navMenu: false,
         }
     },
     created() {
@@ -56,6 +57,9 @@ createApp({
             this.boxplace=0
             console.log(el.id)
             
+        },
+        toggleMenu(){
+            this.navMenu = !this.navMenu
         },
     }
 

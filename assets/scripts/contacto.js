@@ -11,6 +11,7 @@ createApp({
             nombreUsuario: "",
             emailUsuario: "",
             comentariosUsuario: [],
+            navMenu: false,
         }
     },
     
@@ -48,6 +49,9 @@ createApp({
             this.comentariosUsuario.push({...comentario})
             console.log(this.comentariosUsuario)
             localStorage.setItem('comentarios', JSON.stringify(this.comentariosUsuario))
+        },
+        toggleMenu(){
+            this.navMenu = !this.navMenu
         },
 
     }

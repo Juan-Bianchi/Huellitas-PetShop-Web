@@ -1,3 +1,4 @@
+
 const { createApp } = Vue
 createApp({
     data() {
@@ -7,10 +8,10 @@ createApp({
             parametroUrl: "",
             parametro: undefined,
             cardDetallada: undefined,
-            windowWidth: window.innerWidth,    
+            windowWidth: window.innerWidth,
+            navMenu: false,
         }
     },
-
     mounted() {
         window.addEventListener('resize', this.onResize)
     },
@@ -23,6 +24,7 @@ createApp({
                 this.parametro = new URLSearchParams(this.parametroUrl)
                 this.id = this.parametro.get("id")
                 this.cardDetallada = this.productos.find(elemento => elemento._id == this.id)
+
             })
     },
     methods: {
@@ -30,6 +32,9 @@ createApp({
             console.log('window has been resized', event)
             this.windowWidth = screen.width
             console.log(this.windowWidth)
+        },
+        toggleMenu(){
+            this.navMenu = !this.navMenu
         },
     }
 }).mount("#appIndex")
