@@ -50,7 +50,7 @@ createApp({
             console.log(this.comentariosUsuario)
             localStorage.setItem('comentarios', JSON.stringify(this.comentariosUsuario))
         },
-        toggleMenu(){
+        toggleMenuF: function(){
             this.navMenu = !this.navMenu
         },
 
