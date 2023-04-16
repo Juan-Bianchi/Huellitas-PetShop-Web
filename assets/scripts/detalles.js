@@ -23,6 +23,7 @@ createApp ( {
             valorOrdenamiento: 0,
             unidades:0,
             windowWidth: window.innerWidth,
+            navMenu: false,
         }
     },
     created(){
@@ -251,6 +252,9 @@ createApp ( {
             }
             console.log(this.productosCarrito)
             this.unidades= contador
+        },
+        toggleMenu(){
+            this.navMenu = !this.navMenu
         },
     },
 
