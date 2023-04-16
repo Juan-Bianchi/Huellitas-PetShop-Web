@@ -157,10 +157,10 @@ createApp ( {
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
             this.sumaTotal();
         },
+
         toggleMenu(){
             this.navMenu = !this.navMenu
         },
-    },
 
         limpiarLocalStorage: function() {
             localStorage.clear();
@@ -204,7 +204,7 @@ createApp ( {
         onResize(event) {
             this.windowWidth = screen.width
         },
-    }
+    },
 
 }
 
