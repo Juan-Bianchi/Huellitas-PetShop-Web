@@ -63,8 +63,7 @@
       </div>
      
       <select v-model="valorOrdenamiento" @click="renderizarOrdenado()" class="form-select select-ordenar" aria-label="Default select example">
-        <option value="0">Ordenar ...</option>
-        <option value="1">Mayor stock</option>
+        <option selected value="1">Mayor stock</option>
         <option value="2">Menor stock</option>
         <option value="3">Mayor precio</option>
         <option value="4">Menor precio</option>
@@ -125,13 +124,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="producto of productosCarrito">
+                  <tr v-if="productosModif.length" v-for="producto of productosCarrito">
                     <td style="text-align: center"> {{producto.producto}} </td>
                     <td style="text-align: center"> $ {{producto.precio}} </td>
                     <td style="text-align: center">
                       <i @click="quitarDesdeCarrito(producto)" class="fa-solid fa-minus"></i> 
                       {{producto.cantPedida}} 
-                      <i v-if="producto.disponibles" @click="agregarDesdeCarrito(producto)" class="fa-solid fa-plus"></i>
+                      <i v-if="producto.cantPedida < productosModif.find(prod => prod._id == producto._id).disponibles" @click="agregarDesdeCarrito(producto)" class="fa-solid fa-plus"></i>
                       <i v-else class="fa-solid fa-plus icono-mas"></i>
                     </td>
                     <td style="text-align: center"> $ {{producto.subtotal}} </td>

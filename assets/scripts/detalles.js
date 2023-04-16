@@ -8,28 +8,18 @@ createApp ( {
             producto: undefined,
             productosCarrito: [],
             totalCompra: 0,
-            dataOrig: [],
-            productos: [],
-            productosConPropAgregadas: [],
-            listaFiltrosPrecio: [],
-            listaFiltrosMascota: [],
-            listaFiltrosPromo: [],
-            productosPorBusqueda:"",
-            productosFiltradosFinal:[],
-            checks:[],
-            productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
-            productosOrdenadosPorPrecio: [],
-            productosOrdenadosPorStock: [],
-            valorOrdenamiento: 0,
             unidades:0,
             windowWidth: window.innerWidth,
+            id: undefined,
+            productosPromo3x2: ["63a28d36cc6fff6724518aa3", "63a28d38cc6fff6724518ab3", "63a28d38cc6fff6724518abd", "63a28d39cc6fff6724518abf"],
+            productosConPropAgregadas: [],
         }
     },
     created(){
         window.addEventListener('resize', this.onResize)
         let urlString = location.search;
         let parameters = new URLSearchParams(urlString);
-        let id = parameters.get('id');
+        this.id = parameters.get('id');
 
         fetch('https://mindhub-xj03.onrender.com/api/petshop')
             .then(resolve => resolve.json())
@@ -44,142 +34,19 @@ createApp ( {
                         total: 0,
                     }
                 })
-                this.productosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
-                this.actualizarStockDeLocalStorage();
-
-                if(window.location.pathname === "/index.html" ){
-                    this.productos = [...this.productosModif];
-                }else if(window.location.pathname === "/farmacia.html"){
-                    this.productos = this.productosModif.filter(producto => producto.categoria === "farmacia")
-                }else if(window.location.pathname === "/juguete.html"){
-                    this.productos = this.productosModif.filter(producto => producto.categoria === "jugueteria")
-                }
-
-                this.agregarPropiedadesFiltrosChecks();
-                this.generoListaChecks();
-                this.producto = this.productosModif.find( prod => prod._id === id);
-                this.productosFiltradosFinal= [...this.productos]
+                this.administrarDatos();
             })
             //.catch(err => console.error(err.message));
     },
 
     methods: {
 
-        onResize(event) {
-            console.log('window has been resized', event)
-            this.windowWidth = screen.width
-            console.log(this.windowWidth)
-        },
+        // CARGA DE DATOS DE API Y DE LOCAL STORAGE
 
-        actualizarStockDeLocalStorage: function() {
-
-            if(this.productosCarrito.length) {
-                for(let producto of this.productosModif) {
-                    for(let prodCarro of this.productosCarrito) {
-                        if(prodCarro._id === producto._id) {
-                            producto.disponibles = prodCarro.disponibles;
-                            producto.cantPedida = prodCarro.cantPedida;
-                            producto.subtotal = prodCarro.subtotal;
-                            producto.descuento = prodCarro.descuento;
-                            producto.total = prodCarro.total;
-                        }
-
-                    }
-                }
-            }
-        },
-
-        quitarDesdeCarrito: function(producto) {
-
-            producto = this.actualizacionDePropiedades(producto, -1);
-            //console.log(producto)
-            let arrayAux=[];
-            if(!producto.cantPedida) {
-                arrayAux = this.productosCarrito.filter(prod => producto._id !== prod._id);
-                this.productosCarrito = [... arrayAux];
-                // let indice = this.productosCarrito.indexOf(producto);
-                // console.log(indice)
-                // arrayAux = [... this.productosCarrito.slice(0,  indice)];
-                //console.log(this.productosCarrito)  
-                //this.productosCarrito = [... arrayAux.concat(this.productosCarrito.slice(indice+1))];
-            }  
-            this.producto = {... producto};
-            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
-            this.sumaTotal();
-            this.unidadesCarrito();
-        },
-
-
-        agregarDesdeCarrito: function(producto) {
-
-            producto = this.actualizacionDePropiedades(producto, 1);
-    
-            if(this.productosCarrito.some(prod => this.producto._id !== prod._id)){
-                this.productosCarrito.push(producto);
-            }
-            else {
-
-                for(prod of this.productosCarrito) {
-                    if(producto._id == prod._id) {
-                        this.producto = {... producto};
-                    }
-                }
-            }
-
-            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
-            this.sumaTotal();
-            this.unidadesCarrito();
-        },
-
-
-        agregarCarritoPorBoton: function(producto) {
-
-            producto = this.actualizacionDePropiedades(producto, 1);
-    
-            if(!this.productosCarrito.some(prod => producto._id == prod._id)){
-                this.productosCarrito.push(producto);
-            }
-            else {
-
-                for(prod of this.productosCarrito) {
-                    if(producto._id == prod._id) {
-
-                        this.producto = {... producto};
-                    }
-                }
-            }
-            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
-            this.sumaTotal();
-            this.unidadesCarrito();
-        },
-
-        actualizacionDePropiedades(prodAVender, acumulador) {
-    
-            prodAVender.disponibles -= acumulador;
-            prodAVender.cantPedida += acumulador;
-           
-
-            if(prodAVender.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == prodAVender._id)) {
-                prodAVender.descuento = ((Math.floor(prodAVender.cantPedida / 3 )) * prodAVender.precio);
-            }
-            else {
-                prodAVender.descuento = 0;
-            }
-            prodAVender.subtotal = prodAVender.cantPedida * prodAVender.precio;
-            prodAVender.total = prodAVender.subtotal - prodAVender.descuento;
-
-            
-            return prodAVender;
-        },
-
-        sumaTotal: function() {
-            this.totalCompra = this.productosCarrito.reduce((acumulador, prod)=> acumulador += prod.total, 0)
-        },
-
-        limpiarLocalStorage: function() {
-            localStorage.clear();
-            this.productosCarrito = [];
-            // location.reload();
+        administrarDatos: function(){
+            this.producto = this.productosModif.find( prod => prod._id === this.id);
+            this.productosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            this.unidades = this.productosCarrito.length;
         },
 
         agregarPropiedadesFiltrosChecks() {
@@ -219,44 +86,90 @@ createApp ( {
             });
         },
 
-        generoListaChecks() {
-            let listaFiltrosChecks = []
-            let filtros = this.productosConPropAgregadas.map(prod => [ prod.mascota, prod.rangoPrecio, prod.promocion]);
-            for(let filtro of filtros) {
-                listaFiltrosChecks.push(...filtro);
+        // MODIFICACIONES CARRITO 
+
+        sumaTotal: function() {
+            this.totalCompra = this.productosCarrito.reduce((acumulador, prod)=> acumulador += prod.total, 0)
+        },
+
+
+        agregarDesdeCarrito: function(producto) {
+            
+            producto.cantPedida ++;
+            if(producto.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == producto._id)) {
+                producto.descuento = ((Math.floor(producto.cantPedida / 3 )) * producto.precio);
             }
-            listaFiltrosChecks = [... new Set(listaFiltrosChecks)].sort();
-            console.log(listaFiltrosChecks);
-            this.listaFiltrosPrecio = listaFiltrosChecks.filter(categoria => categoria.startsWith('H') || categoria.startsWith('D') || categoria.startsWith('M'));
-            this.listaFiltrosMascota = listaFiltrosChecks.filter(categoria => categoria.startsWith('Pa'));
-            this.listaFiltrosPromo = listaFiltrosChecks.filter(categoria => categoria.startsWith('Pr'));
+            producto.subtotal = producto.cantPedida * producto.precio;
+            producto.total = producto.subtotal - producto.descuento;
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+            this.sumaTotal();
         },
 
-        filtroCruzado: function(){
-            let filtradoPorBusqueda = this.productosConPropAgregadas.filter(elemento => elemento.producto.toLowerCase().includes( this.productosPorBusqueda.toLowerCase()));
-            if( this.checks.length === 0 ){
-                this.productosFiltradosFinal = filtradoPorBusqueda;
-                
-            }else{
-                let filtradosPorCheck = filtradoPorBusqueda.filter( producto => this.checks.includes( producto.mascota)||this.checks.includes( producto.rangoPrecio)||this.checks.includes( producto.promocion))
-                //console.log(filtradosPorCheck)
-                this.productosFiltradosFinal = filtradosPorCheck; 
-            }          
-        },
 
-        unidadesCarrito(){
-            let contador=0
-            for (let each of this.productosCarrito){
-                contador+=each.cantPedida 
-                console.log(each, contador)           
+        quitarDesdeCarrito: function(producto) {
+
+            if(producto.cantPedida == 1) {
+                producto.cantPedida --;
+                console.log(this.productosCarrito.findIndex(prod => producto._id == prod._id));
+                this.productosCarrito.splice(this.productosCarrito.findIndex(prod => producto._id == prod._id),1);
+                this.unidades = this.productosCarrito.length;
             }
-            console.log(this.productosCarrito)
-            this.unidades= contador
+            else {
+                producto.cantPedida --;
+                if(producto.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == producto._id)) {
+                    producto.descuento = ((Math.floor(producto.cantPedida / 3 )) * producto.precio);
+                }
+                else{
+                    producto.descuento = 0;
+                }
+            }
+            producto.subtotal = producto.cantPedida * producto.precio;
+            producto.total = producto.subtotal - producto.descuento;  
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+            this.sumaTotal();
         },
-    },
 
-    computed: {
-        
+
+        agregarCarritoPorBoton: function(producto) {
+
+            if(!this.productosCarrito.some(prod => producto._id === prod._id)){
+                console.log(producto);
+                let prod = this.productosModif.find(product => product._id == producto._id);
+                prod.cantPedida ++;
+                prod.subtotal = prod.cantPedida * prod.precio;
+                prod.total = prod.subtotal;
+                this.productosCarrito.push(prod);
+                this.unidades = this.productosCarrito.length;
+            }
+            else {
+                let producAAgregar = this.productosCarrito.find(prod => producto._id === prod._id)
+                if(producAAgregar.disponibles > producAAgregar.cantPedida){
+                    producAAgregar.cantPedida ++;
+                    if(producAAgregar.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == producto._id)) {
+                        producAAgregar.descuento = ((Math.floor(producAAgregar.cantPedida / 3 )) * producAAgregar.precio);
+                    }
+                    producAAgregar.subtotal = producAAgregar.cantPedida * producAAgregar.precio;
+                    producAAgregar.total = producAAgregar.subtotal - producAAgregar.descuento;
+                }
+            }
+
+            localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
+            this.sumaTotal();
+        },
+
+        limpiarLocalStorage: function() {
+            localStorage.clear();
+            this.productosCarrito = [];
+            this.unidades = this.productosCarrito.length;
+            this.productosModif.forEach(producto => {
+                producto.cantPedida = 0;
+                producto.subtotal = 0;
+                producto.total = 0;
+            });
+        },
+
+
+        // ORDENAMIENTO
 
         renderizarOrdenado: function(){
             
@@ -281,8 +194,13 @@ createApp ( {
                     return a.precio - b.precio;
                 });
             }
-        }
-    },
+        },
+
+        onResize(event) {
+            this.windowWidth = screen.width
+        },
+    }
+
 }
 
 ).mount('#app')

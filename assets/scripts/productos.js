@@ -186,13 +186,14 @@ createApp({
             }
             else {
                 let producAAgregar = this.productosCarrito.find(prod => producto._id === prod._id)
-                producAAgregar.cantPedida ++;
-                if(producAAgregar.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == producto._id)) {
-                    producAAgregar.descuento = ((Math.floor(producAAgregar.cantPedida / 3 )) * producAAgregar.precio);
+                if(producAAgregar.disponibles > producAAgregar.cantPedida){
+                    producAAgregar.cantPedida ++;
+                    if(producAAgregar.cantPedida >= 3 && this.productosPromo3x2.some(prod => prod == producto._id)) {
+                        producAAgregar.descuento = ((Math.floor(producAAgregar.cantPedida / 3 )) * producAAgregar.precio);
+                    }
+                    producAAgregar.subtotal = producAAgregar.cantPedida * producAAgregar.precio;
+                    producAAgregar.total = producAAgregar.subtotal - producAAgregar.descuento;
                 }
-                producAAgregar.subtotal = producAAgregar.cantPedida * producAAgregar.precio;
-                producAAgregar.total = producAAgregar.subtotal - producAAgregar.descuento;
-                
             }
 
             localStorage.setItem('carrito', JSON.stringify(this.productosCarrito));
