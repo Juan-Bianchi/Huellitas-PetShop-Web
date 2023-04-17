@@ -1,0 +1,99 @@
+footer{
+    background-color: #141e32;
+}
+.contenedor__footer{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+.contenedor__footer p{
+    font-size: 14px;
+}
+.contenedor__footer hr{
+    width: 3rem;
+    border-width: 4px;
+    border-color: #dc6666;
+}
+.info__footer{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.redes__footer{
+    display: flex;
+    gap: 2rem;
+}
+.pagos__footer img{
+    width: 12rem;
+    margin-top: 2rem;
+}
+.mapa__footer{
+    width: 100vw;
+    height: 20rem;
+}
+.footer-p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+.section__footer{
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+@media (min-width: 768px){
+    .contenedor__footer{
+        flex-direction: row;
+        gap: 0;
+        justify-content: space-evenly;
+    }
+    .contenedor__footer h5{
+        font-size: 11px;
+    }
+    .pagos__footer img{
+        width: 6rem;
+        margin-top: 1rem;
+    }
+    .contenedor__footer p{
+        font-size: 8px;
+    }
+    .redes__footer{
+        display: flex;
+        gap: 1rem;
+    }
+    .redes__footer i{
+        font-size: 16px;
+    }
+    .mapa__footer{
+        height: 10rem;
+    }
+}
+
+@media (min-width: 992px){
+
+    .contenedor__footer{
+        padding: 6rem 2rem;
+    }
+    .contenedor__footer h5{
+        font-size: 18px;
+    }
+    .pagos__footer img{
+        width: 12rem;
+    }
+    .contenedor__footer p{
+        font-size: 14px;
+    }
+    .redes__footer i{
+        font-size: 26px;
+    }
+    .mapa__footer{
+        width: 100%;
+        height: 20rem;
+    }
+    
+}

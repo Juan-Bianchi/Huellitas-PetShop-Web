@@ -12,10 +12,6 @@ main {
   min-height: 80vh;
 }
 
-.footer-p {
-  margin: 0;
-}
-
 .fa-copyright {
   font-size: 1rem;
 }
@@ -403,9 +399,6 @@ h1 {
 .imgFooterFpago {
   width: 50% !important;
   margin: 0 auto;
-}
-.mapSize {
-  width: 100%;
 }
 
 .link-dark-hover:hover {
@@ -851,14 +844,6 @@ span a {
 }
 
 /*//////////////////////////DETALLES///////////////////////*/
-
-footer {
-  background-color: #3c4048;
-}
-.section {
-  text-align: center;
-  background-color: #b2b2b2;
-}
 
 .text-center {
   justify-content: center;
