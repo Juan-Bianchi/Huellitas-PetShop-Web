@@ -20,10 +20,12 @@
 <body>
   <div id="appIndex">
     <header>
+
       <nav class="navbar navbar-expand-lg  container-fluid">
         <div class="container-fluid w-100">
-          <a class="navbar-brand ms-3 col-6" href="#">
+          <a class="navbar-brand ms-3 col-6 position-relative" href="#">
             <img src="./assets/images/LOGO_HUELLITAS.png" alt="logo" class="imglogo col-10 col-md-5 foto-logo " >
+            <img class="patita" src="./assets/images/cat-footprint.png" alt="">
           </a>
           <div @click="toggleMenu" class="icono-hamburguesa">
             <i class="fa-solid fa-bars"></i>
@@ -56,126 +58,145 @@
   
     <main class="index-main">
   
-      <div class="d-flex flex-wrap justify-content-end titulo" style="height: 60px;">
+      <!-- <div class="d-flex flex-wrap justify-content-end titulo" style="height: 60px;">
           <h1><strong>INICIO</strong></h1>
+      </div> -->
+       
+      
+      
+    <div class="bienvenida">
+      <img class="img-color" src="./assets/images/pet_img.webp" alt="">
+ 
+     
+       <section class="primera_seccion position-relative">
+         <p class="presentacion_index text-center position-absolute fw-bold">
+           ¡Bienvenidos a Huellitas!
+           Somos un sitio de productos de farmacia y juguetes para perros y gatos. Cuidado y felicidad para tus mascotas. Marcas confiables. Calidad y seguridad garantizada. ¡Gracias por confiar en nosotros!
+         </p>
+       </section>
+    </div>
+
+    <section class="seccion-historia row row-cols-lg-2 container-fluid mx-auto m-4 d-lg-flex align-items-lg-center">
+      <div class="contenedor-hist-img d-lg-flex">
+        <div class="contenedor-historia d-lg-flex flex-lg-column align-items-lg-center my-lg-auto">
+            <h3 class="text-center px-3">NUESTRA HISTORIA</h3>
+            <p class="texto-historia">
+              <strong>
+                Nació de la pasión de un grupo de amantes de las mascotas por brindar productos y servicios de alta calidad para cuidar a nuestros mejores amigos. Con una amplia variedad de productos y un equipo experto siempre dispuesto a ayudar, Huellitas se ha convertido en el lugar favorito de los amantes de las mascotas. ¡Nos encantaría tenerte como parte de nuestra familia y ayudarte a cuidar a tu mascota de la mejor manera!
+              </strong> </p>
+        </div>
+          <div class="contenedor-img-entreda">
+            <img class="imagen-entrada" src="./assets/images/entrada.jpg" alt="entrada">
+          </div>
       </div>
-        <template v-if="windowWidth>768">
-          <div id="carouselExample" class="carousel carousel-dark slide ">
+    </section>
+
+
+      <h6 class="mb-0 fw-bold text-center ">Algunos de nuestros productos</h6>
+      <!-- <hr class="my-0"> -->
+
+      <template v-if="windowWidth>768">
+        <div id="carouselExample" class="carousel carousel-dark slide ">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assets/images/BIENVENIDO_HUELLITAS2.png" class="d-block banner" alt="BIENVENIDO" />
+            </div>
+            <div>
+              <div class="carousel-item primer-item">
+                <div class="cards-wrapper">
+                  <div class="card card-index primer-item" v-for="producto of productos.slice(0,4)">
+                    <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
+                      <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
+                          :alt="productos.producto">
+                      </div>
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{producto.producto}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="carousel-item segundo-item">
+
+                <div class="cards-wrapper">
+                  <div class="card card-index segundo-item" v-for="producto of productos.slice(-4) ">
+                    <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
+                      <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top"
+                          :alt="productos.producto">
+                      </div>
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{producto.producto}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </template>
+
+
+
+      <!-- MOBILE CAREOUSEL -->
+      <template v-else>
+       <div class="carousel-wrapper">
+          <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="./assets/images/BIENVENIDO_HUELLITAS2.png" class="d-block banner" alt="BIENVENIDO" />
+                <img src="./assets/images/BIENVENIDO__HUELLITASCELULAR.png" id="img-carousel-mobile" class="d-block banner"
+                  alt="BIENVENIDO" />
               </div>
-              <div>
-                <div class="carousel-item primer-item">
-                  <div class="cards-wrapper">
-                    <div class="card card-index primer-item" v-for="producto of productos.slice(0,4)">
-                      <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
-                        <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
-                            :alt="productos.producto">
-                        </div>
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">{{producto.producto}} </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-  
-                <div class="carousel-item segundo-item">
-  
-                  <div class="cards-wrapper">
-                    <div class="card card-index segundo-item" v-for="producto of productos.slice(-4) ">
-                      <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
-                        <div class="img-wrapper"><img :src="producto.imagen " class="card-img-top"
-                            :alt="productos.producto">
-                        </div>
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">{{producto.producto}} </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </template>
-  
-  
-  
-        <!-- MOBILE CAREOUSEL -->
-        <template v-else>
-         <div class="carousel-wrapper">
-            <div id="carouselExampleAutoplaying" class="carousel carousel-dark slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="./assets/images/BIENVENIDO__HUELLITASCELULAR.png" id="img-carousel-mobile" class="d-block banner"
-                    alt="BIENVENIDO" />
-                </div>
-  
-                <div class="carousel-item" v-for="producto of productos.slice(4,8) ">
-                  <div class="cards-wrapper">
-                    <div class="card">
-                      <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
-                        <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
-                            :alt="productos.producto">
-                        </div>
-                      </a>
-                      <div class="card-body">
-                        <p class="card-text">{{producto.producto}} </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-  
-              </div>
-  
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-              data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-              data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        </template>
 
-      
-      <section class="seccion-historia row row-cols-lg-2 container-fluid mx-auto m-4 d-lg-flex align-items-lg-center">
-        <div class="contenedor-hist-img d-lg-flex">
-          <div class="contenedor-historia d-lg-flex flex-lg-column align-items-lg-center my-lg-auto">
-              <h3 class="text-center px-3">NUESTRA HISTORIA</h3>
-              <p class="texto-historia">
-                <strong>
-                  Nació de la pasión de un grupo de amantes de las mascotas por brindar productos y servicios de alta calidad para cuidar a nuestros mejores amigos. Con una amplia variedad de productos y un equipo experto siempre dispuesto a ayudar, Huellitas se ha convertido en el lugar favorito de los amantes de las mascotas. ¡Nos encantaría tenerte como parte de nuestra familia y ayudarte a cuidar a tu mascota de la mejor manera!
-                </strong> </p>
-          </div>
-            <div class="contenedor-img-entreda">
-              <img class="imagen-entrada" src="./assets/images/entrada.jpg" alt="entrada">
+              <div class="carousel-item" v-for="producto of productos.slice(4,8) ">
+                <div class="cards-wrapper">
+                  <div class="card">
+                    <a :href="producto.categoria=='farmacia'?'./farmacia.html':'./juguete.html'">
+                      <div class="img-wrapper "><img :src="producto.imagen " class="card-img-top"
+                          :alt="productos.producto">
+                      </div>
+                    </a>
+                    <div class="card-body">
+                      <p class="card-text">{{producto.producto}} </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
+
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-      </section>
-  
+      </template>
+
   
       <section class="fotosAnchorInd container-fluid col-lg-10 d-md-flex mt-5 mb-5">
+        <h6 class="fw-bold ms-3">Ingresar a la farmacia</h6>
         <div class="col-12 col-md-6 d-flex justify-content-center contenedor-img">
           <a href="./farmacia.html" class="d-flex " id="farmaciaInd">
             <p class="text-center py-lg-auto">¡CONOCE NUESTROS PRODUCTOS DE FARMACIA!</p>
           </a>
         </div>
-  
+        <h6 class="fw-bold ms-3">Ingresar a la juguetería</h6>
         <div class="fotosAnchorInd col-12 col-md-6 d-flex justify-content-center">
           <a href="./juguete.html" class="d-flex " id="jugueteriaInd">
             <p class="text-center py-lg-auto">¡CONOCE NUESTROS PRODUCTOS DE JUGUETERIA!</p>

@@ -28,6 +28,98 @@
 #img-carousel-mobile {
     width: 100%;
 }
+.bienvenida{
+    height: 15rem;
+}
+.presentacion_index{
+    padding: 1rem;
+    color: black;
+    width: 50%;
+    /* margin: 0 auto; */
+    background-color: rgba(255, 255, 255, 0.596);
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    font-size: 12px;
+    z-index: -2;
+}
+.primera_seccion{
+    position: relative;
+    /* margin-top: 30rem; */
+    height: 12rem;
+}
+
+.img-color{
+    height: 40%;
+    width: 50%;
+    object-fit: contain;
+    object-position: bottom;
+    opacity: 0;
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 5rem;
+    /* border-radius: 50%; */
+}
+
+.patita{
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid #00abb3;
+    border-radius: 50%;
+    padding: 5px;
+    transform: rotate(45deg);
+    top: 2px;
+    right: 2px;
+}
+.img-color{
+    z-index: -1;
+    -webkit-mask-image: url(../images/mask-inverse.png);
+    mask-image: url(../images/mask.png);
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    animation: animacion-pintar 1s steps(32) forwards 1s, imagen-deslizar 1s forwards;
+}
+
+@keyframes animacion-pintar {
+    0%{
+        -webkit-mask-position: 0% 0%;
+        mask-position: 0% 0%;
+    }
+    100%{
+        -webkit-mask-position: 99% 0%;
+        mask-position: 99% 0%;
+    }
+}
+@keyframes imagen-deslizar {
+    80%{
+        left: 0rem;
+    }
+    100%{
+        left: 0rem;
+        opacity: .8;
+    }
+}
+
+@media (max-width: 376px){
+    @keyframes mover-cuadrado {
+        from { top: -100px; }
+        to { top: 4rem; }
+    }
+    .navMovil{
+        top: 4rem;
+    }
+}
+
+@media (min-width: 768px){
+    @keyframes mover-cuadrado {
+        from { top: -100px; }
+        to { top: 3.9rem; }
+    }
+    .navMovil{
+        top: 3.9rem;
+    }
+}
 
 @media (min-width: 1024px){
     .icono-hamburguesa{

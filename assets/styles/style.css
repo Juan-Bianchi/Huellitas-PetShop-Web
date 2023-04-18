@@ -8,7 +8,7 @@
 main {
   display: flex;
   flex-direction: column;
-  gap: 5vh;
+  gap: 3vh;
   min-height: 80vh;
 }
 
@@ -258,10 +258,10 @@ nav {
 
 .contenedor-hist-img {
   background-image: url("../images/huellas.png");
-  /* background-color: #00aab2; */
+  background-color: #ffffff81;
   /* background: linear-gradient(0deg, rgba(0, 169, 178, 0) 0%, rgba(0,170,178,0) 89%); */
   background-size: contain;
-  box-shadow: 5px 6px 3px 3px rgba(139, 138, 138, 0.49);
+  /* box-shadow: 5px 6px 3px 3px rgba(139, 138, 138, 0.49); */
   border-radius: 5px;
   padding: 10px;
   margin: 0 auto;
@@ -492,7 +492,8 @@ h1 {
 }
 .texto-historia{
   text-align: justify;
-  
+  font-size: 14px;
+  padding: 1rem;
 }
 
 .comprar-detalles {
